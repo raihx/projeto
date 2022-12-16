@@ -43,7 +43,7 @@ function check_login($connection) { /**esta função vai verificar em todas as p
 
     }
     
-    header('Location: ../publ/login.php');
+    header('Location: login.php');
     die;
 
 }

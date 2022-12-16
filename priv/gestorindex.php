@@ -16,6 +16,6 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
     <title>Gestor</title>
 </head>
 <body>
-    <a href="../publ/logout.php">Logout!</a>
+    <a href="logout.php">Logout!</a>
 </body>
 </html>
