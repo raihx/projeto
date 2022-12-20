@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins";
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    background-image: url(ateste7.jpeg);
+    background-size: cover;
+    background-position: center;
+    font-family: "Poppins";
+}
+.formulario{
+    width: 500px;
+    background: rgba(0, 0, 0, 0.8);
+    margin: 100px auto;
+    padding: 50px 0;
+    color: #fff;
+}
+h1{
+    text-align: center;
+    margin-bottom: 50px;
+}
+.input-box{
+    margin: 31px auto;
+    width: 80%;
+    border-bottom: 1px solid #fff;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.input-box input{
+    width: 90%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #fff;
+}
+::placeholder{
+    color: #a2a2a2;
+}
+.fa{
+    margin-right: 5px;
+}
+.eye{
+    position: absolute;
+    
+}
+#hide{
+    display: none;
+    margin-right: 35px;
+}
+#hide1{
+    margin-right: 32px;
+}
+.botaologin{
+    margin: 40px auto 20px;
+    width: 80%;
+    display: block;
+    padding: 10px 0;
+    border: 1px solid #fff;
+    cursor: pointer;
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+}
+.botaologin:hover{
+    color: #a2a2a2;
+    transition: .6s ease-in;
+}
