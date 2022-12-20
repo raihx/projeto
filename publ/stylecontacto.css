@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    min-height:100vh;
+    width: 100%;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(ateste.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.barra {
+    width: 85%;
+    margin-top: 0px;
+    padding: 35px 0;
+    display: flex;
+    justify-content: space-between;
+}
+  
+.barra ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+.barra ul li a{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.884);
+    text-transform: uppercase;
+}
+.barra ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #383838;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: 1s;
+}
+.barra ul li:hover:after{
+    width: 100%;
+    margin-top: 5px;
+}
+.container{
+    margin: auto;
+    margin-top: 25px;
+    width: 80%;
+    background: rgb(255, 255, 255, 0.6);
+    border-radius: 6px;
+    padding: 20px 60px 40px 40px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+.container .conteudo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container .content .ladoesquerdo{
+    width: 25%;
+    height: 100%;
+    position: relative;
+}
+.content .ladoesquerdo::before{
+    content: '';
+    position: absolute;
+    height: 70%;
+    width: 1px;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #3e2093;
+}
+.content .ladoesquerdo .detalhes{
+    margin: 14px;
+    text-align: center;
+}
+.content .ladoesquerdo .detalhes i{
+     font-size: 30px;
+     color: #3e2093;
+}
+.content .ladodireito .topico{
+    font-size: 23px;
+    font-weight: 600;
+    color: #3e2093;
+}
+.container .content .ladodireito{
+    width: 75%;
+    margin-left: 90px;
+    align-items: right;
+    resize:none;
+}
+.ladodireito .input-box{
+    height: 50px;
+    width: 100%;
+    margin: 12px 0;
+}
+.ladodireito .input-box input,
+.ladodireito .input-box textarea{
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    background: rgb(218, 218, 218);
+    border-radius: 8px;
+    padding: 0 15px;
+    resize: none;
+}
+.content .ladoesquerdo .detalhes .texto1,
+.content .ladoesquerdo .detalhes .texto2{
+    font-size: 14px;
+    color: #303035;
+}
+.ladodireito .caixatexto{
+    min-height: 110px;
+    resize: none;
+}
+.ladodireito .button input[type="button"]{
+    color: #fff;
+    font-size: 18px;
+    background: #3e2093;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+}
+     
