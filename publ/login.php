@@ -99,33 +99,3 @@ $_SESSION['token'] = get_token(30);
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-</head>
-<body>
-    <form action="" method="post">
-        email:<input type="text" name="email" value="<?php echo $log_email ?>" required><br><br>
-        password:<input type="password" name="password" required><br><br>
-        <input type="hidden" name="token" value="<?php echo $_SESSION['token'] ?>">
-        <input type="submit" value="submit">
-    </form>
-    <br><br>
-    
-    <?php
-
-        /**posteriormente para introduzir nos campos dos fichieros html */
-
-        if(isset($error) && $error != "") { /**verifica se a variável erro está preenchida, se sim emite o erro em questão */
-            echo $error;
-        }
-
-    ?>
-
-    <p>Ainda não possui uma conta? <a href="signup.php">Resgiste-se!</a></p>
-</body>
-</html>

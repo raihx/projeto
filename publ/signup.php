@@ -88,33 +88,3 @@ if($_SERVER['REQUEST_METHOD'] == "POST") { /**se o servidor receber um dado POST
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>signup</title>
-</head>
-<body>
-    <form action="" method="post">
-        email:<input type="text" name="email" value="<?php echo $reg_email ?>" required><br><br>
-        nome:<input type="text" name="username" value="<?php echo $reg_username ?>" required><br><br>
-        password:<input type="password" name="password" required><br><br>
-        telemovel:<input type="text" name="telemovel" value="<?php echo $reg_telemovel ?>" required><br><br>
-        <input type="submit" value="submit">
-    </form>
-    <br><br>
-    
-    <?php   
-
-        /**posteriormente para introduzir nos campos dos fichieros html */
-
-        if(isset($error) && $error != "") { /**verifica se a variável erro está preenchida, se sim emite o erro em questão */
-            echo $error;
-        }
-
-    ?>
-
-</body>
-</html>
