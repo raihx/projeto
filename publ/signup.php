@@ -87,4 +87,38 @@ if($_SERVER['REQUEST_METHOD'] == "POST") { /**se o servidor receber um dado POST
 
 ?>
 
+<!DOCTYPE html>
+<html>
+    <head> 
+    <title>Sign up</title>
+    <link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesignup.css">
+</head>  
+<body>
+<div class="quadrado">
+    <div class="header">
+        <h1>Sign Up</h1>
+        </div>
+        <div class="main">
+           <form>
+           <span>
+                <input type="email" placeholder="Email" name="email">
+            </span><br>
+            <span>
+                <input type="text" placeholder="Nome de Utilizador" name="nome">
+            </span><br>
+            <span>
+                <input type="text" placeholder="Telemovel" name="telemovel">
+            </span><br>
+            <span>
+                <input type="password" placeholder="Palavra-Passe" name="password">
+            </span><br>
+            <button>Login</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
 

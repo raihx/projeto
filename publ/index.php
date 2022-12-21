@@ -7,14 +7,30 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
-</head>
-<body>
-    <a href="../priv/logout.php">Logout!</a>
-</body>
+<html lang="pt">
+
+    <head>
+        <title> Parcesul </title>
+        
+        <link rel="stylesheet" href="styleindex.css">
+        <link rel=”stylesheet” href=”https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css” />
+        
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
+        <script>  
+            $(function(){ 
+            $("#header").load("header.php");  
+            $("#footer").load("footer.php");  
+            }); 
+        </script> 
+    </head>
+    <body>
+        <div id="header"></div> 
+        <div class ="background">
+            <div class="conteudo"> 
+                <h1> Realizamos a sua cozinha de sonho </h1>
+                <p> Alguma d&uacutevida contacte-nos </p>
+            </div>
+            
+        </div>
+    </body>
 </html>
