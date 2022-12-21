@@ -105,57 +105,25 @@ $_SESSION['token'] = get_token(30);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylelogin.css">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
-    rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
-    crossorigin="anonymous">
-    <title>Login</title>
-
-
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
-    <script>  
-        $(function(){ 
-        $("#header").load("header.php");  
-        $("#footer").load("footer.php");  
-        }); 
-    </script>  
+    <title>login</title>
 </head>
 <body>
-    <div id="header"></div>
-
-    <div class="formulario">
-        <h1>Login</h1>
+    <form action="" method="post">
+        email:<input type="text" name="email" value="<?php echo $log_email ?>" required><br><br>
+        password:<input type="password" name="password" required><br><br>
+        <input type="hidden" name="token" value="<?php echo $_SESSION['token'] ?>">
+        <input type="submit" value="submit">
+    </form>
+    <br><br>
     
-    <div class="input-box">
-        <i class="fa fa-envelope-o"></i>
-        <input type="email" placeholder="Email">
-    </div>
-    <div class="input-box">
-        <i class="fa fa-key"></i>
-        <input type="password" placeholder="Password" id="passwordid">
-        <span class="eye" onclick="funcao()">
-        <i id="hide" class="fa fa-eye"></i>
-        <i id="hide1" class="fa fa-eye-slash"></i>
-        </div>
-        </span>
-        <button type="button" class="botaologin">Login</button>
-    </div>      
-        <script>
-            function funcao(){
-                var x = document.getElementById("passwordid");
-                var y = document.getElementById("hide");
-                var z = document.getElementById("hide1");
-            
-            if(x.type === "password"){
-                x.type = "text";
-                y.style.display = "block";
-                z.style.display = "none";
-            } else {
-                x.type = "password";
-                y.style.display = "none";
-                z.style.display = "block";
-            }
+    <?php
+
+        if(isset($error) && $error != "") { /**verifica se a variável erro está preenchida, se sim emite o erro em questão */
+            echo $error;
         }
-        </script>
+
+    ?>
+
+    <p>Ainda não possui uma conta? <a href="signup.php">Resgiste-se!</a></p>
 </body>
 </html>

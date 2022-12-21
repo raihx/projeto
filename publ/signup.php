@@ -88,37 +88,30 @@ if($_SERVER['REQUEST_METHOD'] == "POST") { /**se o servidor receber um dado POST
 ?>
 
 <!DOCTYPE html>
-<html>
-    <head> 
-    <title>Sign up</title>
-    <link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="stylesignup.css">
-</head>  
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+</head>
 <body>
-<div class="quadrado">
-    <div class="header">
-        <h1>Sign Up</h1>
-        </div>
-        <div class="main">
-           <form>
-           <span>
-                <input type="email" placeholder="Email" name="email">
-            </span><br>
-            <span>
-                <input type="text" placeholder="Nome de Utilizador" name="nome">
-            </span><br>
-            <span>
-                <input type="text" placeholder="Telemovel" name="telemovel">
-            </span><br>
-            <span>
-                <input type="password" placeholder="Palavra-Passe" name="password">
-            </span><br>
-            <button>Login</button>
+    <form action="" method="post">
+        email:<input type="text" name="email" value="<?php echo $reg_email ?>" required><br><br>
+        nome:<input type="text" name="username" value="<?php echo $reg_username ?>" required><br><br>
+        password:<input type="password" name="password" required><br><br>
+        telemovel:<input type="text" name="telemovel" value="<?php echo $reg_telemovel ?>" required><br><br>
+        <input type="submit" value="submit">
+    </form>
+    <br><br>
+    
+    <?php   
 
-            </form>
-        </div>
-    </div>
-</div>
+        if(isset($error) && $error != "") { /**verifica se a variável erro está preenchida, se sim emite o erro em questão */
+            echo $error;
+        }
+
+    ?>
+
 </body>
 </html>
-

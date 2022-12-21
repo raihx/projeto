@@ -22,6 +22,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
             $("#footer").load("footer.php");  
             }); 
         </script> 
+        
     </head>
     <body>
         <div id="header"></div> 
