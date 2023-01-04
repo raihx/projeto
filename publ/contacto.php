@@ -1,3 +1,12 @@
+<?php
+
+require "../priv/fileload.php";
+
+$login_ver = check_login($connection); /**verificação em todas as páginas que é necessário ter o login para aceder */
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

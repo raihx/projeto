@@ -22,16 +22,15 @@ function get_token($length) {
 function check_login($connection) { /**esta função vai verificar em todas as páginas se o utilizador está com o login feito */
 
     if(isset($_SESSION['email'])) {
-        
-        $c_arr['check_email'] = $_SESSION['email'];
     
-        $c_query = "SELECT * FROM utilizadores WHERE email = :check_email LIMIT 1";
-        $stm = $connection->prepare($c_query);
-        $ver = $stm->execute($c_arr);
+        $check_email = $_SESSION['email'];
 
-        if($ver) {
+        $c_query = "SELECT * FROM utilizadores WHERE email = '$check_email' LIMIT 1";
+        $result = mysqli_query($connection,$c_query);
 
-            $userdata = $stm->fetchALL(PDO::FETCH_OBJ);
+        if($result) {
+
+            $userdata = mysqli_fetch_all($result,MYSQLI_ASSOC);
 
             if(is_array($userdata) && !empty($userdata)) {
 
@@ -43,7 +42,7 @@ function check_login($connection) { /**esta função vai verificar em todas as p
 
     }
     
-    header('Location: login.php');
+    header('Location: ../publ/login.php');
     die;
 
 }

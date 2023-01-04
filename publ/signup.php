@@ -47,15 +47,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST") { /**se o servidor receber um dado POST
 
     /**este bloco verifica se existe algum caracter indevido e se sim atribuir à variável o respetivo erro */
 
-    $v_arr['reg_email'] = $reg_email;
+    $v_query = "SELECT * FROM utilizadores WHERE email = '$reg_email' LIMIT 1";
+    $result = mysqli_query($connection,$v_query);
 
-    $v_query = "SELECT * FROM utilizadores WHERE email = :reg_email LIMIT 1";
-    $stm = $connection->prepare($v_query);
-    $ver = $stm->execute($v_arr);
+    if($result) {
 
-    if($ver) {
-
-        $ver_email = $stm->fetchALL(PDO::FETCH_OBJ);
+        $ver_email = mysqli_fetch_all($result,MYSQLI_ASSOC);
 
         if(is_array($ver_email) && !empty($ver_email)) {
 
@@ -67,14 +64,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST") { /**se o servidor receber um dado POST
 
     if($error == "") { /**se a variável $error estiver vazia significa que tudo correu como esperado, prosseguindo assim com o sign up */
 
-        $r_arr['reg_email'] = $reg_email;
-        $r_arr['reg_username'] = $reg_username;
-        $r_arr['reg_password'] = password_hash($reg_password, PASSWORD_DEFAULT); /**método que ecripta a password */
-        $r_arr['reg_telemovel'] = $reg_telemovel;
+        $i_email = $reg_email;
+        $i_username = $reg_username;
+        $i_password = password_hash($reg_password, PASSWORD_DEFAULT); /**método que ecripta a password */
+        $i_telemovel = $reg_telemovel;
     
-        $r_query = "INSERT INTO utilizadores(email, nome_utilizador, password, telemovel) VALUES (:reg_email,:reg_username,:reg_password,:reg_telemovel)";
-        $stm = $connection->prepare($r_query);
-        $stm->execute($r_arr);
+        $r_query = "INSERT INTO utilizadores(email, nome_utilizador, password, telemovel) VALUES ('$i_email','$i_username','$i_password','$i_telemovel')";
+        mysqli_query($connection,$r_query);
     
         header('Location: login.php'); /**apenas depois de inserir os dados do novo utilizador redireciona para a página do login */
         die;

@@ -15,6 +15,13 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
     <title>Administrador</title>
 </head>
 <body>
-    <a href="logout.php">Logout!</a>
+    <a href="logout.php" style="float:right">Logout!</a>
+    <br><br><br>
+    
+    <div style="float: center;">
+    
+        <button onclick="window.location.href='users_view.php'">Editar Utiliadores</button>
+        
+    </div>
 </body>
 </html>

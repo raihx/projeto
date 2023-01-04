@@ -24,20 +24,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_SESSION['token']) && isset($_
     }
 
     if($error == "") { /**se a variável $error estiver vazia significa que tudo correu como esperado, prosseguindo assim com o sign up */
-
-        $l_arr['log_email'] = $log_email;
     
-        $l_query = "SELECT * FROM utilizadores WHERE email = :log_email LIMIT 1";
-        $stm = $connection->prepare($l_query);
-        $ver = $stm->execute($l_arr);
+        $l_query = "SELECT * FROM utilizadores WHERE email = '$log_email' LIMIT 1";
+        $result = mysqli_query($connection,$l_query);
         
-        if(!$ver) { /**após executar a query verifica se a mesma falhou ou não */
+        if(!$result) { /**após executar a query verifica se a mesma falhou ou não */
 
             $error = "Ocorreu um erro ao realizar o login. Tente novamente.";
 
         } else {
 
-            $userdata = $stm->fetchALL(PDO::FETCH_OBJ); /**lê todos os dados recebidos da query pelo meio de objetos e atribui os mesmos à variável $userdata, tornando-se um array de objetos  */
+            $userdata = mysqli_fetch_all($result,MYSQLI_ASSOC); /**lê todos os dados recebidos da query e atribui os mesmos à variável $userdata */
             
             if(empty($userdata)) { /**aqui é verificado se houve dados devolvidos na consulta */
                 
@@ -45,15 +42,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_SESSION['token']) && isset($_
 
             } else {
 
-                if(is_array($userdata)) { /**confirma novamente se é um array de objetos e se sim prossegue com o login */
+                if(is_array($userdata)) { /**confirma novamente se é um array e se sim prossegue com o login */
                     
                     foreach($userdata as $userdata) { /**este bloco lê os resultados da query executada, em expecífico o campo do email e da password */
                         
-                        $email = $userdata->email;
-                        $enc_password = $userdata->password;
-                        $username = $userdata->nome_utilizador;
-                        $telemovel = $userdata->telemovel;
-                        $cargo = $userdata->cargo;  
+                        $email = $userdata['email'];
+                        $enc_password = $userdata['password'];
+                        $username = $userdata['nome_utilizador'];
+                        $telemovel = $userdata['telemovel'];
+                        $cargo = $userdata['cargo'];  
 
                     }
                     
@@ -108,7 +105,7 @@ $_SESSION['token'] = get_token(30);
     <title>login</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="" method="post" autocomplete="off">
         email:<input type="text" name="email" value="<?php echo $log_email ?>" required><br><br>
         password:<input type="password" name="password" required><br><br>
         <input type="hidden" name="token" value="<?php echo $_SESSION['token'] ?>">
