@@ -14,6 +14,8 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Utilizadores</title>
+    <script src="functions.js"></script>
+
 </head>
 <body>
   
@@ -30,7 +32,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                 <div class="card">
                     <div class="card-header">
                         <h4>Vista de Utilizadores
-                            <a href="student-create.php" class="btn btn-primary float-end">Add Students</a>
+                            <a href="admindex.php" class="btn btn-primary float-end">VOLTAR</a>
                         </h4>
                     </div>
                     <div class="card-body">
@@ -47,7 +49,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                             <tbody>
                                 <?php 
                                     
-                                    $query = "SELECT * FROM utilizadores";
+                                    $query = "SELECT * FROM utilizadores ORDER BY cargo";
                                     $result = mysqli_query($connection,$query);
 
                                     if($result) {
@@ -65,7 +67,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                                 <a href="user_edit.php?email=<?php echo $user['email']; ?>" class="btn btn-success btn-sm">Editar</a>
                                                 
                                                 <form action="user_man.php" method="POST" class="d-inline">
-                                                    <button type="submit" name="delete_user" value="<?php echo $user['email']; ?>" class="btn btn-danger btn-sm">Eliminar</button>
+                                                    <button type="submit" name="delete_user" value="<?php echo $user['email']; ?>" class="btn btn-danger btn-sm" onclick="confirmar_delete()">Eliminar</button>
                                                 </form>
 
                                             </td>

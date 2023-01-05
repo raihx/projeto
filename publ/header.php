@@ -1,3 +1,9 @@
+<?php
+
+require "../priv/fileload.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +24,13 @@
             <li><a href="#">Quem somos</a></li>
             <li><a href="#">Galeria</a></li>
         </ul>
+        
+        <?php
+
+        echo $_SESSION['username'];
+
+        ?>
+
         <a href="../priv/logout.php" class="button">Logout</a>
     </header>
 </body>

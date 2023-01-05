@@ -53,17 +53,17 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
 
                                     <div class="mb-3">
                                         <label>Email</label>
-                                        <input type="email" name="email" value="<?=$userdata['email'];?>" class="form-control">
+                                        <input type="email" name="email" value="<?=$userdata['email'];?>" class="form-control" disabled>
                                     </div>
 
                                     <div class="mb-3">
                                         <label>Nome de  Utilizador</label>
-                                        <input type="text" name="username" value="<?=$userdata['nome_utilizador'];?>" class="form-control">
+                                        <input type="text" name="username" value="<?=$userdata['nome_utilizador'];?>" class="form-control" disabled>
                                     </div>
 
                                     <div class="mb-3">
                                         <label>Telemóvel</label>
-                                        <input type="text" name="telemovel" value="<?=$userdata['telemovel'];?>" class="form-control">
+                                        <input type="text" name="telemovel" value="<?=$userdata['telemovel'];?>" class="form-control" disabled>
                                     </div>
 
                                     <div class="mb-3">

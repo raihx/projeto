@@ -3,7 +3,23 @@
 require "../priv/fileload.php";
 
 $login_ver = check_login($connection); /**verificação em todas as páginas que é necessário ter o login para aceder */
+$error = "";
 
+if($_SERVER['REQUEST_METHOD'] == "POST") {
+
+    $msg_email = $_POST['email_msg'];
+    $msg_resposta = $_POST['resposta_met'];
+    $texto_msg = $_POST['texto_msg'];
+
+    if(!preg_match("/^[\w\-\.]+@[\w\-]+\.[\w\-]{2,3}$/",$msg_email)) { /**o método preg_match() vai verificar os caracteres introduzidos no campo email*/
+        
+        $error = "Formato de email inválido";
+    
+    }
+
+
+
+}
 
 ?>
 
@@ -35,7 +51,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
     <div class="background">
     <div class="container">
         <div class="content">
-          <div class="quadrado">image.png
+          <div class="quadrado">
             <div class="conteudo">
                 <div class="ladoesquerdo">
                     <div class="detalhes do endereço">
@@ -61,20 +77,27 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
 
                 <div class = "ladodireito">
                     <div class= "topico"> Envia-nos uma mensagem </div>
-                    <p>Encher chouriços só para testar :D</p>
 
-                <form action="#">
+                <form action="" method="POST">
+                    <label>Insira o seu email:</label>
+                    <br>
                     <div class="input-box">
-                        <input type="text" placeholder="Insira o seu nome">
+                        <input type="email" name="email_msg" require>
                     </div>
                     <div class="input-box">
-                        <input type="text" placeholder="Insira o seu email">
+                        <label>Escolha o método de resposta:</label>
+                        <br>
+                        <select type="input" name="resposta_met" id="resposta_met">
+                            <option name="resp_email">Email</option>
+                            <option name="resp_whatsapp">Whatsapp</option>
+                            <option name="resp_chamada">Chamada telefónica</option>
+                        </select>
                     </div>
                     <div class="input-box caixatexto">
-                        <textarea></textarea>
+                        <input type="textarea" name="texto_msg">
                     </div>
-                        <div class="button">
-                        <input type="button" value="Enviar">
+                    <div class="button">
+                        <input type="submit" name="submit" value="Enviar"></input>
                     </div>
                 </form>
             </div>

@@ -93,7 +93,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") { /**se o servidor receber um dado POST
 </head>
 <body>
     <form action="" method="post">
-        email:<input type="text" name="email" value="<?php echo $reg_email ?>" required><br><br>
+        email:<input type="email" name="email" value="<?php echo $reg_email ?>" required><br><br>
         nome:<input type="text" name="username" value="<?php echo $reg_username ?>" required><br><br>
         password:<input type="password" name="password" required><br><br>
         telemovel:<input type="text" name="telemovel" value="<?php echo $reg_telemovel ?>" required><br><br>

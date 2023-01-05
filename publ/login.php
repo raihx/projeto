@@ -106,7 +106,7 @@ $_SESSION['token'] = get_token(30);
 </head>
 <body>
     <form action="" method="post" autocomplete="off">
-        email:<input type="text" name="email" value="<?php echo $log_email ?>" required><br><br>
+        email:<input type="email" name="email" value="<?php echo $log_email ?>" required><br><br>
         password:<input type="password" name="password" required><br><br>
         <input type="hidden" name="token" value="<?php echo $_SESSION['token'] ?>">
         <input type="submit" value="submit">

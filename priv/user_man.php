@@ -28,12 +28,9 @@ if(isset($_POST['update_user']))
 {
     $user_id = mysqli_real_escape_string($connection, $_POST['user_id']);
 
-    $email = mysqli_real_escape_string($connection, $_POST['email']);
-    $username = mysqli_real_escape_string($connection, $_POST['username']);
-    $telemovel = mysqli_real_escape_string($connection, $_POST['telemovel']);
     $cargo = mysqli_real_escape_string($connection, $_POST['cargo']);
 
-    $query = "UPDATE utilizadores SET email='$email', nome_utilizador='$username', telemovel='$telemovel', cargo='$cargo' WHERE email='$user_id' ";
+    $query = "UPDATE utilizadores SET cargo='$cargo' WHERE email='$user_id' ";
     $query_run = mysqli_query($connection, $query);
 
     if($query_run)
