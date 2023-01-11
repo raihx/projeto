@@ -8,8 +8,11 @@ $error = "";
 if($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $msg_email = $_POST['email_msg'];
-    $msg_resposta = $_POST['resposta_met'];
-    $texto_msg = $_POST['texto_msg'];
+    $met_resposta = $_POST['met_resposta'];
+    $texto_msg = esc($_POST['texto_msg']);
+
+    date_default_timezone_set("Europe/Lisbon");
+    $data_msg = date('Y-m-d h:i:s');
 
     if(!preg_match("/^[\w\-\.]+@[\w\-]+\.[\w\-]{2,3}$/",$msg_email)) { /**o método preg_match() vai verificar os caracteres introduzidos no campo email*/
         
@@ -17,7 +20,29 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     
     }
 
+    /**if(!preg_match("/^[^'\"]$/",$texto_msg)) {
 
+        $error = "Caracteres inválidos na mensagem";
+
+    }*/
+
+    if($error == "") {
+
+        $m_query = "INSERT INTO mensagens(email,metodo_resposta,mensagem,data) VALUE('$msg_email','$met_resposta','$texto_msg','$data_msg')";
+        $result = mysqli_query($connection,$m_query);
+
+        if(!$result) {
+
+            $error = "Ocorreu um erro ao enviar a mensagem. Tente novamente.";
+
+        } else {
+
+            header('Location: contacto.php');
+            die;
+
+        }
+
+    }
 
 }
 
@@ -87,18 +112,27 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     <div class="input-box">
                         <label>Escolha o método de resposta:</label>
                         <br>
-                        <select type="input" name="resposta_met" id="resposta_met">
+                        <select type="input" name="met_resposta" id="resposta_met">
                             <option name="resp_email">Email</option>
                             <option name="resp_whatsapp">Whatsapp</option>
                             <option name="resp_chamada">Chamada telefónica</option>
                         </select>
                     </div>
                     <div class="input-box caixatexto">
-                        <input type="textarea" name="texto_msg">
+                        <input type="textarea" name="texto_msg" maxlength="500">
                     </div>
                     <div class="button">
                         <input type="submit" name="submit" value="Enviar"></input>
                     </div>
+
+                    <?php
+
+                        if(isset($error) && $error != "") { /**verifica se a variável erro está preenchida, se sim emite o erro em questão */
+                            echo $error;
+                        }
+
+                    ?>
+                    
                 </form>
             </div>
         </div>

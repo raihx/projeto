@@ -47,7 +47,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                 
                                 ?>
                                 
-                                <form action="user_man.php" method="POST">
+                                <form action="functions_adm.php" method="POST">
                                     
                                     <input type="hidden" name="user_id" value="<?= $userdata['email']; ?>">
 
@@ -68,7 +68,29 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
 
                                     <div class="mb-3">
                                         <label>Cargo</label>
-                                        <input type="text" name="cargo" value="<?=$userdata['cargo'];?>" class="form-control">
+                                        <select name="cargo" class="form-control">
+                                            <option value="<?=$userdata['cargo'];?>"> <?=$userdata['cargo'];?> </option>
+                                            <?php
+                                                
+                                                if($userdata['cargo'] == 'utilizador') {
+                                                    
+                                                    echo "<option> gestor </option>";
+                                                    echo "<option> administrador </option>";
+
+                                                } elseif($userdata['cargo'] == 'gestor') {
+                                                    
+                                                    echo "<option> utilizador </option>";
+                                                    echo "<option> administrador </option>";
+
+                                                } elseif($userdata['cargo'] == 'administrador') {
+                                                    
+                                                    echo "<option> utilizador </option>";
+                                                    echo "<option> gestor </option>";
+
+                                                }
+
+                                            ?>
+                                        </select>
                                     </div>
 
                                     <div class="mb-3">

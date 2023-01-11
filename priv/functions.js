@@ -6,6 +6,13 @@ function aviso_edit() {
 
 function  confirmar_delete(){
  
-    var input = prompt("Confirme a ação escrevendo CONFIRMAR", "");
+    var input = confirm("Pretende eliminar o utilizador?");
+    
+    if(input == false) {
+
+        event.preventDefault();
+
+    }
+
 
 }

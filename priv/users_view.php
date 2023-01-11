@@ -66,7 +66,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                             
                                                 <a href="user_edit.php?email=<?php echo $user['email']; ?>" class="btn btn-success btn-sm">Editar</a>
                                                 
-                                                <form action="user_man.php" method="POST" class="d-inline">
+                                                <form action="funtions_adm.php" method="POST" class="d-inline">
                                                     <button type="submit" name="delete_user" value="<?php echo $user['email']; ?>" class="btn btn-danger btn-sm" onclick="confirmar_delete()">Eliminar</button>
                                                 </form>
 
