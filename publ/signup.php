@@ -12,7 +12,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST") { /**se o servidor receber um dado POST
     $reg_email = $_POST['email'];
     $reg_username = $_POST['username'];
     $reg_password = $_POST['password'];
+    $reg_pass_conf = $_POST['password_confirm'];
     $reg_telemovel = $_POST['telemovel'];
+
+    if($reg_password != $reg_pass_conf) {
+
+        $error = "As passwords não coincidem";
+
+    }
+
 
     if(!preg_match("/^[\w\-\.]+@[\w\-]+\.[\w\-]{2,3}$/",$reg_email)) { /**o método preg_match() vai verificar os caracteres introduzidos no campo email*/
         
@@ -38,6 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") { /**se o servidor receber um dado POST
             
         }
     }
+
 
     if(!preg_match("/^[0-9]{9}$/",$reg_telemovel)) { /**verificação dos caracteres introduzidos para serem apenas números de 0 a 9 */
 
@@ -96,6 +105,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") { /**se o servidor receber um dado POST
         email:<input type="email" name="email" value="<?php echo $reg_email ?>" required><br><br>
         nome:<input type="text" name="username" value="<?php echo $reg_username ?>" required><br><br>
         password:<input type="password" name="password" required><br><br>
+        confirmar password:<input type="password" name="password_confirm" required><br><br>
         telemovel:<input type="text" name="telemovel" value="<?php echo $reg_telemovel ?>" required><br><br>
         <input type="submit" value="submit">
     </form>

@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $texto_msg = esc($_POST['texto_msg']);
 
     date_default_timezone_set("Europe/Lisbon");
-    $data_msg = date('Y-m-d h:i:s');
+    $data_msg = date('Y-m-d h:i:sa');
 
     if(!preg_match("/^[\w\-\.]+@[\w\-]+\.[\w\-]{2,3}$/",$msg_email)) { /**o método preg_match() vai verificar os caracteres introduzidos no campo email*/
         
@@ -20,25 +20,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     
     }
 
-    /**if(!preg_match("/^[^'\"]$/",$texto_msg)) {
-
-        $error = "Caracteres inválidos na mensagem";
-
-    }*/
-
     if($error == "") {
 
         $m_query = "INSERT INTO mensagens(email,metodo_resposta,mensagem,data) VALUE('$msg_email','$met_resposta','$texto_msg','$data_msg')";
         $result = mysqli_query($connection,$m_query);
 
-        if(!$result) {
-
-            $error = "Ocorreu um erro ao enviar a mensagem. Tente novamente.";
-
-        } else {
+        if($result) {
 
             header('Location: contacto.php');
             die;
+
+        } else {
+
+            $error = "Ocorreu um erro ao enviar a mensagem. Tente novamente.";
 
         }
 
@@ -55,6 +49,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
     crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="contacto.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
@@ -70,7 +66,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     </script>  
 </head>
 <body>
-    <div id="header"></div> 
+    <div id="header"></div>
 
     <br></br>
     <div class="background">
@@ -124,15 +120,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     <div class="button">
                         <input type="submit" name="submit" value="Enviar"></input>
                     </div>
+                    <div>
+                        <?php
 
-                    <?php
+                            if(isset($error) && $error != "") { /**verifica se a variável erro está preenchida, se sim emite o erro em questão */ 
+                                echo $error;
+                            }
 
-                        if(isset($error) && $error != "") { /**verifica se a variável erro está preenchida, se sim emite o erro em questão */
-                            echo $error;
-                        }
-
-                    ?>
-                    
+                        ?>
+                    </div>
                 </form>
             </div>
         </div>
