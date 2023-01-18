@@ -1,9 +1,3 @@
-<?php
-
-require "../priv/fileload.php";
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +9,6 @@ require "../priv/fileload.php";
 </head>
 <body>
     <header>
-        
         <a href="index.php" class="logo">Parcesul</a>
         <ul>
             <li><a href="index.php">Home</a></li>
@@ -24,13 +17,11 @@ require "../priv/fileload.php";
             <li><a href="#">Quem somos</a></li>
             <li><a href="#">Galeria</a></li>
         </ul>
-        
         <?php
-
+        
         echo $_SESSION['username'];
 
         ?>
-
         <a href="../priv/logout.php" class="button">Logout</a>
     </header>
 </body>

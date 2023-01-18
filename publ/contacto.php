@@ -4,6 +4,8 @@ require "../priv/fileload.php";
 
 $login_ver = check_login($connection); /**verificação em todas as páginas que é necessário ter o login para aceder */
 $error = "";
+$msg_email = "";
+$texto_msg = "";
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {
 
@@ -12,7 +14,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $texto_msg = esc($_POST['texto_msg']);
 
     date_default_timezone_set("Europe/Lisbon");
-    $data_msg = date('Y-m-d h:i:sa');
+    $data_msg = date('Y-m-d H:i:s');
+
+    $v_query = "SELECT * FROM utilizadores WHERE email='$msg_email'";
+    $ver = mysqli_query($connection,$v_query);
+    
+    if(mysqli_num_rows($ver) == 0) {
+
+        $error = "O email introduzido não possui conta criada.";
+
+    }
 
     if(!preg_match("/^[\w\-\.]+@[\w\-]+\.[\w\-]{2,3}$/",$msg_email)) { /**o método preg_match() vai verificar os caracteres introduzidos no campo email*/
         
@@ -49,24 +60,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
     crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="contacto.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <title>Contacto</title>
 
-
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
-    <script>  
-        $(function(){ 
-        $("#header").load("header.php");  
-        $("#footer").load("footer.php");  
-        }); 
-    </script>  
 </head>
 <body>
-    <div id="header"></div>
+
+    <?php
+
+        include('header.php');
+
+    ?>
 
     <br></br>
     <div class="background">
@@ -103,19 +109,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     <label>Insira o seu email:</label>
                     <br>
                     <div class="input-box">
-                        <input type="email" name="email_msg" require>
+                        <input type="email" name="email_msg" value="<?= $msg_email; ?>" required>
                     </div>
                     <div class="input-box">
                         <label>Escolha o método de resposta:</label>
                         <br>
-                        <select type="input" name="met_resposta" id="resposta_met">
+                        <select type="input" name="met_resposta">
                             <option name="resp_email">Email</option>
                             <option name="resp_whatsapp">Whatsapp</option>
                             <option name="resp_chamada">Chamada telefónica</option>
                         </select>
                     </div>
                     <div class="input-box caixatexto">
-                        <input type="textarea" name="texto_msg" maxlength="500">
+                        <input type="textarea" name="texto_msg" maxlength="500" value="<?= $texto_msg; ?>" required>
                     </div>
                     <div class="button">
                         <input type="submit" name="submit" value="Enviar"></input>
@@ -134,6 +140,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         </div>
     </div>
 </div>
+</div>
+</div>
+
+<?php
+
+    include('footer.php');
+
+?>
 
 </body>
 </html>

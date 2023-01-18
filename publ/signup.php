@@ -6,6 +6,7 @@ $error = ""; /**variável usada para emitir os erros ao utilizador, posteriormen
 $reg_email = "";
 $reg_username = "";
 $reg_telemovel = "";
+$reg_password = "";
 
 if($_SERVER['REQUEST_METHOD'] == "POST") { /**se o servidor receber um dado POST, prossegue com o sign up */
 
@@ -98,26 +99,93 @@ if($_SERVER['REQUEST_METHOD'] == "POST") { /**se o servidor receber um dado POST
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>signup</title>
+    <link rel="stylesheet" href="signup.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+    rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
+    crossorigin="anonymous">
+    <script>
+        function ver_pass(){
+            var x = document.getElementById("passwordid");
+            var y = document.getElementById("hide");
+            var z = document.getElementById("hide1");
+
+            if(x.type === "password"){
+                x.type = "text";
+                y.style.display = "block";
+                z.style.display = "none";
+            } else {
+                x.type = "password";
+                y.style.display = "none";
+                z.style.display = "block";
+            }
+        }
+    
+        function ver_conf_pass(){
+            var x = document.getElementById("passwordid1");
+            var y = document.getElementById("hide2");
+            var z = document.getElementById("hide3");
+
+            if(x.type === "password"){
+                x.type = "text";
+                y.style.display = "block";
+                z.style.display = "none";
+            } else {
+            x.type = "password";
+            y.style.display = "none";
+            z.style.display = "block";
+            }
+        }
+    </script>
+    <title>Registo</title> 
 </head>
 <body>
-    <form action="" method="post">
-        email:<input type="email" name="email" value="<?php echo $reg_email ?>" required><br><br>
-        nome:<input type="text" name="username" value="<?php echo $reg_username ?>" required><br><br>
-        password:<input type="password" name="password" required><br><br>
-        confirmar password:<input type="password" name="password_confirm" required><br><br>
-        telemovel:<input type="text" name="telemovel" value="<?php echo $reg_telemovel ?>" required><br><br>
-        <input type="submit" value="submit">
+
+    <div class="formulario">
+    <form action="" method="POST" autocomplete="off">    
+        <h1>Sign Up</h1>
+
+        <div class="input-box">
+            <i class="fa fa-envelope-o"></i>
+            <input type="email" placeholder="Email" name="email" value="<?php echo $reg_email ?>" required>
+        </div>
+
+        <div class="input-box">
+            <i class="fa fa-user"></i>
+            <input placeholder="Nome de utilizador" name="username" value="<?php echo $reg_username ?>" required>
+        </div>
+
+        <div class="input-box">
+            <i class="fa fa-key"></i>
+            <input type="password" placeholder="Password" id="passwordid" name="password" value="<?php echo $reg_password ?>" required>
+            <span class="eye" onclick="ver_pass()"><i id="hide" class="fa fa-eye"></i><i id="hide1" class="fa fa-eye-slash"></i> 
+        </div>
+
+        <div class="input-box">
+            <i class="fa fa-key"></i>
+            <input type="password" placeholder="Confirmar Password" id="passwordid1" name="password_confirm" required>
+            <span class="eye" onclick="ver_conf_pass()"><i id="hide2" class="fa fa-eye"></i><i id="hide3" class="fa fa-eye-slash"></i>
+        </div>
+            </span>
+
+        <div class="input-box">
+            <i class="fa fa-phone"></i>
+            <input type="text" placeholder="Telemóvel" name="telemovel" value="<?php echo $reg_telemovel ?>" required>
+        </div>
+        
+        <div>
+            <button type="submit" class="botaologin">Sign Up</button>
+        </div>
+
+        <div class="error">
+            <?php   
+
+                if(isset($error) && $error != "") { /**verifica se a variável erro está preenchida, se sim emite o erro em questão */
+                    echo $error;
+                }
+
+            ?>
+        </div>
     </form>
-    <br><br>
-    
-    <?php   
-
-        if(isset($error) && $error != "") { /**verifica se a variável erro está preenchida, se sim emite o erro em questão */
-            echo $error;
-        }
-
-    ?>
-
+    </div>
 </body>
 </html>

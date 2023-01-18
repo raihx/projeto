@@ -16,6 +16,12 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
     <title>Gestor</title>
 </head>
 <body>
-    <a href="logout.php">Logout!</a>
+    <a href="logout.php" style="float: right;">Logout!</a>
+
+    <div>
+    
+        <button onclick="window.location.href='msg_view.php'">Visualizar mensagens não respondidas</button>
+        
+    </div>
 </body>
 </html>

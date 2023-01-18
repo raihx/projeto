@@ -8,30 +8,29 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
 
 <!DOCTYPE html>
 <html lang="pt">
-
     <head>
-        <title> Parcesul </title>
-        
+        <title> Parcesul </title>       
         <link rel="stylesheet" href="index.css">
         <link rel=”stylesheet” href=”https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css” />
-        
-        <script src="//code.jquery.com/jquery-1.10.2.js"></script> 
-        <script>  
-            $(function(){ 
-            $("#header").load("header.php");  
-            $("#footer").load("footer.php");  
-            }); 
-        </script> 
-        
     </head>
     <body>
+        <?php
+        include('header.php');
+        ?>
         <div id="header"></div> 
         <div class ="background">
             <div class="conteudo"> 
                 <h1> Realizamos a sua cozinha de sonho </h1>
                 <p> Alguma d&uacutevida contacte-nos </p>
-            </div>
-            
+            </div>  
         </div>
+        
+
+        <?php
+
+            include('footer.php');
+
+        ?>
+
     </body>
 </html>

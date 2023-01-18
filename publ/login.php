@@ -19,7 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_SESSION['token']) && isset($_
 
     if(!preg_match("/^[^\'\"]{6,20}$/",$log_password)) { /**verificação dos caracteres introduzidos para evitar sql injections */
         
-        $error = "Password inadequada";
+        $error = "A password tem de possuir no mínimo 6 caracteres";
     
     }
 
@@ -102,25 +102,61 @@ $_SESSION['token'] = get_token(30);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+    rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
+    crossorigin="anonymous">
+    <script>
+            function funcao(){
+                var x = document.getElementById("passwordid");
+                var y = document.getElementById("hide");
+                var z = document.getElementById("hide1");
+
+            if(x.type === "password"){
+                x.type = "text";
+                y.style.display = "block";
+                z.style.display = "none";
+            } else {
+                x.type = "password";
+                y.style.display = "none";
+                z.style.display = "block";
+            }
+        }
+    </script>
+    <title>Login</title>
 </head>
 <body>
-    <form action="" method="post" autocomplete="off">
-        email:<input type="email" name="email" value="<?php echo $log_email ?>" required><br><br>
-        password:<input type="password" name="password" required><br><br>
-        <input type="hidden" name="token" value="<?php echo $_SESSION['token'] ?>">
-        <input type="submit" value="submit">
+    <div class="formulario">
+        <h1>Login</h1>
+
+    <form action="" method="POST" autocomplete="off" require>
+        <div class="input-box">
+            <i class="fa fa-envelope-o"></i>
+            <input type="email" placeholder="Email" name="email" value="<?php echo $log_email ?>" required>
+        </div>
+        <div class="input-box">
+            <i class="fa fa-key"></i>
+            <input type="password" placeholder="Password" id="passwordid" name="password" required>
+            <span class="eye" onclick="funcao()">
+            <i id="hide" class="fa fa-eye"></i>
+            <i id="hide1" class="fa fa-eye-slash"></i>
+            </div></span>
+            <input type="hidden" name="token" value="<?php echo $_SESSION['token'] ?>">
+            <input type="submit" value="Login" class="botaologin"> 
+            <div class="erro">    
+                <?php
+
+                    if(isset($error) && $error != "") { /**verifica se a variável erro está preenchida, se sim emite o erro em questão */
+                        echo $error;
+                    }
+
+                ?>
+            </div>
+            <p>Ainda não possui uma conta? <a href="signup.php">Resgiste-se!</a></p>
+        </div>
     </form>
-    <br><br>
     
-    <?php
+    </div>
 
-        if(isset($error) && $error != "") { /**verifica se a variável erro está preenchida, se sim emite o erro em questão */
-            echo $error;
-        }
-
-    ?>
-
-    <p>Ainda não possui uma conta? <a href="signup.php">Resgiste-se!</a></p>
 </body>
 </html>

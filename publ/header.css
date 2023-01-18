@@ -8,20 +8,20 @@
 }
 header{
     width:100%;
-    height:80px;
-    background: #152238;
+    height:100px;
+    background: #d7d7d7;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .logo{
     text-decoration: none;
-    color: white;
+    color: #9b9696;
     font-size: 35px;
     margin-left: 40px;
 }
 .logo:hover{
-    color: #3a2cfa;
+    color: #daa520;
     transition: .4s ease-in;
 }
 ul li{
@@ -30,26 +30,19 @@ ul li{
 }
 ul li a{
     text-decoration: none;
-    color:white;
+    color: #9b9696;;
     font-size: 20px;
 }
 ul li a:hover{
-    color: #FBFF6B;
-    transition: .4s ease-in;
+    color: #000000;
+    transition: .5s ease-in;
 }
 .button{
     text-decoration: none;
-    color:#ffffff;
+    color: #9b9696;
     margin-right: 40px;
 }
 .button:hover{
-    color:#FBFF6B;
+    color: #daa520;
     transition: 1s ease-in;
-    transition: 1s ease-out;
-}
-.back{
-    width: 100%; 
-    background-image: url(ateste3.jpg);
-    background-size: cover;
-    background-position: center; 
 }

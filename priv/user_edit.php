@@ -47,9 +47,9 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                 
                                 ?>
                                 
-                                <form action="functions_adm.php" method="POST">
+                                <form action="functions_data.php" method="POST">
                                     
-                                    <input type="hidden" name="user_id" value="<?= $userdata['email']; ?>">
+                                    <input type="hidden" name="user_email" value="<?= $userdata['email']; ?>">
 
                                     <div class="mb-3">
                                         <label>Email</label>
