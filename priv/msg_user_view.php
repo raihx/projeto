@@ -1,20 +1,17 @@
 <?php
 
-require '../priv/fileload.php';
+require "../priv/fileload.php";
 
 ?>
 
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>Detalhes da email_msg</title>
+    <title>Detalhes de Utilizador</title>
 </head>
 <body>
 
@@ -24,7 +21,7 @@ require '../priv/fileload.php';
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Detalhes da Utilizador 
+                        <h4>Detalhes de Utilizador 
                             <a href="msg_view.php" class="btn btn-danger float-end">VOLTAR</a>
                         </h4>
                     </div>

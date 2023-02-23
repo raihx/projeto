@@ -74,6 +74,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_SESSION['token']) && isset($_
                             case 'administrador':
                                 header('Location: ../priv/admindex.php');
                             break;
+                            
                         }
                     
                     } else {
@@ -92,7 +93,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_SESSION['token']) && isset($_
     
 }
 
-$_SESSION['token'] = get_token(30); 
+$_SESSION['token'] = get_token(30);
 
 ?>
 
@@ -129,7 +130,7 @@ $_SESSION['token'] = get_token(30);
     <div class="formulario">
         <h1>Login</h1>
 
-    <form action="" method="POST" autocomplete="off" require>
+    <form action="" method="POST" autocomplete="off">
         <div class="input-box">
             <i class="fa fa-envelope-o"></i>
             <input type="email" placeholder="Email" name="email" value="<?php echo $log_email ?>" required>

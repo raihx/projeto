@@ -34,7 +34,7 @@ function check_login($connection) { /**esta função vai verificar em todas as p
 
             if(is_array($userdata) && !empty($userdata)) {
 
-                return $userdata[0];
+                return true;
 
             }
 

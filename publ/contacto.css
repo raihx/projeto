@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
 
-body{
+body {
     min-height:100vh;
     width: 100%;
     flex-direction:column;
@@ -19,6 +20,7 @@ body{
     background-repeat: no-repeat;
     border: #bf930d;
 }
+
 .barra {
     width: 85%;
     margin-top: 0px;
@@ -33,12 +35,14 @@ body{
     margin: 0 20px;
     position: relative;
 }
-.barra ul li a{
+
+.barra ul li a {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.884);
     text-transform: uppercase;
 }
-.barra ul li::after{
+
+.barra ul li::after {
     content: '';
     height: 3px;
     width: 0;
@@ -48,11 +52,13 @@ body{
     bottom: -5px;
     transition: 1s;
 }
-.barra ul li:hover:after{
+
+.barra ul li:hover:after {
     width: 100%;
     margin-top: 5px;
 }
-.container{
+
+.container {
     margin: auto;
     margin-top: 25px;
     margin-bottom: 75px;
@@ -62,17 +68,20 @@ body{
     padding: 20px 60px 40px 40px;
     box-shadow: 0px 0px 10px #bf930d;
 }
-.container .conteudo{
+
+.container .conteudo {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.container .content .ladoesquerdo{
+
+.container .content .ladoesquerdo {
     width: 25%;
     height: 100%;
     position: relative;
 }
-.content .ladoesquerdo::before{
+
+.content .ladoesquerdo::before {
     content: '';
     position: absolute;
     height: 70%;
@@ -82,32 +91,38 @@ body{
     transform: translateY(-50%);
     background: #bf930d;
 }
-.content .ladoesquerdo .detalhes{
+
+.content .ladoesquerdo .detalhes {
     margin: 14px;
     text-align: center;
 }
-.content .ladoesquerdo .detalhes i{
-     font-size: 30px;
-     color: #bf930d;
+
+.content .ladoesquerdo .detalhes i {
+    font-size: 30px;
+    color: #bf930d;
 }
-.content .ladodireito .topico{
+
+.content .ladodireito .topico {
     font-size: 23px;
     font-weight: 600;
     color: #bf930d;
 }
-.container .content .ladodireito{
+
+.container .content .ladodireito {
     width: 75%;
     margin-left: 90px;
     align-items: right;
     resize:none;
 }
-.ladodireito .input-box{
+
+.ladodireito .input-box {
     height: 50px;
     width: 100%;
     margin: 12px 0;
 }
+
 .ladodireito .input-box input,
-.ladodireito .input-box textarea{
+.ladodireito .input-box textarea {
     height: 100%;
     width: 100%;
     border: none;
@@ -117,16 +132,19 @@ body{
     padding: 0 15px;
     resize: none;
 }
+
 .content .ladoesquerdo .detalhes .texto1,
-.content .ladoesquerdo .detalhes .texto2{
+.content .ladoesquerdo .detalhes .texto2 {
     font-size: 14px;
     color: #9b9696;
 }
-.ladodireito .caixatexto{
+
+.ladodireito .caixatexto {
     min-height: 110px;
     resize: none;
 }
-.ladodireito .button input[type="submit"]{
+
+.ladodireito .button input[type="submit"] {
     color: #fff;
     font-size: 18px;
     background: #bf930d;
@@ -135,6 +153,7 @@ body{
     border-radius: 8px;
     padding: 8px 16px;
 }
-.footer{
+
+.footer {
     margin-top: 50px;
 }

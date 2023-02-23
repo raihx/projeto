@@ -12,17 +12,27 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admindex.css">
     <title>Administrador</title>
 </head>
 <body>
-    
-    <a href="logout.php" style="float:right">Logout!</a>
-    <br><br><br>
-    
-    <div>
-    
-        <button onclick="window.location.href='users_view.php'">Editar Utiliadores</button>
-        
+    <?php
+
+    include('header_priv.php');
+
+    ?>
+    <h1>Bem-vindo de volta <?= $_SESSION['username']?></h1>
+    <div class="conteudo">
+        <div class="faixa">
+            <div class="btn">
+                <button onclick="window.location.href='users_view.php'" class="btn-use">Gerir Utilizadores</button>
+            </div>
+        </div>
+        <div class="faixa">
+            <div class="btn">
+                <button onclick="window.location.href='artigos_view.php'" class="btn-use">Gerir Artigos</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>

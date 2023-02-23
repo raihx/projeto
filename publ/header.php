@@ -9,17 +9,40 @@
 </head>
 <body>
     <header>
-        <a href="index.php" class="logo">Parcesul</a>
+        <?php
+            switch($_SESSION['cargo']) {
+
+                case 'gestor':
+        ?>
+                    <a href="../priv/gestorindex.php" class="logo">Parcesul</a>
+        <?php
+                break;
+
+                case 'administrador':                            
+        ?>
+                    <a href="../priv/gestorindex.php" class="logo">Parcesul</a>
+        <?php
+                break;
+
+                case 'utilizador':                            
+        ?>
+                    <a href="../publ/index.php" class="logo">Parcesul</a>
+        <?php
+                break;
+
+            }
+
+        ?>
         <ul>
             <li><a href="index.php">Home</a></li>
             <li><a href="contacto.php">Contacto</a></li>
-            <li><a href="#">Histórico</a></li>
+            <li><a href="catalogo.php">Catálogo</a></li>
             <li><a href="#">Quem somos</a></li>
             <li><a href="#">Galeria</a></li>
         </ul>
         <?php
         
-        echo $_SESSION['username'];
+            echo $_SESSION['username'];
 
         ?>
         <a href="../priv/logout.php" class="button">Logout</a>

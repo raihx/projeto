@@ -14,7 +14,6 @@ function  confirmar_delete() {
 
     }
 
-
 }
 
 function marcar_respondida() {
@@ -32,6 +31,30 @@ function marcar_respondida() {
 function confirmar_elim_msg() {
 
     var input = confirm("Esta mensagem já foi respondida, pretende mesmo eliminá-la?");
+    
+    if(input == false) {
+
+        event.preventDefault();
+
+    }
+
+}
+
+function guardar_artigo() {
+
+    var input = confirm("Criar novo artigo?");
+    
+    if(input == false) {
+
+        event.preventDefault();
+
+    }
+
+}
+
+function  confirmar_elim_artigo() {
+ 
+    var input = confirm("Pretende mesmo eliminar este artigo?");
     
     if(input == false) {
 

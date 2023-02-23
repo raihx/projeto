@@ -102,4 +102,32 @@ if(isset($_POST['eliminar_msg'])) {
 
 }
 
+if(isset($_POST['save_artigo'])) {
+    
+    $nome = mysqli_real_escape_string($connection, $_POST['nome_artigo']);
+    $marca = mysqli_real_escape_string($connection, $_POST['marca_artigo']);
+    $descricao = mysqli_real_escape_string($connection, $_POST['descricao_artigo']);
+    $tipo = mysqli_real_escape_string($connection, $_POST['tipo_artigo']);
+    $preco = doubleval(mysqli_real_escape_string($connection, $_POST['preco_artigo']));
+    $imagem = mysqli_real_escape_string($connection, $_POST['imagem_artigo']);
+
+    $query = "INSERT INTO stock (nome,marca,descricao,tipo,preco,imagem) VALUES ('$nome','$marca','$descricao','$tipo','$preco','$imagem')";
+    $query_run = mysqli_query($connection, $query);
+    
+    if($query_run) {
+    
+        $_SESSION['message'] = "Artigo adicionado com sucesso";
+        header("Location: artigos_view.php");
+        exit(0);
+    
+    } else {
+    
+        $_SESSION['message'] = "Artigo não adicionado";
+        header("Location: artigo_add.php");
+        exit(0);
+    
+    }
+
+}
+
 ?>

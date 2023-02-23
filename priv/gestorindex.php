@@ -13,15 +13,22 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gestorindex.css">
     <title>Gestor</title>
 </head>
 <body>
-    <a href="logout.php" style="float: right;">Logout!</a>
+    <?php
 
-    <div>
-    
-        <button onclick="window.location.href='msg_view.php'">Visualizar mensagens não respondidas</button>
-        
+    include('header_priv.php');
+
+    ?>
+    <h1>Bem-vindo de volta <?= $_SESSION['username']?></h1>
+    <div class="conteudo">
+        <div class="faixa">
+            <div class="btn">
+                <button onclick="window.location.href='msg_view.php'" class="btn-msg">Ver Mensagens</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>

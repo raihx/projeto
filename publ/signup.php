@@ -54,7 +54,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") { /**se o servidor receber um dado POST
         $error = "Formato de número de telemóvel inválido";
     
     }
-
+    
     /**este bloco verifica se existe algum caracter indevido e se sim atribuir à variável o respetivo erro */
 
     $v_query = "SELECT * FROM utilizadores WHERE email = '$reg_email' LIMIT 1";
@@ -62,15 +62,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST") { /**se o servidor receber um dado POST
 
     if($result) {
 
-        $ver_email = mysqli_fetch_all($result,MYSQLI_ASSOC);
+        $ver = mysqli_fetch_all($result,MYSQLI_ASSOC);
 
-        if(is_array($ver_email) && !empty($ver_email)) {
+        if(is_array($ver) && !empty($ver)) {
 
             $error = "Este email já possui uma conta associada";
 
         }
 
     }
+
+    /**este bloco confirma se já existe uma conta criada com o email introduzido */
 
     if($error == "") { /**se a variável $error estiver vazia significa que tudo correu como esperado, prosseguindo assim com o sign up */
 
@@ -79,16 +81,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST") { /**se o servidor receber um dado POST
         $i_password = password_hash($reg_password, PASSWORD_DEFAULT); /**método que ecripta a password */
         $i_telemovel = $reg_telemovel;
     
-        $r_query = "INSERT INTO utilizadores(email, nome_utilizador, password, telemovel) VALUES ('$i_email','$i_username','$i_password','$i_telemovel')";
-        mysqli_query($connection,$r_query);
+        $i_query = "INSERT INTO utilizadores(email, nome_utilizador, password, telemovel) VALUES ('$i_email','$i_username','$i_password','$i_telemovel')";
+        mysqli_query($connection,$i_query);
     
-        header('Location: login.php'); /**apenas depois de inserir os dados do novo utilizador redireciona para a página do login */
+        header('Location: login.php');
         die;
     
     }
-
-    /**este bloco executa a query pelo meio de um statement pre-preparado, de maneira a evitar sql injections */
     
+    /**este bloco introduz os dados do novo utilizador criado */
 }
 
 ?>
