@@ -1,44 +1,17 @@
 <?php
+
 require "../priv/fileload.php";
 
-if(isset($_POST['delete_user'])) {
-    
-    $user_email = mysqli_real_escape_string($connection, $_POST['delete_user']);
+/**alterações na tabela de utilizadores -atualizar-eliminar- */
 
-    $query = "DELETE FROM mensagens WHERE email='$user_email'";
-    $exec_delete = mysqli_query($connection,$query);
-
-    if($exec_delete) {
-
-        $query = "DELETE FROM utilizadores WHERE email='$user_email' ";
-        $query_run = mysqli_query($connection, $query);
-
-        if($query_run) {
-
-            $_SESSION['message'] = "Utilizador apagado com sucesso";
-            header("Location: users_view.php");
-            exit(0);
-
-        } else {
-
-            $_SESSION['message'] = "Utilizador não apagado";
-            header("Location: index.php");
-            exit(0);
-
-        }
-
-    }
-
-}
-
-if(isset($_POST['update_user'])) {
+if(isset($_POST['edit_user'])) {
 
     $user_email = mysqli_real_escape_string($connection, $_POST['user_email']);
 
     $cargo = mysqli_real_escape_string($connection, $_POST['cargo']);
         
-    $query_2 = "UPDATE utilizadores SET cargo='$cargo' WHERE email='$user_email' ";
-    $query_run = mysqli_query($connection, $query_2);
+    $query = "UPDATE utilizadores SET cargo='$cargo' WHERE email='$user_email' ";
+    $query_run = mysqli_query($connection, $query);
 
     if($query_run) {
 
@@ -56,9 +29,34 @@ if(isset($_POST['update_user'])) {
 
 }
 
-if(isset($_POST['marcar_msg'])) {
+if(isset($_POST['delete_user'])) {
+    
+    $user_email = mysqli_real_escape_string($connection, $_POST['delete_user']);
 
-    $msg_id = mysqli_real_escape_string($connection, $_POST['marcar_msg']);
+    $query = "DELETE FROM utilizadores WHERE email='$user_email'";
+    $query_run = mysqli_query($connection,$query);
+
+    if($query_run) {
+
+        $_SESSION['message'] = "Utilizador apagado com sucesso";
+        header("Location: users_view.php");
+        exit(0);
+
+    } else {
+
+        $_SESSION['message'] = "Utilizador não apagado";
+        header("Location: users_view.php");
+        exit(0);
+
+    }
+
+}
+
+/**atualizações na tabela das mensagens, -marcarrespondida-eliminar- */
+
+if(isset($_POST['mark_mensagem'])) {
+
+    $msg_id = mysqli_real_escape_string($connection, $_POST['mark_mensagem']);
 
     $query = "UPDATE mensagens SET estado='Respondida' WHERE id='$msg_id' ";
     $query_run = mysqli_query($connection, $query);
@@ -66,43 +64,45 @@ if(isset($_POST['marcar_msg'])) {
     if($query_run) {
 
         $_SESSION['message'] = "Mensagem marcada como respondida";
-        header("Location: msg_view.php");
+        header("Location: mensagens_view.php");
         exit(0);
     
     } else {
         
         $_SESSION['message'] = "Ocorreu um erro a marcar mensagem como respondida";
-        header("Location: msg_view.php");
+        header("Location: mensagens_view.php");
         exit(0);
     
     }
 
 }
 
-if(isset($_POST['eliminar_msg'])) {
+if(isset($_POST['delete_mensagem'])) {
     
-    $msg_id = mysqli_real_escape_string($connection, $_POST['eliminar_msg']);
+    $msg_id = mysqli_real_escape_string($connection, $_POST['delete_mensagem']);
 
     $query = "DELETE FROM mensagens WHERE id='$msg_id'";
-    $exec_delete = mysqli_query($connection,$query);
+    $query_run = mysqli_query($connection,$query);
 
-    if($exec_delete) {
+    if($query_run) {
 
         $_SESSION['message'] = "Mensagem apagada com sucesso";
-        header("Location: msg_view.php");
+        header("Location: mensagens_view.php");
         exit(0);
 
     } else {
 
         $_SESSION['message'] = "Mensagem não apagada";
-        header("Location: msg_view.php");
+        header("Location: mensagens_view.php");
         exit(0);
 
     }
 
 }
 
-if(isset($_POST['save_artigo'])) {
+/**atualizações na tabela de stock, -adicionar-atualizar-eliminar- */
+
+if(isset($_POST['add_artigo'])) {
     
     $nome = mysqli_real_escape_string($connection, $_POST['nome_artigo']);
     $marca = mysqli_real_escape_string($connection, $_POST['marca_artigo']);
@@ -126,6 +126,54 @@ if(isset($_POST['save_artigo'])) {
         header("Location: artigo_add.php");
         exit(0);
     
+    }
+
+}
+
+if(isset($_POST['edit_artigo'])) {
+
+    $artigo_id = mysqli_real_escape_string($connection, $_POST['artigo_id']);
+
+    $preco = doubleval(mysqli_real_escape_string($connection, $_POST['preco_artigo']));
+        
+    $query = "UPDATE stock SET preco='$preco' WHERE id='$artigo_id' ";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run) {
+
+        $_SESSION['message'] = "Artigo atualizado com sucesso";
+        header("Location: artigos_view.php");
+        exit(0);
+
+    } else {
+
+        $_SESSION['message'] = "Artigo não atualizado";
+        header("Location: artigos_view.php");
+        exit(0);
+
+    }
+
+}
+
+if(isset($_POST['delete_artigo'])) {
+    
+    $artigo_id = mysqli_real_escape_string($connection, $_POST['delete_artigo']);
+
+    $query = "DELETE FROM stock WHERE id='$artigo_id'";
+    $query_run = mysqli_query($connection,$query);
+
+    if($query_run) {
+
+        $_SESSION['message'] = "Artigo apagado com sucesso";
+        header("Location: artigos_view.php");
+        exit(0);
+
+    } else {
+
+        $_SESSION['message'] = "Artigo não apagado";
+        header("Location: artigos_view.php");
+        exit(0);
+
     }
 
 }

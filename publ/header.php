@@ -20,7 +20,7 @@
 
                 case 'administrador':                            
         ?>
-                    <a href="../priv/gestorindex.php" class="logo">Parcesul</a>
+                    <a href="../priv/admindex.php" class="logo">Parcesul</a>
         <?php
                 break;
 

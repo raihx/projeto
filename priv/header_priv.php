@@ -18,7 +18,7 @@
         <?php
                 break;
 
-                case 'administrador':                    
+                case 'administrador':                            
         ?>
                     <a href="../priv/admindex.php" class="logo">Parcesul</a>
         <?php

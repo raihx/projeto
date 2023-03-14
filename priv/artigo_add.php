@@ -50,7 +50,7 @@
                                 <input type="file" name="imagem_artigo" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <button type="submit" name="save_artigo" class="btn btn-primary" onclick="guardar_artigo()">Guardar Artigo</button>
+                                <button type="submit" name="add_artigo" class="btn btn-primary" onclick="getText('add_artigo')">Guardar Artigo</button>
                             </div>
                         </form>
                     </div>

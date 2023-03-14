@@ -82,7 +82,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                             <td><?php echo $artigo['marca']; ?></td>
                                             <td class="ellipsis"><span><?php echo $artigo['descricao']; ?></td></span>
                                             <td><?php echo $artigo['tipo']; ?></td>
-                                            <td><?php echo $artigo['preco']; ?></td>
+                                            <td><?php echo $artigo['preco']."€"; ?></td>
                                             <td><?php echo $artigo['quantidade']; ?></td>
                                             <td><?php echo $artigo['imagem']; ?></td>
                                             <td>
@@ -90,7 +90,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                                 <a href="artigo_edit.php?id=<?php echo $artigo['id']; ?>" class="btn btn-success btn-sm">Editar</a>
                                                 
                                                 <form action="functions_data.php" method="POST" class="d-inline">
-                                                    <button type="submit" name="delete_artigo" value="<?php echo $artigo['id']; ?>" class="btn btn-danger btn-sm" onclick="confirmar_delete()">Eliminar</button>
+                                                    <button type="submit" name="delete_artigo" value="<?php echo $artigo['id']; ?>" class="btn btn-danger btn-sm" onclick="getText('delete_artigo')">Eliminar</button>
                                                 </form>
 
                                             </td>

@@ -63,13 +63,19 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                             <td><?php echo $user['telemovel']; ?></td>
                                             <td><?php echo $user['cargo']; ?></td>
                                             <td>
-                                            
-                                                <a href="user_edit.php?email=<?php echo $user['email']; ?>" class="btn btn-success btn-sm">Editar</a>
+                                                <?php
+                                                if($user['email'] != $_SESSION['email']) {
+                                                ?>
+                                                    
+                                                    <a href="user_edit.php?email=<?php echo $user['email']; ?>" class="btn btn-success btn-sm">Editar</a>
                                                 
-                                                <form action="functions_data.php" method="POST" class="d-inline">
-                                                    <button type="submit" name="delete_user" value="<?php echo $user['email']; ?>" class="btn btn-danger btn-sm" onclick="confirmar_delete()">Eliminar</button>
-                                                </form>
+                                                    <form action="functions_data.php" method="POST" class="d-inline">
+                                                        <button type="submit" name="delete_user" value="<?php echo $user['email']; ?>" class="btn btn-danger btn-sm" onclick="getText('delete_user')">Eliminar</button>
+                                                    </form>
 
+                                                <?php
+                                                    }
+                                                ?>
                                             </td>
                                         </tr>
                                 <?php

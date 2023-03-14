@@ -9,21 +9,13 @@ $texto_msg = "";
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {
 
-    $msg_email = $_POST['email_msg'];
+    $_SESSION['success'] = "";
+    $msg_email = $_SESSION['email'];
     $met_resposta = $_POST['met_resposta'];
     $texto_msg = esc($_POST['texto_msg']);
 
     date_default_timezone_set("Europe/Lisbon");
     $data_msg = date('Y-m-d H:i:s');
-
-    $v_query = "SELECT * FROM utilizadores WHERE email='$msg_email'";
-    $ver = mysqli_query($connection,$v_query);
-    
-    if(mysqli_num_rows($ver) == 0) {
-
-        $error = "O email introduzido não possui conta criada.";
-
-    }
 
     if(!preg_match("/^[\w\-\.]+@[\w\-]+\.[\w\-]{2,3}$/",$msg_email)) { /**o método preg_match() vai verificar os caracteres introduzidos no campo email*/
         
@@ -39,6 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         if($result) {
 
             header('Location: contacto.php');
+            $_SESSION['success'] = "Mensagem enviada com sucesso!";
             die;
 
         } else {
@@ -56,9 +49,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
-    rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
-    crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="contacto.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -106,10 +96,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     <div class= "topico"> Envia-nos uma mensagem </div>
 
                 <form action="" method="POST">
-                    <label>Insira o seu email:</label>
+                    <label>O seu email:</label>
                     <br>
                     <div class="input-box">
-                        <input type="email" name="email_msg" value="<?= $msg_email; ?>" required>
+                        <input type="email" name="email_msg" value="<?= $_SESSION['email']; ?>" disabled>
                     </div>
                     <div class="input-box">
                         <label>Escolha o método de resposta:</label>
@@ -133,6 +123,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                                 echo $error;
                             }
 
+                            if($_SESSION['success'] != "") {    
+                                echo $_SESSION['success'];
+                            }
+                            
                         ?>
                     </div>
                 </form>

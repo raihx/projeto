@@ -93,27 +93,27 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
 
                                     if(mysqli_num_rows($result) > 0) {
                                         
-                                        foreach($result as $msg) {
+                                        foreach($result as $mensagem) {
                                             
                                 ?>
                                         <tr>
-                                            <td><span><?php echo $msg['email']; ?></span></td>
-                                            <td><?php echo $msg['metodo_resposta']; ?></td>
-                                            <td class="ellipsis"><span><?php echo $msg['mensagem']; ?></span></td>
-                                            <td><span><?php echo $msg['data']; ?></span></td>
-                                            <td><span><?php echo $msg['estado']; ?></span></td>
+                                            <td><span><?php echo $mensagem['email']; ?></span></td>
+                                            <td><?php echo $mensagem['metodo_resposta']; ?></td>
+                                            <td class="ellipsis"><span><?php echo $mensagem['mensagem']; ?></span></td>
+                                            <td><span><?php echo $mensagem['data']; ?></span></td>
+                                            <td><span><?php echo $mensagem['estado']; ?></span></td>
                                             <?php
                                                 
-                                                if($msg['estado'] == "Não Respondida") {
+                                                if($mensagem['estado'] == "Não Respondida") {
                                             
                                             ?>
                                                     <td>
                                                     
-                                                        <a href="msg_detail_view.php?id=<?= $msg['id']; ?>" class="btn btn-info btn-sm">Detalhes</a>
-                                                        <a href="msg_user_view.php?email=<?php echo $msg['email']; ?>" class="btn btn-success btn-sm">Utilizador</a>
+                                                        <a href="mensagem_detail.php?id=<?= $mensagem['id']; ?>" class="btn btn-info btn-sm">Detalhes</a>
+                                                        <a href="mensagem_user.php?email=<?php echo $mensagem['email']; ?>" class="btn btn-success btn-sm">Utilizador</a>
                                                         
                                                         <form action="functions_data.php" method="POST" class="d-inline">
-                                                            <button type="submit" name="marcar_msg" value="<?php echo $msg['id']; ?>" class="btn btn-danger btn-sm" onclick="marcar_respondida()">Respondida</button>
+                                                            <button type="submit" name="mark_mensagem" value="<?php echo $mensagem['id']; ?>" class="btn btn-danger btn-sm" onclick="getText('mark_mensagem')">Respondida</button>
                                                         </form>
 
                                                     </td>
@@ -124,11 +124,11 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                             ?>
                                                     <td>
                                                     
-                                                        <a href="msg_detail_view.php?id=<?= $msg['id']; ?>" class="btn btn-info btn-sm">Detalhes</a>
-                                                        <a href="msg_user_view.php?email=<?php echo $msg['email']; ?>" class="btn btn-success btn-sm">Utilizador</a>
+                                                        <a href="mensagem_detail.php?id=<?= $mensagem['id']; ?>" class="btn btn-info btn-sm">Detalhes</a>
+                                                        <a href="mensagem_user.php?email=<?php echo $mensagem['email']; ?>" class="btn btn-success btn-sm">Utilizador</a>
                                                         
                                                         <form action="functions_data.php" method="POST" class="d-inline">
-                                                            <button type="submit" name="eliminar_msg" value="<?php echo $msg['id']; ?>" class="btn btn-danger btn-sm" onclick="confirmar_elim_msg()">Eliminar</button>
+                                                            <button type="submit" name="delete_mensagem" value="<?php echo $mensagem['id']; ?>" class="btn btn-danger btn-sm" onclick="getText('delete_mensagem')">Eliminar</button>
                                                         </form>
 
                                                     </td>

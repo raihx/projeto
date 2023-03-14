@@ -94,7 +94,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                     </div>
 
                                     <div class="mb-3">
-                                        <button type="submit" name="update_user" class="btn btn-primary" onclick="aviso_edit()">Atualizar Utilizador</button>
+                                        <button type="submit" name="edit_user" class="btn btn-primary" onclick="getText('edit_user')">Atualizar Utilizador</button>
                                     </div>
                                 </form>
                                 <?php

@@ -26,7 +26,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
     <div class="conteudo">
         <div class="faixa">
             <div class="btn">
-                <button onclick="window.location.href='msg_view.php'" class="btn-msg">Ver Mensagens</button>
+                <button onclick="window.location.href='mensagens_view.php'" class="btn-msg">Ver Mensagens</button>
             </div>
         </div>
     </div>
