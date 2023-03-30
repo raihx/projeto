@@ -102,31 +102,73 @@ if(isset($_POST['delete_mensagem'])) {
 
 /**atualizações na tabela de stock, -adicionar-atualizar-eliminar- */
 
-if(isset($_POST['add_artigo'])) {
+if(isset($_POST['add_artigo']) && isset($_FILES['imagem_artigo'])) {
     
     $nome = mysqli_real_escape_string($connection, $_POST['nome_artigo']);
     $marca = mysqli_real_escape_string($connection, $_POST['marca_artigo']);
     $descricao = mysqli_real_escape_string($connection, $_POST['descricao_artigo']);
     $tipo = mysqli_real_escape_string($connection, $_POST['tipo_artigo']);
     $preco = doubleval(mysqli_real_escape_string($connection, $_POST['preco_artigo']));
-    $imagem = mysqli_real_escape_string($connection, $_POST['imagem_artigo']);
+    
+    $nome_imagem = $_FILES["imagem_artigo"]["name"];
+    $size_imagem = $_FILES["imagem_artigo"]["size"];
+    $tmp_imagem = $_FILES["imagem_artigo"]["tmp_name"];
 
-    $query = "INSERT INTO stock (nome,marca,descricao,tipo,preco,imagem) VALUES ('$nome','$marca','$descricao','$tipo','$preco','$imagem')";
-    $query_run = mysqli_query($connection, $query);
-    
-    if($query_run) {
-    
-        $_SESSION['message'] = "Artigo adicionado com sucesso";
-        header("Location: artigos_view.php");
-        exit(0);
-    
-    } else {
-    
-        $_SESSION['message'] = "Artigo não adicionado";
-        header("Location: artigo_add.php");
-        exit(0);
-    
-    }
+    if($_FILES["imagem_artigo"]["error"] === 0) {
+
+		if($size_imagem > 1000000) {
+
+			$_SESSION['erro_imagem'] = "Tamanho de ficheiro não aceite. Tente novamente";
+            header('Location: artigo_add.php');
+
+		} else {
+
+			$tipo_imagem = explode('.',$nome_imagem);
+			$tipo_imagem = strtolower(end($tipo_imagem));
+        
+			$tipos_perm = array("jpg", "jpeg", "png"); 
+
+			if(in_array($tipo_imagem, $tipos_perm)) {
+
+				$upload_imagem_nome = uniqid();
+				$upload_imagem_nome .= '.'.$tipo_imagem;
+
+                if(move_uploaded_file($tmp_imagem, 'C:/Users/Iconz/Documentos/GitHub/projeto/images/'.$upload_imagem_nome)) {
+
+                    $query = "INSERT INTO stock (nome,marca,descricao,tipo,preco,imagem) VALUES ('$nome','$marca','$descricao','$tipo','$preco','$upload_imagem_nome')";
+                    $query_run = mysqli_query($connection, $query);
+
+                    if($query_run) {
+                    
+                        $_SESSION['message'] = "Artigo adicionado com sucesso";
+                        header("Location: artigos_view.php");
+                        exit(0);
+                                
+                    } else {
+                    
+                        $_SESSION['message'] = "Artigo não adicionado";
+                        header("Location: artigo_add.php");
+                        exit(0);
+                                
+                    }
+                
+                }
+
+			} else {
+
+				$_SESSION['erro_imagem'] = "Tipo de ficheiro não permitido";
+                header('Location: artigo_add.php');
+
+			}
+		
+        }
+
+	} else {
+
+		$_SESSION['erro_imagem'] = "Um erro desconhecido aconteceu. Tente novamente";
+        header('Location: artigo_add.php');
+
+	}                           
 
 }
 
@@ -135,8 +177,9 @@ if(isset($_POST['edit_artigo'])) {
     $artigo_id = mysqli_real_escape_string($connection, $_POST['artigo_id']);
 
     $preco = doubleval(mysqli_real_escape_string($connection, $_POST['preco_artigo']));
+    $quantidade = mysqli_real_escape_string($connection, $_POST['quantidade_artigo']);
         
-    $query = "UPDATE stock SET preco='$preco' WHERE id='$artigo_id' ";
+    $query = "UPDATE stock SET preco='$preco', quantidade='$quantidade' WHERE id='$artigo_id' ";
     $query_run = mysqli_query($connection, $query);
 
     if($query_run) {

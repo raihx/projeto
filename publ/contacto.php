@@ -6,10 +6,11 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
 $error = "";
 $msg_email = "";
 $texto_msg = "";
+$_SESSION['erro_mensagem'] = "";
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {
 
-    $_SESSION['success'] = "";
+    
     $msg_email = $_SESSION['email'];
     $met_resposta = $_POST['met_resposta'];
     $texto_msg = esc($_POST['texto_msg']);
@@ -123,8 +124,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                                 echo $error;
                             }
 
-                            if($_SESSION['success'] != "") {    
-                                echo $_SESSION['success'];
+                            if($_SESSION['erro_mensagem'] != "") {    
+                                echo $_SESSION['erro_mensagem'];
                             }
                             
                         ?>

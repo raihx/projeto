@@ -1,3 +1,4 @@
+
 function getText(id) {
 
     var text;

@@ -22,7 +22,7 @@ require "../priv/fileload.php";
                 <div class="card">
                     <div class="card-header">
                         <h4>Detalhes de Utilizador 
-                            <a href="msg_view.php" class="btn btn-danger float-end">VOLTAR</a>
+                            <a href="mensagens_view.php" class="btn btn-danger float-end">VOLTAR</a>
                         </h4>
                     </div>
                     <div class="card-body">

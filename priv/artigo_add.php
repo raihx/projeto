@@ -1,3 +1,9 @@
+<?php
+
+require "../priv/fileload.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Adicionar Artigos</title>
+    <script src="functions.js"></script>
 </head>
 <body>
   
@@ -23,7 +30,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="functions_data.php" method="POST">
+                        <form action="functions_data.php" method="POST" enctype="multipart/form-data">
 
                             <div class="mb-3">
                                 <label>Nome do Artigo</label>
@@ -39,7 +46,18 @@
                             </div>
                             <div class="mb-3">
                                 <label>Tipo de Artigo</label>
-                                <input type="text" name="tipo_artigo" class="form-control">
+                                <select name="tipo_artigo" class="form-control">
+                                    <option disabled selected value value="">...</option>
+                                    <option value="Congelador">Congelador</option>
+                                    <option value="Esquentador">Esquentador</option>
+                                    <option value="Exaustor">Exaustor</option>
+                                    <option value="Fogão">Fogão</option>
+                                    <option value="Forno">Forno</option>
+                                    <option value="Frigorífico">Frigorífico</option>
+                                    <option value="Máquina de lavar loiça">Máquina de lavar loiça</option>
+                                    <option value="Máquina de lavar roupa">Máquina de lavar roupa</option>
+                                    <option value="Micro-ondas">Micro-ondas</option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label>Preço</label>
@@ -48,7 +66,19 @@
                             <div class="mb-3">
                                 <label>imagem</label>
                                 <input type="file" name="imagem_artigo" class="form-control">
+                                <p style="color:red">
+                                    <?php 
+                                    
+                                        if(isset($_SESSION['erro_imagem'])) {
+
+                                            echo $_SESSION['erro_imagem'];
+
+                                        }
+
+                                    ?>
+                                </p>
                             </div>
+                            <br>
                             <div class="mb-3">
                                 <button type="submit" name="add_artigo" class="btn btn-primary" onclick="getText('add_artigo')">Guardar Artigo</button>
                             </div>

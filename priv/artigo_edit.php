@@ -83,7 +83,8 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
 
                                     <div class="mb-3">
                                         <label>Imagem</label>
-                                        <input type="file" name="imagem_artigo" value="<?=$artigo_data['image'];?>" class="form-control" disabled>
+                                        <br>
+                                        <img src="../images/<?=$artigo_data['imagem']?>">
                                     </div>
 
                                     <div class="mb-3">
@@ -91,11 +92,13 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                     </div>
                                 </form>
                                 <?php
-                            }
-                            else
-                            {
+                            
+                            } else {
+                                
                                 echo "<h4>No Such Id Found</h4>";
+                            
                             }
+                        
                         }
                         ?>
                     </div>

@@ -37,8 +37,9 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
     </style>
 </head>
 <body>
-    <a href="admindex.php" class="btn btn-primary float-end" style="margin-right: 10px;">VOLTAR</a>
+    
     <div class="container mt-4">
+        <a href="admindex.php" class="btn btn-primary float-end" style="margin-left: 20px;">VOLTAR</a>
     <?php 
         
         include('aviso.php'); 
@@ -84,9 +85,10 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                             <td><?php echo $artigo['tipo']; ?></td>
                                             <td><?php echo $artigo['preco']."€"; ?></td>
                                             <td><?php echo $artigo['quantidade']; ?></td>
-                                            <td><?php echo $artigo['imagem']; ?></td>
+                                            <td><img src="../images/<?=$artigo['imagem']?>" width="100px" height="100px"/></td>
                                             <td>
                                             
+                                            <a href="artigo_detail.php?id=<?= $artigo['id']; ?>" class="btn btn-info btn-sm">Detalhes</a>
                                                 <a href="artigo_edit.php?id=<?php echo $artigo['id']; ?>" class="btn btn-success btn-sm">Editar</a>
                                                 
                                                 <form action="functions_data.php" method="POST" class="d-inline">
