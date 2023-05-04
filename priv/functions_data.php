@@ -133,7 +133,7 @@ if(isset($_POST['add_artigo']) && isset($_FILES['imagem_artigo'])) {
 				$upload_imagem_nome = uniqid();
 				$upload_imagem_nome .= '.'.$tipo_imagem;
 
-                if(move_uploaded_file($tmp_imagem, 'C:/Users/Iconz/Documentos/GitHub/projeto/images/'.$upload_imagem_nome)) {
+                if(move_uploaded_file($tmp_imagem, 'C:/Users/Iconz/Documentos/GitHub/projeto/images/produtos/'.$upload_imagem_nome)) {
 
                     $query = "INSERT INTO stock (nome,marca,descricao,tipo,preco,imagem) VALUES ('$nome','$marca','$descricao','$tipo','$preco','$upload_imagem_nome')";
                     $query_run = mysqli_query($connection, $query);
@@ -176,10 +176,11 @@ if(isset($_POST['edit_artigo'])) {
 
     $artigo_id = mysqli_real_escape_string($connection, $_POST['artigo_id']);
 
+    $descricao = mysqli_real_escape_string($connection, $_POST['descricao_artigo']);
     $preco = doubleval(mysqli_real_escape_string($connection, $_POST['preco_artigo']));
     $quantidade = mysqli_real_escape_string($connection, $_POST['quantidade_artigo']);
         
-    $query = "UPDATE stock SET preco='$preco', quantidade='$quantidade' WHERE id='$artigo_id' ";
+    $query = "UPDATE stock SET preco='$preco', quantidade='$quantidade', descricao='$descricao' WHERE id='$artigo_id' ";
     $query_run = mysqli_query($connection, $query);
 
     if($query_run) {

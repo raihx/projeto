@@ -6,7 +6,6 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
 $error = "";
 $msg_email = "";
 $texto_msg = "";
-$_SESSION['erro_mensagem'] = "";
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {
 
@@ -24,6 +23,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     
     }
 
+    if($met_resposta == ""){
+
+        $error = "Selecione um método de resposta";
+
+    }
+
     if($error == "") {
 
         $m_query = "INSERT INTO mensagens(email,metodo_resposta,mensagem,data) VALUE('$msg_email','$met_resposta','$texto_msg','$data_msg')";
@@ -32,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         if($result) {
 
             header('Location: contacto.php');
-            $_SESSION['success'] = "Mensagem enviada com sucesso!";
+            $error = "Mensagem enviada com sucesso!";
             die;
 
         } else {
@@ -50,10 +55,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="contacto.css">
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/contacto.css">
     <title>Contacto</title>
 
 </head>
@@ -66,83 +72,52 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     ?>
 
     <br></br>
-    <div class="background">
-    <div class="container">
-        <div class="content">
-          <div class="quadrado">
-            <div class="conteudo">
-                <div class="ladoesquerdo">
-                    <div class="detalhes do endereço">
-                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    <div class="topico"> Endereço </div>
-                    <div class="texto1"> Rua ali à esquerda </div>
-                    <div class="texto2"> Nº10, 5º andar esquerdo sem elevador </div>
-                        </div>
-
-                    <div class="detalhes do telemóvel">
-                        <i class="fa fa-phone" aria-hidden="true"></i>
-                        <div class="topico"> Telemóvel </div>
-                        <div class="texto1"> +351 931148405 </div>
-                        </div>
-                    
-                    <div class="detalhes do email">
-                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                        <div class="topico"> Email </div>
-                        <div class="texto2"> parcesul@hotmail.com </div>
-                        </div>
-                </div>
-
-
-                <div class = "ladodireito">
-                    <div class= "topico"> Envia-nos uma mensagem </div>
-
-                <form action="" method="POST">
-                    <label>O seu email:</label>
-                    <br>
-                    <div class="input-box">
-                        <input type="email" name="email_msg" value="<?= $_SESSION['email']; ?>" disabled>
-                    </div>
-                    <div class="input-box">
-                        <label>Escolha o método de resposta:</label>
-                        <br>
-                        <select type="input" name="met_resposta">
-                            <option name="resp_email">Email</option>
-                            <option name="resp_whatsapp">Whatsapp</option>
-                            <option name="resp_chamada">Chamada telefónica</option>
-                        </select>
-                    </div>
-                    <div class="input-box caixatexto">
-                        <input type="textarea" name="texto_msg" maxlength="500" value="<?= $texto_msg; ?>" required>
-                    </div>
-                    <div class="button">
-                        <input type="submit" name="submit" value="Enviar"></input>
-                    </div>
-                    <div>
-                        <?php
-
-                            if(isset($error) && $error != "") { /**verifica se a variável erro está preenchida, se sim emite o erro em questão */ 
-                                echo $error;
-                            }
-
-                            if($_SESSION['erro_mensagem'] != "") {    
-                                echo $_SESSION['erro_mensagem'];
-                            }
-                            
-                        ?>
-                    </div>
-                </form>
-            </div>
-        </div>
+    <div class="textContacto">
+        <h1>Entre em contacto connosco!</h1>
+        <p>Não exite em pedir opiniões e tirar dúvidas sempre que necessário. Respondemos do modo mais conveniente para si o mais rápido possível!</p>
     </div>
-</div>
-</div>
-</div>
+    <div class="container">
+        <div class="left">
+            <img src="../images/message.png">
+        </div>
+        
+        <div class="right">
+            <form action="" method="POST" class="form">
+                <label>O seu email:</label>
+                <br>
+                <input type="email" name="email_msg" value="<?= $_SESSION['email']; ?>" class="input-area" disabled>               
+                <br>
+                <label>Escolha o método de resposta:</label>                    
+                <br>
+                <select type="input" name="met_resposta" class="input-area" required>
+                    <option disabled selected value value="">...</option>
+                    <option>Email</option>
+                    <option>Whatsapp</option>
+                    <option>Chamada telefónica</option>
+                </select>                
+                <br>
+                <label>Insira a sua mensagem:</label>
+                <br>
+                <textarea name="texto_msg" placeholder="Escreva aqui..." maxlength="500" rows="6" value="<?= $texto_msg; ?>" class="input-area" required></textarea>
+                <br>
+                <input type="submit" name="submit" value="Enviar"></input>
+                <div>
+                    <?php
+                        if(isset($error) && $error != "") { /**verifica se a variável erro está preenchida, se sim emite o erro em questão */ 
+                            echo $error;
+                        }                           
+                    ?>
+                </div>  
+            </form> 
+        </div>
+                   
+    </div>
 
-<?php
+    <?php
 
-    include('footer.php');
+        include('footer.php');
 
-?>
+    ?>
 
 </body>
 </html>

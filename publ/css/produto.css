@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+
+/* título e butão de voltar atrás */
+.nomeProduto {
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nomeProduto h1 {
+    width: 70%;
+    text-align: center;
+    font-size: 50px;
+}
+
+.nomeProduto button {
+    padding: 10px;
+    font-size: large;
+    color: #fff;
+    background-color: #0059ff;
+    border: 2px solid #0059ff;
+    border-radius: 5px;
+    transition-duration: 0.4s;
+}
+
+.nomeProduto button:hover {
+    cursor: pointer;
+    transform: scale(1.10);
+}
+
+.nomeProduto img {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+
+/* container do conteúdo produto */
+.infoProduto {
+    display: flex;
+    height: fit-content;
+}
+
+
+/* lado esquerdo do conteúdo */
+.left {
+    width: 40%;
+    height: fit-content;
+    padding: 20px 0 20px 20px;
+    display: flex;
+    justify-content: end;
+}
+
+
+/* lado direito do conteúdo */
+.right {
+    width: 60%;
+    padding: 50px 90px 50px 90px;
+}
+
+.right ul {
+    width: 80%;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preco {
+    width: fit-content;
+    padding: 15px 25px;
+    background-color: orangered;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.marca {
+    color: grey;
+}
+
+.addCarrinho {
+    width: 90%;
+    margin-top: 40px;
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid grey;
+}
+
+.stockErro {
+    margin-right: 30px;
+    padding: 5px;
+    color: #fc3030;
+}
+
+.stockTrue {
+    color: #2C7C3C;
+    margin-right: 30px;
+    padding: 5px;
+}
+
+.addCarrinho p img {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.addCarrinho button {
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #FEC20C;
+    border: 2px solid #FEC20C;
+    border-radius: 5px;
+}
+
+.addCarrinho button img {
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.descricao {
+    margin-top: 50px;
+}
+
+.descricao h3 {
+    margin-bottom: 15px;
+}
+
+.descricao p {
+    text-align: justify;
+    text-justify: inter-word;
+}

@@ -14,7 +14,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Mensagens</title>
-    <script src="functions.js"></script>
+    <script src="js/functions.js"></script>
     <style>
         th {
             white-space: nowrap;
@@ -74,19 +74,19 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                             <tbody>
                                 <?php 
                                     
-                                    $query = "SELECT * FROM mensagens ORDER BY data";
+                                    $query = "SELECT * FROM mensagens ORDER BY data DESC";
                                     $result = mysqli_query($connection,$query);
 
                                     if(isset($_POST['msg_respondidas'])) {
                                         
-                                        $query = "SELECT * FROM mensagens WHERE estado='Respondida' ORDER BY data";
+                                        $query = "SELECT * FROM mensagens WHERE estado='Respondida' ORDER BY data DESC";
                                         $result = mysqli_query($connection,$query);
                                     
                                     } 
 
                                     if(isset($_POST['msg_nao_respondidas']))  {
 
-                                        $query = "SELECT * FROM mensagens WHERE estado='Não Respondida' ORDER BY data";
+                                        $query = "SELECT * FROM mensagens WHERE estado='Não Respondida' ORDER BY data DESC";
                                         $result = mysqli_query($connection,$query);
 
                                     }

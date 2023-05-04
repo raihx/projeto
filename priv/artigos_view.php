@@ -14,7 +14,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Artigos</title>
-    <script src="functions.js"></script>
+    <script src="js/functions.js"></script>
     <style>
         th {
             white-space: nowrap;
@@ -85,7 +85,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                             <td><?php echo $artigo['tipo']; ?></td>
                                             <td><?php echo $artigo['preco']."€"; ?></td>
                                             <td><?php echo $artigo['quantidade']; ?></td>
-                                            <td><img src="../images/<?=$artigo['imagem']?>" width="100px" height="100px"/></td>
+                                            <td><img src="../images/produtos/<?=$artigo['imagem']?>" width="100px" height="100px"/></td>
                                             <td>
                                             
                                             <a href="artigo_detail.php?id=<?= $artigo['id']; ?>" class="btn btn-info btn-sm">Detalhes</a>

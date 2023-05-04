@@ -1,22 +1,28 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     font-family: sans-serif;
     font-weight: 400;
-} 
-.footer{
+}
+
+.footer {
+    position: absolute;
+    width: 100%;
     padding: 40px 0;
     background-color: #d7d7d7;
 }
-.footer .redessociais{
+
+.footer .redessociais {
     text-align: center;
     padding-bottom: 25px;
     color: black;
 }
-.footer .redessociais a{
+
+.footer .redessociais a {
     font-size: 24px;
     color: inherit;
     border: 1px solid black;
@@ -28,12 +34,13 @@ body{
     border-radius: 20px;
     margin: 0 8px;
     opacity: 0.55;
-
 }
-.footer .redessociais a:hover{
+
+.footer .redessociais a:hover {
     opacity: 1;
 }
-.footer ul{
+
+.footer ul {
     color: black;
     margin-top: 0;
     padding: 0;
@@ -43,19 +50,23 @@ body{
     margin-bottom: 0;
     text-align: center;
 }
-.footer ul a{
+
+.footer ul a {
     color: inherit;
     text-decoration: none;
     opacity: 0.7;
 }
-.footer ul li{
+
+.footer ul li {
     display: inline-block;
     padding: 0 18px;
 }
-.footer ul li a:hover{
+
+.footer ul li a:hover {
     opacity: 1;
 }
-.footer .copyright{
+
+.footer .copyright {
     text-decoration: none;
     color: #d2ac47;
     text-align: center;

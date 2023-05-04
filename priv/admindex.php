@@ -12,7 +12,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="admindex.css">
+    <link rel="stylesheet" href="css/admindex.css">
     <title>Administrador</title>
 </head>
 <body>

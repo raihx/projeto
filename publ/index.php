@@ -10,7 +10,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
 <html lang="pt">
     <head>
         <title> Parcesul </title>       
-        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="css/index.css">
         <link rel=”stylesheet” href=”https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css” />
     </head>
     <body>

@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.titulo {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+/* corpo da loja */
+.container {
+    display: flex;
+}
+
+
+/* parte dos filtros da loja */
+.left {
+    width: 20%;
+    background-color: #ededed;
+}
+
+.filtros {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 20px;
+}
+
+.filtros input, .filtros a {
+    margin: 15px auto 10px 10px;
+}
+
+.filtros button {
+    margin-top: 15px;
+    padding: 7px;
+    color: #fff;
+    background-color: orangered;
+    border: 2px solid orangered;
+    border-radius: 5px;
+    transition-duration: 0.4s;
+}
+
+.filtros button:hover {
+    transform: scale(1.10);
+    cursor: pointer;
+}
+
+/* partes dos produtos da loja */
+.right {
+    width: 80%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.produto {
+    width: 20%;
+    height: auto;
+    background-color: #ededed;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 0 10px 30px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nomeProduto {
+    width: 100%;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.nomeProduto h3 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.produto h4 {
+    margin-top: 20px;
+    color: grey;
+}
+
+.produto ul {
+    width: 90%;
+    list-style: none;
+    margin-top: 20px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.details {
+    text-decoration: none;
+    border: 2px solid lightseagreen;
+    border-radius: 5px;
+    background-color: lightseagreen;
+    color: white;
+    padding: 5px 10px 5px 10px;
+}
+
+.produto li {
+    transition-duration: 0.4s;
+}
+
+.produto li:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+.addToCart {
+    border: 2px solid #FEC20C;
+    border-radius: 5px;
+    background-color: #FEC20C;
+    padding: 5px;
+}
+
+.addToCart img {
+    vertical-align: middle;
+}
+
