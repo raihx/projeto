@@ -46,6 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_SESSION['token']) && isset($_
                     
                     foreach($userdata as $userdata) { /**este bloco lê os resultados da query executada, em expecífico o campo do email e da password */
                         
+                        $id_user = $userdata['id_utilizador'];
                         $email = $userdata['email'];
                         $enc_password = $userdata['password'];
                         $username = $userdata['nome_utilizador'];
@@ -56,6 +57,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_SESSION['token']) && isset($_
                     
                     if(password_verify($log_password,$enc_password)) { /**compara a password introduzida com a ecriptada guardada na BD, através do método password_verify() */
 
+                        $_SESSION['id'] = $id_user;
                         $_SESSION['email'] = $email;
                         $_SESSION['username'] = $username;
                         $_SESSION['telemovel'] = $telemovel;

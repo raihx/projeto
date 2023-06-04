@@ -2,6 +2,8 @@
 
 require "../priv/fileload.php";
 
+$login_ver = check_login($connection); /**verificação em todas as páginas que é necessário ter o login para aceder */
+
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +12,9 @@ require "../priv/fileload.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="css/catalogo.css">
+    
     <title>Catálogo</title>
 </head>
 <body>
@@ -22,6 +26,16 @@ include('header.php');
 
 <div class="titulo">
     <h1>Eletrodomésticos à sua escolha!</h1>
+    <?php 
+    
+        if(isset($_SESSION['alerta'])) {
+
+            echo $_SESSION['alerta'];
+            unset($_SESSION['alerta']);
+
+        }
+    
+    ?>
 </div>
 
 <div class="container">
@@ -58,7 +72,7 @@ include('header.php');
     </div>
     <div class="right">
         <?php
-            $query = "SELECT id, nome, preco, imagem FROM stock WHERE 1=1 ";
+            $query = "SELECT id_artigo, nome, preco, quantidade, imagem FROM stock WHERE 1=1 ";
 
             // todo: gerar a query a partir de js, e mudar as checkbox para <a> tags
 
@@ -96,7 +110,7 @@ include('header.php');
 
             }
 
-            $query .= 'ORDER BY id DESC';
+            $query .= 'ORDER BY id_artigo DESC';
             $result = mysqli_query($connection,$query);
 
             foreach($result as $artigo) {
@@ -109,13 +123,35 @@ include('header.php');
             </div>
             <h4><?= $artigo['preco'] ?>€</h4>
             <ul>
-                <li>
-                    <a href="produto.php?id_produto=<?= $artigo['id'] ?>" class="details">Detalhes</a>
+                <li class="liDetails">
+                    <a href="produto.php?id_produto=<?= $artigo['id_artigo'] ?>" class="details">Detalhes</a>
                 </li>
                 <li>
-                <a href="#" class="addToCart"><img src="../images/icons/add_carrinho-icon.png" alt="adicionar ao carrinho" width="25px" height="25px"/></a>
+                    <form action="../priv/functions_data.php" method="post">
+                        <input type="hidden" name="id_utilizador" value="<?= $_SESSION['id'] ?>">
+                        <input type="hidden" name="id_artigo" value="<?= $artigo['id_artigo'] ?>">
+                        <input type="hidden" name="quantidade" value="1">
+                        <?php 
+                        
+                            if($artigo['quantidade'] > 0) {
+
+                        ?>
+                                <button type="submit" name="add_carrinho" class="addToCart"><img src="../images/icons/add_carrinho-icon.png" width="25px" height="25px"/></button>
+                        <?php
+
+                            } else {
+
+                        ?>
+                                <button disabled class="disabled"><img src="../images/icons/cross-icon.png" width="25px" height="25px"/></button>  
+                        <?php
+
+                            }
+                        
+                        ?>
+                        
+                    </form>  
                 </li>
-            </ul>      
+            </ul>    
         </div>
 
         <?php

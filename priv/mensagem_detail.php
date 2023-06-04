@@ -29,10 +29,10 @@ require "../priv/fileload.php";
 
                         <?php
                         
-                        if(isset($_GET['id']))
+                        if(isset($_GET['id_mensagem']))
                         {
-                            $msg_id = mysqli_real_escape_string($connection, $_GET['id']);
-                            $query = "SELECT * FROM mensagens WHERE id='$msg_id' ";
+                            $msg_id = mysqli_real_escape_string($connection, $_GET['id_mensagem']);
+                            $query = "SELECT * FROM mensagens WHERE id_mensagem='$msg_id' ";
                             $query_run = mysqli_query($connection, $query);
 
                             if(mysqli_num_rows($query_run) > 0)
@@ -43,7 +43,7 @@ require "../priv/fileload.php";
                                     <div class="mb-3">
                                         <label>ID da mensagem</label>
                                         <p class="form-control">
-                                            <?=$mensagem['id'];?>
+                                            <?=$mensagem['id_mensagem'];?>
                                         </p>
                                     </div>
                                     <div class="mb-3">

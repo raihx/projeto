@@ -21,7 +21,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
   
     <div class="container mt-5">
 
-        <?php include('aviso.php'); ?>
+        <?php include('../priv/aviso.php'); ?>
 
         <div class="row">
             <div class="col-md-12">
@@ -35,10 +35,10 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
 
                         <?php
 
-                        if(isset($_GET['id'])) {
+                        if(isset($_GET['id_artigo'])) {
 
-                            $artigo_id = mysqli_real_escape_string($connection, $_GET['id']);
-                            $query = "SELECT * FROM stock WHERE id='$artigo_id' ";
+                            $id_artigo = mysqli_real_escape_string($connection, $_GET['id_artigo']);
+                            $query = "SELECT * FROM stock WHERE id_artigo='$id_artigo' ";
                             $query_run = mysqli_query($connection, $query);
 
                             if(mysqli_num_rows($query_run) > 0) {
@@ -49,7 +49,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                 
                                 <form action="functions_data.php" method="POST">
                                     
-                                    <input type="hidden" name="artigo_id" value="<?= $artigo_data['id']; ?>">
+                                    <input type="hidden" name="id_artigo" value="<?= $artigo_data['id_artigo']; ?>">
 
                                     <div class="mb-3">
                                         <label>Nome do artigo</label>

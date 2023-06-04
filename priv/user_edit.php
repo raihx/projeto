@@ -21,7 +21,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
   
     <div class="container mt-5">
 
-        <?php include('aviso.php'); ?>
+        <?php include('../priv/aviso.php'); ?>
 
         <div class="row">
             <div class="col-md-12">
@@ -35,10 +35,10 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
 
                         <?php
 
-                        if(isset($_GET['email'])) {
+                        if(isset($_GET['id_utilizador'])) {
 
-                            $user_email = mysqli_real_escape_string($connection, $_GET['email']);
-                            $query = "SELECT * FROM utilizadores WHERE email='$user_email' ";
+                            $user_id = mysqli_real_escape_string($connection, $_GET['id_utilizador']);
+                            $query = "SELECT * FROM utilizadores WHERE id_utilizador='$user_id' ";
                             $query_run = mysqli_query($connection, $query);
 
                             if(mysqli_num_rows($query_run) > 0) {
@@ -49,7 +49,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                 
                                 <form action="functions_data.php" method="POST">
                                     
-                                    <input type="hidden" name="user_email" value="<?= $userdata['email']; ?>">
+                                    <input type="hidden" name="user_id" value="<?= $userdata['id_utilizador']; ?>">
 
                                     <div class="mb-3">
                                         <label>Email</label>
@@ -94,7 +94,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                     </div>
 
                                     <div class="mb-3">
-                                        <button type="submit" name="edit_user" class="btn btn-primary" onclick="getText('edit_user')">Atualizar Utilizador</button>
+                                        <button type="submit" name="edit_user_adm" class="btn btn-primary" onclick="getText('edit_user')">Atualizar Utilizador</button>
                                     </div>
                                 </form>
                                 <?php

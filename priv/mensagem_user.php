@@ -29,39 +29,39 @@ require "../priv/fileload.php";
 
                         <?php
                         
-                        if(isset($_GET['email']))
-                        {
-                            $msg_email = mysqli_real_escape_string($connection, $_GET['email']);
-                            $query = "SELECT * FROM utilizadores WHERE email='$msg_email' ";
+                        if(isset($_GET['id_utilizador'])) {
+
+                            $id_utilizador = mysqli_real_escape_string($connection, $_GET['id_utilizador']);
+                            $query = "SELECT * FROM utilizadores WHERE id_utilizador='$id_utilizador' ";
                             $query_run = mysqli_query($connection, $query);
 
                             if(mysqli_num_rows($query_run) > 0)
                             {
-                                $email_msg = mysqli_fetch_array($query_run);
+                                $user_msg = mysqli_fetch_array($query_run);
                                 ?>
                                 
                                     <div class="mb-3">
                                         <label>Email</label>
                                         <p class="form-control">
-                                            <?=$email_msg['email'];?>
+                                            <?=$user_msg['email'];?>
                                         </p>
                                     </div>
                                     <div class="mb-3">
                                         <label>Nome de utilizador</label>
                                         <p class="form-control">
-                                            <?=$email_msg['nome_utilizador'];?>
+                                            <?=$user_msg['nome_utilizador'];?>
                                         </p>
                                     </div>
                                     <div class="mb-3">
                                         <label>Telemóvel</label>
                                         <p class="form-control">
-                                            <?=$email_msg['telemovel'];?>
+                                            <?=$user_msg['telemovel'];?>
                                         </p>
                                     </div>
                                     <div class="mb-3">
                                         <label>Cargo</label>
                                         <p class="form-control">
-                                            <?=$email_msg['cargo'];?>
+                                            <?=$user_msg['cargo'];?>
                                         </p>
                                     </div>
 

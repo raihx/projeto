@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 * {
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .titulo {
@@ -11,6 +11,63 @@
     margin-bottom: 50px;
 }
 
+
+/* media querys */
+@media screen and (min-width: 1500px) {
+    /* partes dos produtos da loja */    
+    .produto {
+        width: 15% !important;
+    }
+
+}
+
+@media screen and (max-width: 1100px) {
+    /* corpo da loja */
+    .container {
+        flex-direction: column;
+    }
+    
+
+    /* parte dos filtros da loja */
+    .left {
+        width: 100% !important;
+    }
+
+
+    /* partes dos produtos da loja */
+    .right {
+        width: 100% !important;
+    }
+
+    .produto {
+        width: 30% !important;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+    /* corpo da loja */
+    .container {
+        flex-direction: column;
+    }
+
+
+    /* parte dos filtros da loja */
+    .left {
+        width: 100% !important;
+    }
+
+
+    /* partes dos produtos da loja */
+    .right {
+        width: 100% !important;
+    }
+    
+    .produto {
+        width: 40% !important;
+    }
+
+}
 
 /* corpo da loja */
 .container {
@@ -96,36 +153,50 @@
     list-style: none;
     margin-top: 20px; 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
 .details {
     text-decoration: none;
-    border: 2px solid lightseagreen;
+    border: 5px solid lightseagreen;
     border-radius: 5px;
     background-color: lightseagreen;
     color: white;
     padding: 5px 10px 5px 10px;
+    margin-right: 10px;
 }
 
-.produto li {
-    transition-duration: 0.4s;
+.liDetails {
+    transition-duration: 0.3s;
 }
 
-.produto li:hover {
+.liDetails:hover, .addToCart:hover {
     cursor: pointer;
     transform: scale(1.15);
 }
 
 .addToCart {
-    border: 2px solid #FEC20C;
+    border: 1px solid #FEC20C;
     border-radius: 5px;
     background-color: #FEC20C;
     padding: 5px;
+    transition-duration: 0.3s;
 }
 
 .addToCart img {
     vertical-align: middle;
 }
 
+.disabled {
+    border: 1px solid #fc3030 !important;
+    border-radius: 5px;
+    background-color: #fc3030 !important;
+    padding: 5px;
+    transition-duration: 0.3s; 
+}
+
+.disabled:hover {
+    cursor: not-allowed;
+    transform: none !important;
+}

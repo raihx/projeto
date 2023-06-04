@@ -18,7 +18,7 @@ require "../priv/fileload.php";
     <div class="container mt-5">
     <?php 
         
-    include('aviso.php'); 
+    include('../priv/aviso.php'); 
         
     ?>
         <div class="row">

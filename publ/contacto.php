@@ -3,13 +3,14 @@
 require "../priv/fileload.php";
 
 $login_ver = check_login($connection); /**verificação em todas as páginas que é necessário ter o login para aceder */
+
 $error = "";
 $msg_email = "";
 $texto_msg = "";
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {
 
-    
+    $id_utilizador = $_SESSION['id'];
     $msg_email = $_SESSION['email'];
     $met_resposta = $_POST['met_resposta'];
     $texto_msg = esc($_POST['texto_msg']);
@@ -31,7 +32,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if($error == "") {
 
-        $m_query = "INSERT INTO mensagens(email,metodo_resposta,mensagem,data) VALUE('$msg_email','$met_resposta','$texto_msg','$data_msg')";
+        $m_query = "INSERT INTO mensagens(id_utilizador,email,metodo_resposta,mensagem,data) VALUE('$id_utilizador','$msg_email','$met_resposta','$texto_msg','$data_msg')";
         $result = mysqli_query($connection,$m_query);
 
         if($result) {

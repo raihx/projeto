@@ -1,48 +1,141 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins";
+    font-family: 'Roboto', sans-serif;
     font-weight: bold;
 }
-header{
-    width:100%;
-    height:100px;
+
+header {
+    width: 100%;
+    padding-left: 20px;
+    height: 100%;
     background: #d7d7d7;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
-.logo{
+
+
+/* parte do logo no header */
+.logo {
     text-decoration: none;
     color: #9b9696;
     font-size: 35px;
-    margin-left: 40px;
+    padding: 15px 0;
 }
-.logo:hover{
+
+.logo:hover {
     color: #daa520;
-    transition: .4s ease-in;
+    transition: .3s ease-in;
 }
-header ul, header li{
-    display: inline-block;
-    margin-right: 30px;
+
+
+/* parte do menu principal do header */
+.menu {
+    width: 40%;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
 }
-header ul, header li, header a{
-    text-decoration: none;
-    color: #9b9696;;
+
+.menu li {
+    transition-duration: 0.3s;
+}
+
+.menu li:hover {
+    transform: scale(1.30);
+}
+
+.menu a {
     font-size: 20px;
-}
-header ul, header li, header a:hover{
-    color: #000000;
-    transition: .5s ease-in;
-}
-.button{
-    text-decoration: none;
     color: #9b9696;
-    margin-right: 40px;
+    text-decoration: none;
+    transition-duration: 0.3s;
 }
-.button:hover{
-    color: #daa520;
-    transition: 1s ease-in;
+
+.menu a:hover {
+    color: black;
+}
+
+
+/* parte da conta com o dropdown */
+.dropdown {
+    display: block;
+    border-left: 1px solid #9b9696;
+    transition-duration: 0.3s;
+}
+
+.conta {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px 40px 20px 40px;
+}
+
+.conta a {
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.dropdown:hover {
+    background-color: #9b9696;
+    border: none;
+}
+
+
+/* parte do dropdown */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    width: fit-content;
+    background-color: #d7d7d7;
+    border: 1px solid #9b9696;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    width: 100%;
+    padding: 20px 25px;
+    color: black;
+    transition-duration: 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background-color: white;
+}
+
+.carrinho {
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+.carrinho:hover {
+    background-color: orangered !important;
+    color: white;
+}
+
+.carrinho img, .logout img{
+    vertical-align: bottom;
+    margin-right: 10px;
+    transition-duration: 0.3s;
+}
+
+.carrinho:hover img, .logout:hover img {
+    filter: invert(100%);
+}
+
+.logout:hover {
+    background-color: #0059ff !important;
+    color: white;
+}
+
+
+/* ativa o dropdown */
+.dropdown:hover .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
 }

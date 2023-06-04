@@ -21,11 +21,11 @@ function get_token($length) {
 
 function check_login($connection) { /**esta função vai verificar em todas as páginas se o utilizador está com o login feito */
 
-    if(isset($_SESSION['email'])) {
+    if(isset($_SESSION['id'])) {
     
-        $check_email = $_SESSION['email'];
+        $check_id = $_SESSION['id'];
 
-        $c_query = "SELECT * FROM utilizadores WHERE email = '$check_email' LIMIT 1";
+        $c_query = "SELECT * FROM utilizadores WHERE id_utilizador = '$check_id' LIMIT 1";
         $result = mysqli_query($connection,$c_query);
 
         if($result) {

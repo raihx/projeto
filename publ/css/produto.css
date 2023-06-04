@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 
@@ -101,6 +101,12 @@
     color: #fc3030;
 }
 
+.stockHalf {
+    color: #ffa500;
+    margin-right: 30px;
+    padding: 5px;
+}
+
 .stockTrue {
     color: #2C7C3C;
     margin-right: 30px;
@@ -118,11 +124,31 @@
     background-color: #FEC20C;
     border: 2px solid #FEC20C;
     border-radius: 5px;
+    transition-duration: 0.4s;
+}
+
+.addCarrinho button:hover {
+    cursor: pointer;
+    transform: scale(1.15);
 }
 
 .addCarrinho button img {
     vertical-align: middle;
     margin-left: 10px;
+}
+
+.disabled {
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #bebebe !important;
+    border: 2px solid #bebebe !important;
+    border-radius: 5px;
+    transition-duration: 0.4s;
+}
+
+.disabled:hover {
+    cursor: not-allowed !important;
+    transform: none !important;
 }
 
 .descricao {

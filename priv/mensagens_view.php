@@ -43,7 +43,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
 
         <?php 
         
-            include('aviso.php'); 
+            include('../priv/aviso.php'); 
         
         ?>
 
@@ -109,11 +109,11 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                             ?>
                                                     <td>
                                                     
-                                                        <a href="mensagem_detail.php?id=<?= $mensagem['id']; ?>" class="btn btn-info btn-sm">Detalhes</a>
-                                                        <a href="mensagem_user.php?email=<?php echo $mensagem['email']; ?>" class="btn btn-success btn-sm">Utilizador</a>
+                                                        <a href="mensagem_detail.php?id_mensagem=<?php echo $mensagem['id_mensagem']; ?>" class="btn btn-info btn-sm">Detalhes</a>
+                                                        <a href="mensagem_user.php?id_utilizador=<?php echo $mensagem['id_utilizador']; ?>" class="btn btn-success btn-sm">Utilizador</a>
                                                         
                                                         <form action="functions_data.php" method="POST" class="d-inline">
-                                                            <button type="submit" name="mark_mensagem" value="<?php echo $mensagem['id']; ?>" class="btn btn-danger btn-sm" onclick="getText('mark_mensagem')">Respondida</button>
+                                                            <button type="submit" name="mark_mensagem" value="<?php echo $mensagem['id_mensagem']; ?>" class="btn btn-danger btn-sm" onclick="getText('mark_mensagem')">Respondida</button>
                                                         </form>
 
                                                     </td>
@@ -124,11 +124,11 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                             ?>
                                                     <td>
                                                     
-                                                        <a href="mensagem_detail.php?id=<?= $mensagem['id']; ?>" class="btn btn-info btn-sm">Detalhes</a>
-                                                        <a href="mensagem_user.php?email=<?php echo $mensagem['email']; ?>" class="btn btn-success btn-sm">Utilizador</a>
+                                                        <a href="mensagem_detail.php?id_mensagem=<?php echo $mensagem['id_mensagem']; ?>" class="btn btn-info btn-sm">Detalhes</a>
+                                                        <a href="mensagem_user.php?id_utilizador=<?php echo $mensagem['id_utilizador']; ?>" class="btn btn-success btn-sm">Utilizador</a>
                                                         
                                                         <form action="functions_data.php" method="POST" class="d-inline">
-                                                            <button type="submit" name="delete_mensagem" value="<?php echo $mensagem['id']; ?>" class="btn btn-danger btn-sm" onclick="getText('delete_mensagem')">Eliminar</button>
+                                                            <button type="submit" name="delete_mensagem" value="<?php echo $mensagem['id_mensagem']; ?>" class="btn btn-danger btn-sm" onclick="getText('delete_mensagem')">Eliminar</button>
                                                         </form>
 
                                                     </td>

@@ -23,7 +23,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
 
         <?php 
         
-            include('aviso.php'); 
+            include('../priv/aviso.php'); 
         
         ?>
 
@@ -55,7 +55,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                     if($result) {
                                         
                                         foreach($result as $user) {
-                                            
+                                
                                 ?>
                                         <tr>
                                             <td><?php echo $user['email']; ?></td>
@@ -64,13 +64,13 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                             <td><?php echo $user['cargo']; ?></td>
                                             <td>
                                                 <?php
-                                                if($user['email'] != $_SESSION['email']) {
+                                                if($user['id_utilizador'] != $_SESSION['id']) {
                                                 ?>
                                                     
-                                                    <a href="user_edit.php?email=<?php echo $user['email']; ?>" class="btn btn-success btn-sm">Editar</a>
+                                                    <a href="user_edit.php?id_utilizador=<?php echo $user['id_utilizador']; ?>" class="btn btn-success btn-sm">Editar</a>
                                                 
                                                     <form action="functions_data.php" method="POST" class="d-inline">
-                                                        <button type="submit" name="delete_user" value="<?php echo $user['email']; ?>" class="btn btn-danger btn-sm" onclick="getText('delete_user')">Eliminar</button>
+                                                        <button type="submit" name="delete_user" value="<?php echo $user['id_utilizador']; ?>" class="btn btn-danger btn-sm" onclick="getText('delete_user')">Eliminar</button>
                                                     </form>
 
                                                 <?php

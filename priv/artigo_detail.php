@@ -29,10 +29,10 @@ require "../priv/fileload.php";
 
                         <?php
                         
-                        if(isset($_GET['id'])) {
+                        if(isset($_GET['id_artigo'])) {
 
-                            $artigo_id = mysqli_real_escape_string($connection, $_GET['id']);
-                            $query = "SELECT * FROM stock WHERE id='$artigo_id' ";
+                            $id_artigo = mysqli_real_escape_string($connection, $_GET['id_artigo']);
+                            $query = "SELECT * FROM stock WHERE id_artigo='$id_artigo' ";
                             $query_run = mysqli_query($connection, $query);
 
                             if(mysqli_num_rows($query_run) > 0) {
@@ -44,7 +44,7 @@ require "../priv/fileload.php";
                                     <div class="mb-3">
                                         <label>ID do artigo</label>
                                         <p class="form-control">
-                                            <?=$artigo['id'];?>
+                                            <?=$artigo['id_artigo'];?>
                                         </p>
                                     </div>
                                     <div class="mb-3">

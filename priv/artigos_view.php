@@ -42,7 +42,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
         <a href="admindex.php" class="btn btn-primary float-end" style="margin-left: 20px;">VOLTAR</a>
     <?php 
         
-        include('aviso.php'); 
+        include('../priv/aviso.php'); 
         
     ?>
         <div class="row">
@@ -88,11 +88,11 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                             <td><img src="../images/produtos/<?=$artigo['imagem']?>" width="100px" height="100px"/></td>
                                             <td>
                                             
-                                            <a href="artigo_detail.php?id=<?= $artigo['id']; ?>" class="btn btn-info btn-sm">Detalhes</a>
-                                                <a href="artigo_edit.php?id=<?php echo $artigo['id']; ?>" class="btn btn-success btn-sm">Editar</a>
+                                            <a href="artigo_detail.php?id_artigo=<?= $artigo['id_artigo']; ?>" class="btn btn-info btn-sm">Detalhes</a>
+                                                <a href="artigo_edit.php?id_artigo=<?php echo $artigo['id_artigo']; ?>" class="btn btn-success btn-sm">Editar</a>
                                                 
                                                 <form action="functions_data.php" method="POST" class="d-inline">
-                                                    <button type="submit" name="delete_artigo" value="<?php echo $artigo['id']; ?>" class="btn btn-danger btn-sm" onclick="getText('delete_artigo')">Eliminar</button>
+                                                    <button type="submit" name="delete_artigo" value="<?php echo $artigo['id_artigo']; ?>" class="btn btn-danger btn-sm" onclick="getText('delete_artigo')">Eliminar</button>
                                                 </form>
 
                                             </td>

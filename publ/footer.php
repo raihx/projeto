@@ -9,33 +9,29 @@
     <title>Footer</title>
 </head>
 <body>
-    <section class="footer">
-        <footer>
-            <div class="redessociais">
-                <a href="https://www.instagram.com/parcesul_unipessoal_lda/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.instagram.com/luismmvalente/" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.facebook.com/Parcesul/" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://wa.me/931148405" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            </div>
-            <ul class="lista">
-                <li>
+    <footer class="footer">
+        <div class="redessociais">
+            <a href="https://www.instagram.com/parcesul_unipessoal_lda/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/luismmvalente/" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com/Parcesul/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/931148405" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <ul class="lista">
+            <li>
                 <a href="#">Serviços</a> 
-                </li>
-                <li>
+            </li>
+            <li>
                 <a href="#">Sobre nós</a> 
-                </li>
-                <li>
+            </li>
+            <li>
                 <a href="#">Termos</a> 
-                </li>
-                <li>
+            </li>
+            <li>
                 <a href="#">Política de privacidade</a> 
-                </li>
-            </ul>
-            <p class="copyright">
-                Parcesul © 2023
-            </p>
-        </footer>
-    </section>
+            </li>
+        </ul>
+        <p class="copyright"> Parcesul © 2023 </p>
+    </footer>
 </body>
 </html>
 
