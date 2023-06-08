@@ -50,7 +50,7 @@
 
 /* parte da navegação na página */
 .left {
-    width: 30%;
+    width: 25%;
     padding: 0 25px 25px 25px;
     display: flex;
     flex-direction: column;
@@ -59,11 +59,66 @@
 
 .left a {
     text-decoration: none;
+    color: #777;
 }
 
 /* parte dos detalhes da conta */
 .right {
-    width: 70%;
+    width: 75%;
     height: fit-content;
     padding: 20px;
+}
+
+.alterarDetalhes {
+    border-bottom: 1px solid #777;
+}
+
+.alterarDetalhes h3 {
+    color: #777;
+}
+
+.alterarDetalhes form {
+    width: 100%;
+    padding: 20px;
+}
+
+.alterarDetalhes div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.alterarDetalhes fieldset {
+    border: none;
+    padding-bottom: 30px;
+}
+
+.alterarDetalhes input {
+    width: 350px;
+    padding: 15px;
+    font-size: 15px;
+    margin-top: 15px;
+    border: 1px solid #c7c7c7;
+    border-radius: 20px;
+}
+
+.alterarDetalhes button {
+    width: 350px;
+    padding: 15px;
+    margin-top: -5px;
+    color: white;
+    background-color: #2eb82e;
+    border: 2px solid #2eb82e;
+    border-radius: 20px;
+    transition-duration: 0.3s;
+}
+
+.alterarDetalhes button img {
+    vertical-align: middle;
+    margin-right: 25px;
+}
+
+.alterarDetalhes button:hover {
+    cursor: pointer;
+    transform: scale(1.15);
 }

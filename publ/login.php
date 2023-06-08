@@ -60,6 +60,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" && isset($_SESSION['token']) && isset($_
                         $_SESSION['id'] = $id_user;
                         $_SESSION['email'] = $email;
                         $_SESSION['username'] = $username;
+                        $_SESSION['password'] = $log_password;
                         $_SESSION['telemovel'] = $telemovel;
                         $_SESSION['cargo'] = $cargo;
 

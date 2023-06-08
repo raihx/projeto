@@ -31,45 +31,77 @@ if(isset($_POST['edit_user_adm'])) {
 /** atualizar pelo utilizador */
 if(isset($_POST['edit_user_uti'])) {
 
+    $error = " ";
     $id_utilizador = mysqli_real_escape_string($connection, $_POST['id_utilizador']);
     $email = mysqli_real_escape_string($connection, $_POST['email']);
     $nome = mysqli_real_escape_string($connection, $_POST['nome_utilizador']);
     $telemovel = mysqli_real_escape_string($connection, $_POST['telemovel']);
 
-    $query = "SELECT * FROM utilizadores WHERE email='$email'";
-    $query_run = mysqli_query($connection, $query);
-    $check_email = mysqli_fetch_all($query_run);
-    
-    if($check_email != NULL && $check_email == $_SESSION['email']) {
+    if(!preg_match("/^[\w\-\.]+@[\w\-]+\.[\w\-]{2,3}$/",$email)) { /**o método preg_match() vai verificar os caracteres introduzidos no campo email*/
         
-        $_SESSION['alerta'] = "O email introduzido já está a ser utilizado";
+        $error = $_SESSION['alerta'] = "Formato de email inválido";
         header("Location: ". $_SERVER['HTTP_REFERER']);
         exit(0);
+    
+    }
 
-    } else {
+    if(!preg_match("/^[A-Z a-z À-Ö Ø-ö ø-ÿ]+$/",$nome)) { /**verificação dos caracteres introduzidos no campo nome, permitindo todas as letras e acentuações no alfabeto inglês */
         
-        $query = "UPDATE utilizadores SET email='$email', nome_utilizador='$nome', telemovel='$telemovel' WHERE id_utilizador='$id_utilizador' ";
-        $query_run = mysqli_query($connection, $query);
+        $error = $_SESSION['alerta'] = "Introduza um nome com caracteres adequados"; 
+        header("Location: ". $_SERVER['HTTP_REFERER']);   
+        exit(0); 
+    
+    }
 
-        if($query_run) {
+    if(!preg_match("/^[0-9]{9}$/",$telemovel)) { /**verificação dos caracteres introduzidos para serem apenas números de 0 a 9 */
 
-            $_SESSION['alerta'] = "Dados de utilizador atualizados com sucesso";
-            header("Location: ". $_SERVER['HTTP_REFERER']);
-            exit(0);
-            
-        } else {
-
-            $_SESSION['alera'] = "Dados de utilizador não atualizados";
-            header("Location: ". $_SERVER['HTTP_REFERER']);
-            exit(0);
-
-        }
-
+        $error = $_SESSION['alerta'] = "Formato de número de telemóvel inválido";
+        header("Location: ". $_SERVER['HTTP_REFERER']);
+        exit(0);
+    
     }
     
+    if($error = " ") {
+
+        $query = "SELECT * FROM utilizadores WHERE email='$email'";
+        $query_run = mysqli_query($connection, $query);
+        $check_email = mysqli_fetch_all($query_run);
+
+        if($check_email != NULL && $check_email == $_SESSION['email']) {
+            
+            $_SESSION['alerta'] = "O email introduzido já está a ser utilizado";
+            header("Location: ". $_SERVER['HTTP_REFERER']);
+            exit(0);
+
+        } else {
+            
+            $query = "UPDATE utilizadores SET email='$email', nome_utilizador='$nome', telemovel='$telemovel' WHERE id_utilizador='$id_utilizador' ";
+            $query_run = mysqli_query($connection, $query);
+
+            if($query_run) {
+
+                $_SESSION['email'] = $email;
+                $_SESSION['username'] = $nome;
+                $_SESSION['telemovel'] = $telemovel;
+                $_SESSION['alerta'] = "Dados de utilizador atualizados com sucesso";
+                header("Location: ". $_SERVER['HTTP_REFERER']);
+                exit(0);
+                
+            } else {
+
+                $_SESSION['alera'] = "Dados de utilizador não atualizados";
+                header("Location: ". $_SERVER['HTTP_REFERER']);
+                exit(0);
+
+            }
+
+        }
+    
+    }
+
 }
 
-/* eliminar */
+/** eliminar */
 if(isset($_POST['delete_user'])) {
     
     $user_id = mysqli_real_escape_string($connection, $_POST['delete_user']);
@@ -87,6 +119,30 @@ if(isset($_POST['delete_user'])) {
 
         $_SESSION['aviso'] = "Utilizador não apagado";
         header("Location: users_view.php");
+        exit(0);
+
+    }
+
+}
+
+/** eliminar pelo utilizador */
+if(isset($_POST['eliminar_conta'])) {
+    
+    $user_id = mysqli_real_escape_string($connection, $_POST['eliminar_conta']);
+
+    $query = "DELETE FROM utilizadores WHERE id_utilizador='$user_id'";
+    $query_run = mysqli_query($connection,$query);
+
+    if($query_run) {
+
+        $_SESSION['alerta'] = "Conta de utilizador eliminada";
+        header("Location: ../publ/login.php");
+        exit(0);
+
+    } else {
+
+        $_SESSION['alerta'] = "Conta de utilizador não eliminada";
+        header("Location: ../publ/login.php");
         exit(0);
 
     }

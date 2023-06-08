@@ -34,6 +34,34 @@ if(isset($_GET['id_utilizador'])) {
     <title><?= $_SESSION['username'] ?></title>
 
     <link rel="stylesheet" href="css/utilizador.css">
+
+    <script>      
+        function confirmarElimConta(password) {
+            var confirmar = confirm("Tem a certeza que deseja eliminar a sua conta? Esta ação será irreversível!");
+
+            if(!confirmar) {
+
+                event.preventDefault();
+
+            } else {
+
+                var passConfirm = prompt("Para confirmar introduza a sua password");
+
+                if(passConfirm != password) {
+
+                    event.preventDefault();
+                    alert("Password incorreta");
+
+                } else {
+
+                    alert("Conta eliminada com sucesso!");
+
+                }
+            
+            }
+
+        }
+    </script>
 </head>
 <body>
     <?php
@@ -69,25 +97,54 @@ if(isset($_GET['id_utilizador'])) {
                 <a href="#">Eliminar conta</a>
             </div>
             <div class="right">
-                <form action="../priv/functions_data.php" method="post">
-                    <input type="hidden" name="id_utilizador" value="<?= $detalhesUti['id_utilizador'] ?>">
+                <div class="alterarDetalhes">
+                    <h3>Alterar detalhes da conta:</h3>
                     <br>
-                    <input type="email" name="email" value="<?= $detalhesUti['email'] ?>">
-                    <input type="text" name="nome_utilizador" value="<?= $detalhesUti['nome_utilizador'] ?>">
-                    <br>
-                    <input type="number" name="telemovel" value="<?= $detalhesUti['telemovel'] ?>">
-                    <button type="submit" name="edit_user_uti"><img src="../images/icons/edit-icon.png" width="25" height="25">Guardar alterações</button>
-                    <?php 
+                    <form action="../priv/functions_data.php" method="post">
+                        <input type="hidden" name="id_utilizador" value="<?= $detalhesUti['id_utilizador'] ?>">
+                        <div>
+                            <fieldset>
+                                <label>Email:</label>
+                                <br>
+                                <input type="email" name="email" value="<?= $detalhesUti['email'] ?>">
+                            </fieldset>
+                            <fieldset>
+                                <label>Nome de utilizador:</label>
+                                <br>
+                                <input type="text" name="nome_utilizador" value="<?= $detalhesUti['nome_utilizador'] ?>">
+                            </fieldset>
+                        </div>
+                        <div>
+                            <fieldset>
+                                <label>Nº de telemóvel:</label>
+                                <br>
+                                <input type="text" name="telemovel" value="<?= $detalhesUti['telemovel'] ?>">
+                            </fieldset>
+                            <button type="submit" name="edit_user_uti"><img src="../images/icons/edit-icon.png" width="20" height="20">Guardar alterações</button>
+                        </div>
+                        
+                        <?php 
+            
+                            if(isset($_SESSION['alerta'])) {
+
+                                echo $_SESSION['alerta'];
+                                unset($_SESSION['alerta']);
+
+                            }
+                        
+                        ?>
+                    </form>
+                </div>
         
-                        if(isset($_SESSION['alerta'])) {
+                <div class="alterarPass">
 
-                            echo $_SESSION['alerta'];
-                            unset($_SESSION['alerta']);
+                </div>
 
-                        }
-                    
-                    ?>
-                </form>
+                <div class="eliminarConta">
+                    <form action="../priv/functions_data.php" method="POST">
+                        <button type="submit" name="eliminar_conta" value="<?= $_SESSION['id'] ?>" onclick="confirmarElimConta(<?= $_SESSION['password'] ?>)">Eliminar conta</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

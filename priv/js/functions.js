@@ -55,4 +55,3 @@ function alerta(text) {
     alert(text);
 
 }
-
