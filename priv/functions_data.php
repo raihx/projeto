@@ -29,9 +29,10 @@ if(isset($_POST['edit_user_adm'])) {
 }
 
 /** atualizar pelo utilizador */
+/** email, nome e nº */
 if(isset($_POST['edit_user_uti'])) {
 
-    $error = " ";
+    $error = "";
     $id_utilizador = mysqli_real_escape_string($connection, $_POST['id_utilizador']);
     $email = mysqli_real_escape_string($connection, $_POST['email']);
     $nome = mysqli_real_escape_string($connection, $_POST['nome_utilizador']);
@@ -61,7 +62,7 @@ if(isset($_POST['edit_user_uti'])) {
     
     }
     
-    if($error = " ") {
+    if($error == "") {
 
         $query = "SELECT * FROM utilizadores WHERE email='$email'";
         $query_run = mysqli_query($connection, $query);
@@ -94,6 +95,50 @@ if(isset($_POST['edit_user_uti'])) {
                 exit(0);
 
             }
+
+        }
+    
+    }
+
+}
+
+/** password */
+if(isset($_POST['edit_password'])) {
+
+    $error = "";
+    $id_utilizador = mysqli_real_escape_string($connection, $_POST['id_utilizador']);
+    $password = mysqli_real_escape_string($connection, $_POST['password']);
+
+    if(!preg_match("/^[^\'\"]{6,20}$/",$password)) { /**verificação dos caracteres introduzidos para evitar sql injections */
+        
+        if(strlen($password)<6 || strlen($password)>20) {
+
+            $error = $_SESSION['alerta'] = "A sua password tem de ter entre 6 e 20 caracteres";
+
+        } else { /**aviso do tipo de erro ao introduzir a password */
+            
+            $error = $_SESSION['alerta'] = "Introduza uma password válida";
+            
+        }
+    }
+    
+    if($error == "") {
+
+        $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
+        $query = "UPDATE utilizadores SET password='$passwordHashed' WHERE id_utilizador='$id_utilizador' ";
+        $query_run = mysqli_query($connection, $query);
+
+        if($query_run) {
+
+            $_SESSION['password'] = $password;
+            header("Location: ". $_SERVER['HTTP_REFERER']);
+            exit(0);
+            
+        } else {
+
+            $_SESSION['alera'] = "Dados de utilizador não atualizados";
+            header("Location: ". $_SERVER['HTTP_REFERER']);
+            exit(0);
 
         }
     
@@ -343,6 +388,8 @@ if(isset($_POST['add_carrinho'])) {
 
         if($query_run) {
             
+            $query = "UPDATE stock SET quantidade=quantidade - '$quantidade' WHERE id_artigo='$id_artigo'";
+            mysqli_query($connection,$query);
             $_SESSION['alerta'] = "Item adicionado ao carrinho";
             header("Location: ". $_SERVER['HTTP_REFERER']);
             exit(0);
@@ -362,6 +409,8 @@ if(isset($_POST['add_carrinho'])) {
 
         if($query_run) {
             
+            $query = "UPDATE stock SET quantidade=quantidade - '$quantidade' WHERE id_artigo='$id_artigo'";
+            mysqli_query($connection,$query);
             $_SESSION['alerta'] = "Item adicionado ao carrinho";
             header("Location: ". $_SERVER['HTTP_REFERER']);
             exit(0);
@@ -396,13 +445,15 @@ if(isset($_POST['remove_carrinho'])) {
 
         if($query_run) {
             
-            $_SESSION['alerta'] = "Item adicionado ao carrinho";
+            $query = "UPDATE stock SET quantidade=quantidade + '$quantidade' WHERE id_artigo='$id_artigo'";
+            mysqli_query($connection,$query);
+            $_SESSION['alerta'] = "Item removido do carrinho";
             header("Location: ". $_SERVER['HTTP_REFERER']);
             exit(0);
             
         } else {
 
-            $_SESSION['alerta'] = "Erro ao adicionar item ao carrinho";
+            $_SESSION['alerta'] = "Erro ao remover item do carrinho";
             header("Location: ". $_SERVER['HTTP_REFERER']);
             exit(0);
 
@@ -415,6 +466,8 @@ if(isset($_POST['remove_carrinho'])) {
 
         if($query_run) {
             
+            $query = "UPDATE stock SET quantidade=quantidade + '$quantidade' WHERE id_artigo='$id_artigo'";
+            mysqli_query($connection,$query);
             $_SESSION['alerta'] = "Item removido do carrinho";
             header("Location: ". $_SERVER['HTTP_REFERER']);
             exit(0);
@@ -456,5 +509,6 @@ if(isset($_POST['eliminar_carrinho'])) {
 
 }
 
+/** finalizar compra*/
 
 ?>

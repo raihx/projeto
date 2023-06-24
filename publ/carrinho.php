@@ -57,10 +57,10 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                         
                         $id_utilizador = $_SESSION['id'];
                         $query = "SELECT stock.id_artigo, stock.imagem, stock.nome, carrinho.quantidade, SUM(carrinho.quantidade) * stock.preco AS preco 
-                                FROM carrinho, stock 
-                                WHERE carrinho.id_artigo = stock.id_artigo 
-                                AND carrinho.id_utilizador = '$id_utilizador'
-                                GROUP BY stock.nome";
+                                  FROM carrinho, stock 
+                                  WHERE carrinho.id_artigo = stock.id_artigo 
+                                  AND carrinho.id_utilizador = '$id_utilizador'
+                                  GROUP BY stock.id_artigo";
                         $result = mysqli_query($connection,$query);
 
                         if(mysqli_num_rows($result) == 0) {
@@ -70,25 +70,55 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                         } else {
 
                             foreach($result as $produto) {
-
+                                
+                                $id_artigo = $produto['id_artigo']
                     ?>
                                 <tr>
-                                    <td><img src="../images/produtos/<?= $produto['imagem'] ?>" width="180px" height="180px"/></td>
+                                    <td><img src="../images/produtos/<?= $produto['imagem'] ?>" width="50px" height="50px"/></td>
                                     <td><?= $produto['nome']; ?></td>
                                     <form action="../priv/functions_data.php" method="post">
                                         <input type="hidden" name="id_utilizador" value="<?= $_SESSION['id'] ?>">
                                         <input type="hidden" name="id_artigo" value="<?= $produto['id_artigo'] ?>">
                                         <input type="hidden" name="quantidade" value="1"> 
                                     <td>
-                                        <button type="submit" name="remove_carrinho"><img src="../images/icons/minus-icon.png" width="25px" height="25px"/></button>
+                                        <button type="submit" name="remove_carrinho"><img src="../images/icons/minus-icon.png" width="20px" height="20px"/></button>
                                     </td>
                                     <td><?= $produto['quantidade']; ?></td>
-                                    <td>
-                                        <button type="submit" name="add_carrinho"><img src="../images/icons/add-icon.png" width="25px" height="25px"/></button>
-                                    </td>
+                                    <?php 
+                                    
+                                        $query = "SELECT * FROM stock WHERE id_artigo='$id_artigo'";
+                                        $query_run = mysqli_query($connection,$query);
+
+                                        foreach($query_run as $qntCheck) {
+                                            
+                                            $qnt = $qntCheck['quantidade'];
+
+                                        }
+
+                                        if($qnt > 0) {
+                                    
+                                    ?>
+                                            <td>
+                                                <button type="submit" name="add_carrinho"><img src="../images/icons/add-icon.png" width="20px" height="20px"/></button>
+                                            </td>
+                                    <?php
+
+                                        } else {
+
+                                    ?>
+
+                                            <td>
+                                                <button disabled class="addDisabled"><img src="../images/icons/add-icon.png" width="20px" height="20px"/></button>
+                                            </td>
+
+                                    <?php
+
+                                        }
+
+                                    ?>
                                     <td><?= $produto['preco']."€"; ?></td> 
                                     <td>
-                                        <button type="submit" name="eliminar_carrinho"><img src="../images/icons/cross-icon.png" width="25px" height="25px"/></button>
+                                        <button type="submit" name="eliminar_carrinho"><img src="../images/icons/cross-icon.png" width="20px" height="20px"/></button>
                                     </td>
                                     </form>
                                 </tr>
@@ -105,8 +135,9 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
             <div class="right">
                 <h1>Preço Total:</h1>
                 <?php 
-            
-                    $query = "SELECT SUM(stock.preco * carrinho.quantidade) AS precoTotal FROM stock, carrinho WHERE stock.id_artigo = carrinho.id_artigo AND carrinho.id_utilizador";
+
+                    $id_utilizador = $_SESSION['id'];
+                    $query = "SELECT SUM(stock.preco * carrinho.quantidade) AS precoTotal FROM stock, carrinho WHERE stock.id_artigo = carrinho.id_artigo AND carrinho.id_utilizador='$id_utilizador'";
                     $result = mysqli_query($connection,$query);
 
                     if(!$result) {
@@ -122,7 +153,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                 ?>
                             <h2 class="precoTotal">0€</h2>
                             <a href="#">
-                                <button class="compraDisabled"><img src="../images/icons/compra-icon.png" width="30" height="30"> Finalizar compra</button>
+                                <button class="compraDisabled"><img src="../images/icons/compra-icon.png" width="30" height="30">Finalizar compra</button>
                             </a>
                 <?php
 
@@ -130,9 +161,9 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
 
                 ?>
                         <h2 class="precoTotal"><?= $precoTotal['precoTotal']."€" ?></h2>
-                        <a href="#">
-                            <button class="compraBtn"><img src="../images/icons/compra-icon.png" width="30" height="30"> Finalizar compra</button>
-                        </a>
+                        <form action="../priv/functions_data.php" method="POST">
+                            <button class="compraBtn" name="checkout" value="<?= $_SESSION['id'] ?>"><img src="../images/icons/compra-icon.png" width="30" height="30">Checkout</button>
+                        </form>
                 <?php
 
                         }

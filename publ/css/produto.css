@@ -27,7 +27,7 @@
     color: #fff;
     background-color: #0059ff;
     border: 2px solid #0059ff;
-    border-radius: 5px;
+    border-radius: 2px;
     transition-duration: 0.4s;
 }
 
@@ -46,6 +46,7 @@
 .infoProduto {
     display: flex;
     height: fit-content;
+    padding-bottom: 50px;
 }
 
 
@@ -62,7 +63,7 @@
 /* lado direito do conteúdo */
 .right {
     width: 60%;
-    padding: 50px 90px 50px 90px;
+    padding: 90px;
 }
 
 .right ul {
@@ -78,7 +79,7 @@
     padding: 15px 25px;
     background-color: orangered;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 
 .marca {
@@ -123,7 +124,7 @@
     color: #fff;
     background-color: #FEC20C;
     border: 2px solid #FEC20C;
-    border-radius: 5px;
+    border-radius: 2px;
     transition-duration: 0.4s;
 }
 
@@ -142,7 +143,7 @@
     color: #fff;
     background-color: #bebebe !important;
     border: 2px solid #bebebe !important;
-    border-radius: 5px;
+    border-radius: 2px;
     transition-duration: 0.4s;
 }
 

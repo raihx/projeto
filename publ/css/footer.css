@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --lighter-grey: #ececec;
+    --light-grey: #d7d7d7;
+    --dark-grey: #9b9696;
+    --orange: #ee4508;
+    --blue: #0059ff;
+    --red: #fc3030;
+    --green: #2eb82e;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -17,19 +29,19 @@ body {
     margin-top: auto;
     width: 100%;
     padding: 40px 0;
-    background-color: #d7d7d7;
+    background-color: var(--orange);
 }
 
 .footer .redessociais {
     text-align: center;
     padding-bottom: 25px;
-    color: black;
+    color: var(--white);
 }
 
 .footer .redessociais a {
     font-size: 24px;
     color: inherit;
-    border: 1px solid black;
+    border: 1px solid var(--white);
     width: 40px;
     height: 40px;
     line-height: 38px;
@@ -37,15 +49,15 @@ body {
     text-align: center;
     border-radius: 20px;
     margin: 0 8px;
-    opacity: 0.55;
+    transition-duration: 0.3s;
 }
 
 .footer .redessociais a:hover {
-    opacity: 1;
+    transform: scale(1.20);
 }
 
 .footer ul {
-    color: black;
+    color: var(--white);
     margin-top: 0;
     padding: 0;
     list-style: none;
@@ -58,22 +70,22 @@ body {
 .footer ul a {
     color: inherit;
     text-decoration: none;
-    opacity: 0.7;
 }
 
 .footer ul li {
     display: inline-block;
     padding: 0 18px;
+    transition-duration: 0.3s;
 }
 
-.footer ul li a:hover {
-    opacity: 1;
+.footer ul li:hover {
+    transform: scale(1.20);
 }
 
 .footer .copyright {
     text-decoration: none;
-    color: #d2ac47;
+    color: var(--black);
     text-align: center;
     margin-top: 20px;
-    font-size: 15px;
+    font-size: 18px;
 }

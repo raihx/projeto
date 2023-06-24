@@ -17,7 +17,7 @@ if(isset($_GET['id_utilizador'])) {
     } else {
 
         $detalhesUti = mysqli_fetch_array($query_run);
-
+        
     }
         
 }
@@ -59,7 +59,34 @@ if(isset($_GET['id_utilizador'])) {
                 }
             
             }
+        }
 
+        function changePassword(password) {
+            var passConfirm = prompt("Para confirmar itroduza a password antiga");
+
+            if(passConfirm != password) {
+
+                event.preventDefault();
+                alert("Password não alterada");
+
+            } else {
+
+                alert("Password alterada com sucesso!");
+
+            }    
+        }
+
+        function togglePassword() {
+            var passwordInput = document.getElementById("passwordInput");
+            var toggleImage = document.getElementById("toggleImage");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleImage.src = "../images/icons/hide-icon.png";
+            } else {
+                passwordInput.type = "password";
+                toggleImage.src = "../images/icons/show-icon.png";
+            }
         }
     </script>
 </head>
@@ -92,9 +119,9 @@ if(isset($_GET['id_utilizador'])) {
         </div>
         <div class="detalhesConta">
             <div class="left">
-                <a href="#">Detalhes da conta</a>
-                <a href="#">Alterar password</a>
-                <a href="#">Eliminar conta</a>
+                <a href="#alterarDetalhes">Detalhes da conta</a>
+                <a href="#alterarPass">Alterar password</a>
+                <a href="#eliminarConta ">Eliminar conta</a>
             </div>
             <div class="right">
                 <div class="alterarDetalhes">
@@ -136,13 +163,21 @@ if(isset($_GET['id_utilizador'])) {
                     </form>
                 </div>
         
-                <div class="alterarPass">
-
+                <div class="alterarPass" id="alterarPass">
+                    <h3>Alterar a password:</h3>
+                    <form action="../priv/functions_data.php" method="POST">
+                        <input type="hidden" name="id_utilizador" value="<?= $detalhesUti['id_utilizador'] ?>">
+                        <div>
+                            <input type="password" name="password" value="<?= $_SESSION['password'] ?>" id="passwordInput"><img src="../images/icons/show-icon.png" width="20" height="20" id="toggleImage" onclick="togglePassword()">
+                        </div>
+                        <button type="submit" name="edit_password" value="<?= $_SESSION['id'] ?>" onclick="changePassword(<?= $_SESSION['password'] ?>)"><img src="../images/icons/edit-icon.png" width="20" height="20">Alterar password</button>
+                    </form>
                 </div>
 
-                <div class="eliminarConta">
+                <div class="eliminarConta" id="eliminarConta">
+                    <h3>Eliminar a conta:</h3>
                     <form action="../priv/functions_data.php" method="POST">
-                        <button type="submit" name="eliminar_conta" value="<?= $_SESSION['id'] ?>" onclick="confirmarElimConta(<?= $_SESSION['password'] ?>)">Eliminar conta</button>
+                        <button type="submit" name="eliminar_conta" value="<?= $_SESSION['id'] ?>" onclick="confirmarElimConta(<?= $_SESSION['password'] ?>)"><img src="../images/icons/eliminar-icon.png" width="20" height="20">Eliminar conta</button>
                     </form>
                 </div>
             </div>

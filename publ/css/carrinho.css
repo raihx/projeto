@@ -1,10 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --lighter-grey: #ececec;
+    --light-grey: #d7d7d7;
+    --dark-grey: #9b9696;
+    --orange: #ee4508;
+    --blue: #0059ff;
+    --red: #fc3030;
+    --green: #2eb82e;
+    --yellow: #FEC20C;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+}
+
+.body {
+    min-height: 100vh;
 }
 
 
@@ -24,10 +41,10 @@
 .titulo button {
     padding: 10px;
     font-size: large;
-    color: #fff;
-    background-color: #0059ff;
-    border: 2px solid #0059ff;
-    border-radius: 5px;
+    color: var(--white);
+    background-color: var(--blue);
+    border: 2px solid var(--blue);
+    border-radius: 2px;
     transition-duration: 0.4s;
     float: left;
 }
@@ -61,37 +78,46 @@
 }
 
 .left td, .left th {
-    padding: 20px;
+    padding: 10px;
 }
 
 .left th {
-    background-color: lightslategray;
+    background-color: var(--orange);
     color: white;
-    border-left: 1px solid white;
+    border-left: 1px solid var(--white);
 }
 
 .left tr:nth-child(odd) {
-    background-color: #ededed;
+    background-color: var(--light-grey);
 }
 
-.left button {
+.left td button {
     background: none;
     border: none;
 }
 
-.left button:hover {
+.left td button:hover {
     cursor: pointer;
+}
+
+.addDisabled { 
+    filter: grayscale(100%);
+}
+
+.addDisabled:hover {
+    cursor: not-allowed !important;
 }
 
 /* parte de finalizar compra */
 .right {
     width: 35%;
     height: fit-content;
-    padding: 20px;
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    border-left: 1px solid var(--dark-grey);
 }
 
 .right h1 {
@@ -107,18 +133,18 @@
 .precoTotal {
     width: fit-content;
     padding: 15px 25px;
-    background-color: orangered;
-    color: white;
-    border-radius: 5px;
+    background-color: var(--orange);
+    color: var(--white);
+    border-radius: 2px;
 }
 
 .compraBtn {
     padding: 10px 20px;
     font-size: large;
-    color: #fff;
-    background-color: #0059ff;
-    border: 2px solid #0059ff;
-    border-radius: 5px;
+    color: var(--white);
+    background-color: var(--blue);
+    border: 2px solid var(--blue);
+    border-radius: 2px;
     transition-duration: 0.4s;
     float: left;
 }
@@ -130,15 +156,15 @@
 
 .compraBtn:hover {
     cursor: pointer;
-    transform: scale(1.20);
+    transform: scale(1.10);
 }
 
 .compraDisabled {
     padding: 10px 20px;
-    color: #fff;
-    background-color: #bebebe;
-    border: 2px solid #bebebe;
-    border-radius: 5px;
+    color: var(--white);
+    background-color: var(--light-grey);
+    border: 2px solid var(--light-grey);
+    border-radius: 2px;
     transition-duration: 0.4s;
 }
 

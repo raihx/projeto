@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --lighter-grey: #ececec;
+    --light-grey: #d7d7d7;
+    --dark-grey: #9b9696;
+    --orange: #ee4508;
+    --blue: #0059ff;
+    --red: #fc3030;
+    --green: #2eb82e;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -12,7 +24,7 @@ header {
     width: 100%;
     padding-left: 20px;
     height: 100%;
-    background: #d7d7d7;
+    background: var(--orange);
     display: flex;
     justify-content: space-between;
 }
@@ -21,14 +33,14 @@ header {
 /* parte do logo no header */
 .logo {
     text-decoration: none;
-    color: #9b9696;
+    color: var(--white);
     font-size: 35px;
     padding: 15px 0;
+    transition-duration: 0.3s;
 }
 
 .logo:hover {
-    color: #daa520;
-    transition: .3s ease-in;
+    transform: scale(1.20);
 }
 
 
@@ -51,20 +63,16 @@ header {
 
 .menu a {
     font-size: 20px;
-    color: #9b9696;
+    color: var(--white);
     text-decoration: none;
     transition-duration: 0.3s;
-}
-
-.menu a:hover {
-    color: black;
 }
 
 
 /* parte da conta com o dropdown */
 .dropdown {
     display: block;
-    border-left: 1px solid #9b9696;
+    border-left: 1px solid var(--white);
     transition-duration: 0.3s;
 }
 
@@ -76,13 +84,27 @@ header {
 }
 
 .conta a {
+    color: var(--white);
     margin-left: 10px;
     margin-right: 5px;
+    transition-duration: 0.3s;
+}
+
+.conta img {
+    transition-duration: 0.3s;
 }
 
 .dropdown:hover {
-    background-color: #9b9696;
+    background-color: var(--white);
     border: none;
+}
+
+.dropdown:hover .conta img{
+    filter: invert(100%);
+}
+
+.dropdown:hover .conta a{
+    color: var(--black);
 }
 
 
@@ -91,30 +113,31 @@ header {
     display: none;
     position: absolute;
     width: fit-content;
-    background-color: #d7d7d7;
-    border: 1px solid #9b9696;
+    background-color: var(--white);
 }
 
 .dropdown-menu a {
     text-decoration: none;
     width: 100%;
     padding: 20px 25px;
-    color: black;
+    color: var(--black);
+    background-color: var(--light-grey);
     transition-duration: 0.3s;
 }
 
 .dropdown-menu a:hover {
-    background-color: white;
+    background-color: var(--white);
+    color: var(--black);
 }
 
 .carrinho {
-    border-top: 2px solid white;
-    border-bottom: 2px solid white;
+    border-top: 2px solid var(--white);
+    border-bottom: 2px solid var(--white);
 }
 
 .carrinho:hover {
-    background-color: orangered !important;
-    color: white;
+    background-color: var(--orange) !important;
+    color: var(--white) !important;
 }
 
 .carrinho img, .logout img{
@@ -128,10 +151,9 @@ header {
 }
 
 .logout:hover {
-    background-color: #0059ff !important;
-    color: white;
+    background-color: var(--blue) !important;
+    color: var(--white) !important;
 }
-
 
 /* ativa o dropdown */
 .dropdown:hover .dropdown-menu {

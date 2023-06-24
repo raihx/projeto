@@ -157,6 +157,7 @@ $_SESSION['token'] = get_token(30);
                 ?>
             </div>
             <p>Ainda não possui uma conta? <a href="signup.php">Resgiste-se!</a></p>
+            <p>Esqueceu-se da sua password? <a href="recover_password.php">Clique aqui.</a></p>
         </div>
     </form>
     

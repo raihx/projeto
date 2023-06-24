@@ -85,7 +85,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                             <td><?php echo $artigo['tipo']; ?></td>
                                             <td><?php echo $artigo['preco']."€"; ?></td>
                                             <td><?php echo $artigo['quantidade']; ?></td>
-                                            <td><img src="../images/produtos/<?=$artigo['imagem']?>" width="100px" height="100px"/></td>
+                                            <td><img src="../images/produtos/<?=$artigo['imagem']?>" width="70px" height="70px"/></td>
                                             <td>
                                             
                                             <a href="artigo_detail.php?id_artigo=<?= $artigo['id_artigo']; ?>" class="btn btn-info btn-sm">Detalhes</a>

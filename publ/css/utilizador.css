@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --lighter-grey: #ececec;
+    --light-grey: #d7d7d7;
+    --dark-grey: #9b9696;
+    --orange: #ee4508;
+    --blue: #0059ff;
+    --red: #fc3030;
+    --green: #2eb82e;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +19,9 @@
     font-family: 'Roboto', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 /* parte do título */
 .titulo {
@@ -24,10 +39,10 @@
 .titulo button {
     padding: 10px;
     font-size: large;
-    color: #fff;
-    background-color: #0059ff;
-    border: 2px solid #0059ff;
-    border-radius: 5px;
+    color: var(--white);
+    background-color: var(--blue);
+    border: 2px solid var(--blue);
+    border-radius: 2px;
     transition-duration: 0.4s;
     float: left;
 }
@@ -51,6 +66,7 @@
 /* parte da navegação na página */
 .left {
     width: 25%;
+    height: fit-content;
     padding: 0 25px 25px 25px;
     display: flex;
     flex-direction: column;
@@ -59,7 +75,8 @@
 
 .left a {
     text-decoration: none;
-    color: #777;
+    color: var(--dark-grey);
+    margin: 25px 0;
 }
 
 /* parte dos detalhes da conta */
@@ -69,12 +86,23 @@
     padding: 20px;
 }
 
-.alterarDetalhes {
-    border-bottom: 1px solid #777;
+.right h3 {
+    color: var(--dark-grey);
 }
 
-.alterarDetalhes h3 {
-    color: #777;
+.right input {
+    width: 350px;
+    padding: 15px;
+    font-size: 15px;
+    margin-top: 15px;
+    border: 1px solid var(--light-grey);
+    border-radius: 2px;
+}
+
+/* parte de alterar detalhes */
+.alterarDetalhes {
+    border-bottom: 1px solid var(--dark-grey);
+    padding: 70px 0;
 }
 
 .alterarDetalhes form {
@@ -93,23 +121,14 @@
     padding-bottom: 30px;
 }
 
-.alterarDetalhes input {
-    width: 350px;
-    padding: 15px;
-    font-size: 15px;
-    margin-top: 15px;
-    border: 1px solid #c7c7c7;
-    border-radius: 20px;
-}
-
 .alterarDetalhes button {
     width: 350px;
     padding: 15px;
     margin-top: -5px;
-    color: white;
-    background-color: #2eb82e;
-    border: 2px solid #2eb82e;
-    border-radius: 20px;
+    color: var(--white);
+    background-color: var(--green);
+    border: 1px solid var(--green);
+    border-radius: 2px;
     transition-duration: 0.3s;
 }
 
@@ -119,6 +138,90 @@
 }
 
 .alterarDetalhes button:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+/* parte de alterar a password */
+.alterarPass {
+    width: 100%;
+    padding: 70px 0;
+    border-bottom: 1px solid var(--dark-grey);
+}
+
+.alterarPass form {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.alterarPass div img {
+    vertical-align: middle;
+    margin-left: 15px;
+}
+
+.alterarPass div img:hover {
+    cursor: pointer;
+    transform: scale(1.20);
+}
+
+.alterarPass button {
+    width: 350px;
+    padding: 15px;
+    margin-top: 10px;
+    color: var(--white);
+    background-color: var(--green);
+    border: 1px solid var(--green);
+    border-radius: 2px;
+    transition-duration: 0.3s;
+}
+
+.alterarPass button img {
+    vertical-align: middle;
+    margin-right: 25px;
+}
+
+.alterarPass button:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+/* parte de eliminar a conta */
+.eliminarConta {
+    width: 100%;
+    padding: 70px 0;
+}
+
+.eliminarConta h3 {
+    color: var(--dark-grey);
+}
+
+.eliminarConta form {
+    width: 100%;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.eliminarConta button {
+    width: 350px;
+    padding: 15px;
+    margin-top: -5px;
+    color: var(--white);
+    background-color: var(--red);
+    border: 2px solid var(--red);
+    border-radius: 2px;
+    transition-duration: 0.3s;
+}
+
+.eliminarConta button img {
+    vertical-align: middle;
+    margin-right: 25px;
+}
+
+.eliminarConta button:hover {
     cursor: pointer;
     transform: scale(1.15);
 }

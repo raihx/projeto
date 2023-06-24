@@ -41,10 +41,10 @@ include('header.php');
 <div class="container">
     <div class="left">
         <div class="filtros">
-            <h2>Filtros de pesquisa</h2>
+            <h2><img src="../images/icons/filtros-icon.png" width="25px" height="25px"> Filtros <a href="catalogo.php"><button>Limpar</button></a></h2>
             <form action="" method="GET">
-                <input type="checkbox" name="filtro" value=" "><a>Todos os produtos</a>
                 <br>
+                <h3>Tipo de produto:</h3>
                 <input type="checkbox" name="filtro" value="Congelador"><a>Congeladores</a>
                 <br>
                 <input type="checkbox" name="filtro" value="Esquentador"><a>Esquentadores</a> 
@@ -68,13 +68,32 @@ include('header.php');
                     Pesquisar
                 </button>
             </form>
+
+            <form action="" method="GET">
+                <br>
+                <h3>Marca:</h3>
+                <input type="checkbox" name="filtro" value="Samsung"><a>Samsung</a>
+                <br>
+                <input type="checkbox" name="filtro" value="Bosh"><a>Bosch</a> 
+                <br>
+                <input type="checkbox" name="filtro" value="LG"><a>LG</a> 
+                <br>
+                <input type="checkbox" name="filtro" value="Miele"><a>Miele</a> 
+                <br>
+                <input type="checkbox" name="filtro" value="Siemens"><a>Siemens</a> 
+                <br>
+                <input type="checkbox" name="filtro" value="AEG"><a>AEG</a> 
+                <br>
+                <button type="submit" name="pesquisar">
+                    <img src="../images/icons/pesquisar-icon.png" width="20" height="20" style="vertical-align: middle; margin-right: 10px;">
+                    Pesquisar
+                </button>
+            </form>
         </div>
     </div>
     <div class="right">
         <?php
             $query = "SELECT id_artigo, nome, preco, quantidade, imagem FROM stock WHERE 1=1 ";
-
-            // todo: gerar a query a partir de js, e mudar as checkbox para <a> tags
 
             if(isset($_GET['filtro']) && $_GET['filtro'] != null) {
                 

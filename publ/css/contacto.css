@@ -56,7 +56,7 @@
     width: 100%;
     height: 40px;
     font-size: 15px;
-    border-radius: 5px;
+    border-radius: 2px;
     border: 1px solid grey;
     padding: 5px 20px 5px 20px;
 }
@@ -83,7 +83,7 @@
     background-color: lightseagreen;
     border: 2px solid lightseagreen;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 2px;
     transition-duration: 0.4s;
 }
 
