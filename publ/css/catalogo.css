@@ -160,10 +160,7 @@
 .produto {
     width: 20%;
     height: auto;
-    border-right: 2px solid var(--orange);
-    border-bottom: 2px solid var(--orange);
-    border-top: 1px solid var(--light-grey);
-    border-left: 1px solid var(--light-grey);
+    border: 1px solid var(--light-grey);
     border-radius: 2px;
     padding: 20px;
     margin: 0 10px 30px 10px;
@@ -172,6 +169,7 @@
     justify-content: space-between;
     align-items: center;
     transition-duration: 0.3s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .produto:hover {

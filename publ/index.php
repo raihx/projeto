@@ -35,7 +35,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                 <h1> Realizamos a sua cozinha de sonho!</h1>
                 <p>
                     Especializados em montagem de cosinhas personalizadas, onde procuramos sempre excelência e a total satisfação do cliente.
-                    Os nossos serviços são também prestados à empresa <a href="https://fabri.pt/?gclid=Cj0KCQjw7uSkBhDGARIsAMCZNJvj_F4dTCk1ZdNDzuBOnu1_Nfy256HLPxMkLRLqLjsC5QZgR7kh0O8aAh5YEALw_wcB"><i>fabri</i></a> , com a qual colaboramos há mais de 1 ano.
+                    Os nossos serviços são também prestados à empresa <a href="https://fabri.pt/?gclid=Cj0KCQjw7uSkBhDGARIsAMCZNJvj_F4dTCk1ZdNDzuBOnu1_Nfy256HLPxMkLRLqLjsC5QZgR7kh0O8aAh5YEALw_wcB" target="_blank"><i>fabri</i></a> , com a qual colaboramos há mais de 1 ano.
                 </p>
             </div> 
         </div>
