@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --lighter-grey: #ececec;
+    --light-grey: #d7d7d7;
+    --dark-grey: #9b9696;
+    --orange: #ee4508;
+    --blue: #0059ff;
+    --red: #fc3030;
+    --green: #2eb82e;
+    --yellow: #FEC20C;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -18,13 +31,13 @@
 }
 
 .textContacto p {
-    color: grey;
+    color: var(--dark-grey);
 }
 
 .container {
     display: flex;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 100px;
 }
 
 
@@ -57,12 +70,12 @@
     height: 40px;
     font-size: 15px;
     border-radius: 2px;
-    border: 1px solid grey;
+    border: 1px solid var(--dark-grey);
     padding: 5px 20px 5px 20px;
 }
 
 .form input[type="email"] {
-    color: grey;
+    color: var(--dark-grey);
 }
 
 .form select:hover {
@@ -77,19 +90,17 @@
 }
 
 .form input[type="submit"] {
-    width: 40%;
+    width: 100%;
     font-size: large;
     padding: 5px;
-    background-color: lightseagreen;
-    border: 2px solid lightseagreen;
-    color: #fff;
+    background-color: var(--blue);
+    border: 2px solid var(--blue);
+    color: var(--white);
     border-radius: 2px;
     transition-duration: 0.4s;
 }
 
 .form input[type='submit']:hover {
-    color: lightseagreen;
-    background-color: white;
-    font-weight: bold;
+    transform: scale(1.20);
     cursor: pointer;
 }

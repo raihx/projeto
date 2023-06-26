@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --lighter-grey: #ececec;
+    --light-grey: #d7d7d7;
+    --dark-grey: #9b9696;
+    --orange: #ee4508;
+    --blue: #0059ff;
+    --red: #fc3030;
+    --green: #2eb82e;
+    --yellow: #FEC20C;
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -7,13 +21,182 @@
 }
 
 .body {
-    text-align: center;
-    padding: 50px;
+    padding: 50px 0;
 }
 
 
+/* topo da página */
+.topo {
+    display: flex;
+    align-items: center;
+}
+
+/* parte esquerda do topo */
+.topo .left {
+    width: 65%;
+}
+
+/* parte direita do topo */
+.topo .right {
+    width: 35%;
+    padding: 70px;
+    text-align: center;
+    height: fit-content;
+}
+
+.topo .right h1 {
+    font-size: 50px;
+    color: var(--blue);
+    margin-bottom: 70px;
+}
+
+.topo .right p {
+    text-align: justify;
+    color: var(--dark-grey);
+}
+
+.topo .right p a {
+    color: var(--orange);
+}
 
 
+/* meio da página */
+.middle {
+    padding: 70px 20px 70px 20px;
+}
 
+/* título central */
+.titulo {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 50px;
+}
 
+.titulo h1 {
+    font-size: 50px;
+    color: var(--blue);
+    margin-bottom: 20px;
+}
 
+.titulo p {
+    color: var(--dark-grey);
+}
+
+.titulo p a {
+    color: var(--orange);
+}
+
+/* separação ao meio */
+.halfLine {
+    display: flex;
+    align-items: center;
+}
+
+/* parte esquerda do meio */
+.halfLine .left {
+    width: 50%;
+    padding: 70px;
+    text-align: center;
+    height: fit-content;
+}
+
+.halfLine .left h1 {
+    font-size: 30px;
+    margin-bottom: 70px;
+    color: var(--orange);
+}
+
+.halfLine .left p {
+    text-align: justify;
+    color: var(--dark-grey);
+}
+
+/* parte direita do meio */
+.middle .right {
+    width: 50%;
+}
+
+/* separação ao meio 2 */
+.halfLine2 {
+    display: flex;
+    align-items: center;
+}
+
+/* parte esquerda do meio */
+.halfLine2 .left2 {
+    width: 50%;
+}
+
+/* parte direita do meio */
+.halfLine2 .right2 {
+    width: 50%;
+    padding: 70px;
+    text-align: center;
+    height: fit-content;
+}
+
+.halfLine2 .right2 h1 {
+    font-size: 30px;
+    margin-bottom: 70px;
+    color: var(--orange);
+}
+
+.halfLine2 .right2 p {
+    text-align: justify;
+    color: var(--dark-grey);
+}
+
+/* cartões de informação */
+.cards {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 70px;
+    padding-bottom: 0 !important;
+}
+
+.card {
+    width: 30%;
+    height: 500px;
+    background-color: var(--lighter-grey);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+.card h1 {
+    font-size: 50px;
+    color: var(--blue);
+    margin-bottom: 70px;
+}
+
+.card p {
+    text-align: justify;
+    color: var(--dark-grey);
+    margin-bottom: 70px;
+}
+
+.card button {
+    width: 100%;
+    font-size: large;
+    padding: 10px;
+    background-color: var(--orange);
+    border: 1px solid var(--orange);
+    color: var(--white);
+    border-radius: 2px;
+    transition-duration: 0.4s;
+}
+
+.card button img {
+    vertical-align: middle;
+}
+
+.card button:hover {
+    transform: scale(1.20);
+    cursor: pointer;
+}

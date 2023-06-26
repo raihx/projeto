@@ -29,7 +29,7 @@
                         <br>
                         <h1 style='color:white;'>" . $message . "</h1>
                         <br>
-                        <h4 style='color:red;'>Este código irá expirar em 5 minutos</h4>
+                        <h4 style='color:#ee4508;'>Este código irá expirar em 5 minutos</h4>
                       </div>";
         
         if(!$mail->Send()) {

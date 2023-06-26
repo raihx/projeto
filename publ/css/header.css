@@ -68,12 +68,34 @@ header {
     transition-duration: 0.3s;
 }
 
+.headerRight {
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.carrinho {
+    padding: 10px 20px;
+    background-color: var(--blue);
+    color: var(--white);
+    border-radius: 50px;
+    margin-right: 30px;
+    text-decoration: none;
+}
+
+.carrinho img {
+    vertical-align: middle;
+    margin-right: 15px;
+    transition-duration: 0.3s;
+}
+
 
 /* parte da conta com o dropdown */
 .dropdown {
     display: block;
     border-left: 1px solid var(--white);
     transition-duration: 0.3s;
+    height: 100%;
 }
 
 .conta {
@@ -96,7 +118,6 @@ header {
 
 .dropdown:hover {
     background-color: var(--white);
-    border: none;
 }
 
 .dropdown:hover .conta img{
@@ -130,23 +151,13 @@ header {
     color: var(--black);
 }
 
-.carrinho {
-    border-top: 2px solid var(--white);
-    border-bottom: 2px solid var(--white);
-}
-
-.carrinho:hover {
-    background-color: var(--orange) !important;
-    color: var(--white) !important;
-}
-
-.carrinho img, .logout img{
-    vertical-align: bottom;
-    margin-right: 10px;
+.logout img {
+    vertical-align: middle;
+    margin-right: 15px;
     transition-duration: 0.3s;
 }
 
-.carrinho:hover img, .logout:hover img {
+.logout:hover img {
     filter: invert(100%);
 }
 

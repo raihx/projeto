@@ -106,62 +106,73 @@ $_SESSION['token'] = get_token(30);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="css/login.css">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
-    rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
-    crossorigin="anonymous">
-    <script>
-            function funcao(){
-                var x = document.getElementById("passwordid");
-                var y = document.getElementById("hide");
-                var z = document.getElementById("hide1");
 
-            if(x.type === "password"){
-                x.type = "text";
-                y.style.display = "block";
-                z.style.display = "none";
+    <script>
+        function togglePassword() {
+            var passwordInput = document.getElementById("passwordInput");
+            var toggleImage = document.getElementById("toggleImage");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleImage.src = "../images/icons/hide-icon.png";
             } else {
-                x.type = "password";
-                y.style.display = "none";
-                z.style.display = "block";
+                passwordInput.type = "password";
+                toggleImage.src = "../images/icons/show-icon.png";
             }
         }
     </script>
+    
     <title>Login</title>
 </head>
 <body>
-    <div class="formulario">
-        <h1>Login</h1>
+    <div class="body">
+        <div class="orange">
 
-    <form action="" method="POST" autocomplete="off">
-        <div class="input-box">
-            <i class="fa fa-envelope-o"></i>
-            <input type="email" placeholder="Email" name="email" value="<?php echo $log_email ?>" required>
         </div>
-        <div class="input-box">
-            <i class="fa fa-key"></i>
-            <input type="password" placeholder="Password" id="passwordid" name="password" required>
-            <span class="eye" onclick="funcao()">
-            <i id="hide" class="fa fa-eye"></i>
-            <i id="hide1" class="fa fa-eye-slash"></i>
-            </div></span>
-            <input type="hidden" name="token" value="<?php echo $_SESSION['token'] ?>">
-            <input type="submit" value="Login" class="botaologin"> 
-            <div class="erro">    
-                <?php
+        <div class="formLogin">
+            <h1>Login</h1>
 
-                    if(isset($error) && $error != "") { /**verifica se a variável erro está preenchida, se sim emite o erro em questão */
-                        echo $error;
-                    }
+            <form action="" method="POST">
+                <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
+                <fieldset>
+                    <h3>Email</h3>
+                    <br>
+                    <input type="email" name="email" value="<?= $log_email ?>" required> 
+                </fieldset>
+                <fieldset>
+                    <h3>Password</h3>
+                    <br>
+                    <div>
+                        <input type="password" name="password" id="passwordInput" required><img src="../images/icons/show-icon.png" width="20" height="20" id="toggleImage" onclick="togglePassword()">
+                    </div>
+                </fieldset>
+                <div class="erro">    
+                    <?php
 
-                ?>
-            </div>
-            <p>Ainda não possui uma conta? <a href="signup.php">Resgiste-se!</a></p>
-            <p>Esqueceu-se da sua password? <a href="recover_password.php">Clique aqui.</a></p>
+                        if(isset($error) && $error != "") { /**verifica se a variável erro está preenchida, se sim emite o erro em questão */
+                            echo $error;
+                        }
+
+                    ?>
+                </div>
+                <fieldset class="buttonLogin">
+                    <button type="submit">Login</button>
+                </fieldset>
+                
+                
+                
+                <div class="links">
+                    <p>Ainda não possui uma conta? <a href="signup.php">Resgiste-se!</a></p>
+                    <p>Esqueceu-se da sua password? <a href="recover_password.php">Clique aqui.</a></p>
+                </div>
+            </form>
         </div>
-    </form>
-    
+
+        <div class="orange">
+            
+        </div>
     </div>
-
 </body>
 </html>

@@ -509,6 +509,111 @@ if(isset($_POST['eliminar_carrinho'])) {
 
 }
 
-/** finalizar compra*/
+/** checkout */
+if(isset($_POST['submit_checkout'])) {
+
+    $error = " ";
+    $id_utilizador    = mysqli_real_escape_string($connection, $_POST['id_utilizador']);
+    $artigos_compra   = mysqli_real_escape_string($connection, $_POST['artigos_compra']);
+    $nome             = mysqli_real_escape_string($connection, $_POST['nome']);
+    $apelido          = mysqli_real_escape_string($connection, $_POST['apelido']);
+    $email            = mysqli_real_escape_string($connection, $_POST['email']);
+    $morada           = mysqli_real_escape_string($connection, $_POST['morada']);
+    $distrito         = mysqli_real_escape_string($connection, $_POST['distrito']);
+    $codigo_postal    = mysqli_real_escape_string($connection, $_POST['codigo_postal']);
+    $telemovel        = mysqli_real_escape_string($connection, $_POST['telemovel']);
+    $metodo_pagamento = mysqli_real_escape_string($connection, $_POST['metodo_pagamento']);
+    $valor            = mysqli_real_escape_string($connection, $_POST['valor_compra']);   
+
+    date_default_timezone_set("Europe/Lisbon");
+    $data = date('Y-m-d H:i:s');
+
+    if(!preg_match("/^[A-Z a-z À-Ö Ø-ö ø-ÿ]+$/",$nome)) {
+        
+        $error = $_SESSION['alerta'] = "Introduza um nome com caracteres adequados"; 
+    
+    }
+
+    if(!preg_match("/^[A-Z a-z À-Ö Ø-ö ø-ÿ]+$/",$apelido)) {
+        
+        $error = $_SESSION['alerta'] = "Introduza um apelido com caracteres adequados"; 
+    
+    }
+    
+    if(!preg_match("/^[\w\-\.]+@[\w\-]+\.[\w\-]{2,3}$/",$email)) {
+        
+        $error = $_SESSION['alerta'] = "Email inválido";
+    
+    }
+
+    if(!preg_match("/^[A-Z a-z À-Ö Ø-ö ø-ÿ]+$/",$distrito)) {
+        
+        $error = $_SESSION['alerta'] = "Introduza uma cidade com caracteres adequados"; 
+    
+    }
+
+    if(!preg_match("/^[0-9]{4}+-[0-9]{3}$/",$codigo_postal)) {
+        
+        $error = $_SESSION['alerta'] = "Código-postal inválido";
+    
+    }
+
+    if(!preg_match("/^[0-9]{9}$/",$telemovel)) {
+
+        $error = $_SESSION['alerta'] = "Número de telemóvel inválido";
+    
+    }
+
+    if($error = " ") {
+
+        $query = "SELECT * FROM utilizadores WHERE id_utilizador='$id_utilizador'";
+        $query_run = mysqli_query($connection,$query);
+
+        if($query_run) {
+
+            if($metodo_pagamento == "VISA" || $metodo_pagamento == "Master Card") {
+
+                header("Location: ../publ/checkout.php?cc_method=" . $metodo_pagamento);
+                exit(0);
+
+            }
+
+            $query = "INSERT INTO vendas(id_utilizador,nome,apelido,email,morada,distrito,codigo_postal,telemovel,metodo_pagamento,artigos,valor,data)
+                      VALUES ('$id_utilizador','$nome','$apelido','$email','$morada','$distrito','$codigo_postal','$telemovel','$metodo_pagamento','$artigos_compra','$valor','$data')";
+            $query_run = mysqli_query($connection,$query);
+
+            if($query_run) {
+
+                $query = "DELETE FROM carrinho WHERE id_utilizador='$id_utilizador'";
+                mysqli_query($connection,$query);
+
+                header("Location: ../publ/carrinho.php");
+                exit(0);
+
+            } else {
+
+                $_SESSION['alerta'] = "Erro ao concluir o checkout Tente novamente mais tarde";
+                header("Location: ". $_SERVER['HTTP_REFERER']);
+                exit(0);
+
+            }
+        
+        } else {
+
+            $_SESSION['alerta'] = "Erro ao concluir o checkout Tente novamente mais tarde";
+            header("Location: ". $_SERVER['HTTP_REFERER']);
+            exit(0);
+
+        }
+    
+    } else {
+
+        $_SESSION['alerta'] = "Erro ao concluir o checkout Tente novamente mais tarde";
+        header("Location: ". $_SERVER['HTTP_REFERER']);   
+        exit(0); 
+
+    }
+
+}
 
 ?>

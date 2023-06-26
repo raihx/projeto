@@ -21,13 +21,13 @@
 }
 
 .body {
-    min-height: 100vh;
+    min-height: 90vh;
 }
 
 
 /* parte do título */
 .titulo {
-    padding: 50px;
+    padding: 25px 50px;
     text-align: center;
     width: 100%;
 }

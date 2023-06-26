@@ -71,25 +71,26 @@ if($query_run) {
             <li><a href="index.php">Home</a></li>
             <li><a href="contacto.php">Contacto</a></li>
             <li><a href="catalogo.php">Catálogo</a></li>
-            <li><a href="#">Quem somos</a></li>
-            <li><a href="#">Galeria</a></li>
+            <li><a href="sobre_nos.php">Sobre nós</a></li>
+            <li><a href="galeria.php">Galeria</a></li>
         </ul>
 
-        <div class="dropdown">
-            <div class="conta">
-                <img src="../images/icons/conta-icon.png" width="25" height="25"><a>Conta</a><img src="../images/icons/arrow_down-icon.png" width="10" height="10">
-            </div>
-            <div class="dropdown-menu">
-                <a href="../publ/utilizador.php?id_utilizador=<?= $_SESSION['id'] ?>">
-                    <?php
-                        echo $_SESSION['username'];
-                    ?>
-                </a>
-                <a href="../publ/carrinho.php" class="carrinho"><img src="../images/icons/carrinho-icon.png" width="20" height="20"><?= $_SESSION['quantidadeCarrinho'] ?></a>
-                <a href="../priv/logout.php" class="logout"><img src="../images/icons/logout-icon.png" width="20" height="20">Logout</a>
+        <div class="headerRight">
+        <a href="../publ/carrinho.php" class="carrinho"><img src="../images/icons/carrinho-icon.png" width="20" height="20"><?= $_SESSION['quantidadeCarrinho'] ?></a>
+            <div class="dropdown">
+                <div class="conta">
+                    <img src="../images/icons/conta-icon.png" width="25" height="25"><a>Conta</a><img src="../images/icons/arrow_down-icon.png" width="10" height="10">
+                </div>
+                <div class="dropdown-menu">
+                    <a href="../publ/utilizador.php?id_utilizador=<?= $_SESSION['id'] ?>">
+                        <?php
+                            echo $_SESSION['username'];
+                        ?>
+                    </a>
+                    <a href="../priv/logout.php" class="logout"><img src="../images/icons/logout-icon.png" width="20" height="20">Logout</a>
+                </div>
             </div>
         </div>
-        
             
     </header>
 </body>

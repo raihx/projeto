@@ -133,4 +133,51 @@ function recoverPassword($connection,$email,$password_hashed) {
 
 }
 
+function generateCheckoutString($connection,$id_utilizador) {
+
+    $itemString = " ";
+
+    $query = "SELECT stock.nome, carrinho.quantidade
+              FROM carrinho, stock 
+              WHERE carrinho.id_artigo = stock.id_artigo 
+              AND carrinho.id_utilizador = '$id_utilizador'
+              GROUP BY stock.id_artigo";
+    $query_run = mysqli_query($connection,$query);
+
+    if($query_run) {
+
+        
+        foreach($query_run as $carrinhoData) {
+
+            $itemString .= " - " . $carrinhoData['quantidade'] . " " . $carrinhoData['nome'] . ",";
+
+        }
+
+        return $itemString;
+
+    }
+
+    
+
+}
+
+function generateValor($connection,$id_utilizador) {
+
+    $query = "SELECT SUM(stock.preco * carrinho.quantidade) AS precoTotal 
+              FROM stock, carrinho 
+              WHERE stock.id_artigo = carrinho.id_artigo AND carrinho.id_utilizador='$id_utilizador'";
+    $query_run = mysqli_query($connection,$query);
+
+    if($query_run) {
+
+        $precoTotal = mysqli_fetch_array($query_run);
+
+        $valor = $precoTotal['precoTotal'];
+        
+        return $valor;
+    
+    }
+
+}
+
 ?>

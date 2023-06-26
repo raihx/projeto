@@ -44,45 +44,24 @@ include('header.php');
             <h2><img src="../images/icons/filtros-icon.png" width="25px" height="25px"> Filtros <a href="catalogo.php"><button>Limpar</button></a></h2>
             <form action="" method="GET">
                 <br>
-                <h3>Tipo de produto:</h3>
-                <input type="checkbox" name="filtro" value="Congelador"><a>Congeladores</a>
+                <h3>Tipo de eletrodoméstico:</h3>
+                <input type="checkbox" name="filtroTipo" value="Congelador"><a>Congeladores</a>
                 <br>
-                <input type="checkbox" name="filtro" value="Esquentador"><a>Esquentadores</a> 
+                <input type="checkbox" name="filtroTipo" value="Esquentador"><a>Esquentadores</a> 
                 <br>
-                <input type="checkbox" name="filtro" value="Exaustor"><a>Exaustores</a> 
+                <input type="checkbox" name="filtroTipo" value="Exaustor"><a>Exaustores</a> 
                 <br>
-                <input type="checkbox" name="filtro" value="Fogão"><a>Fogões</a> 
+                <input type="checkbox" name="filtroTipo" value="Fogão"><a>Fogões</a> 
                 <br>
-                <input type="checkbox" name="filtro" value="Forno"><a>Fornos</a> 
+                <input type="checkbox" name="filtroTipo" value="Forno"><a>Fornos</a> 
                 <br>
-                <input type="checkbox" name="filtro" value="Frigorífico"><a>Frigoríficos</a> 
+                <input type="checkbox" name="filtroTipo" value="Frigorífico"><a>Frigoríficos</a> 
                 <br>
-                <input type="checkbox" name="filtro" value="Máquina de lavar loiça"><a>Máquinas de lavar loiça</a> 
+                <input type="checkbox" name="filtroTipo" value="Máquina de lavar loiça"><a>Máquinas de lavar loiça</a> 
                 <br>
-                <input type="checkbox" name="filtro" value="Máquina de lavar roupa"><a>Máquinas de lavar roupa</a> 
+                <input type="checkbox" name="filtroTipo" value="Máquina de lavar roupa"><a>Máquinas de lavar roupa</a> 
                 <br>
-                <input type="checkbox" name="filtro" value="Micro-ondas"><a>Micro-ondas</a> 
-                <br>
-                <button type="submit" name="pesquisar">
-                    <img src="../images/icons/pesquisar-icon.png" width="20" height="20" style="vertical-align: middle; margin-right: 10px;">
-                    Pesquisar
-                </button>
-            </form>
-
-            <form action="" method="GET">
-                <br>
-                <h3>Marca:</h3>
-                <input type="checkbox" name="filtro" value="Samsung"><a>Samsung</a>
-                <br>
-                <input type="checkbox" name="filtro" value="Bosh"><a>Bosch</a> 
-                <br>
-                <input type="checkbox" name="filtro" value="LG"><a>LG</a> 
-                <br>
-                <input type="checkbox" name="filtro" value="Miele"><a>Miele</a> 
-                <br>
-                <input type="checkbox" name="filtro" value="Siemens"><a>Siemens</a> 
-                <br>
-                <input type="checkbox" name="filtro" value="AEG"><a>AEG</a> 
+                <input type="checkbox" name="filtroTipo" value="Micro-ondas"><a>Micro-ondas</a> 
                 <br>
                 <button type="submit" name="pesquisar">
                     <img src="../images/icons/pesquisar-icon.png" width="20" height="20" style="vertical-align: middle; margin-right: 10px;">
@@ -95,9 +74,9 @@ include('header.php');
         <?php
             $query = "SELECT id_artigo, nome, preco, quantidade, imagem FROM stock WHERE 1=1 ";
 
-            if(isset($_GET['filtro']) && $_GET['filtro'] != null) {
+            if(isset($_GET['filtroTipo']) && $_GET['filtroTipo'] != null) {
                 
-                switch($_GET['filtro']) {
+                switch($_GET['filtroTipo']) {
                     case "Congelador":
                         $query .= "AND tipo='Congelador' ";
                     break;

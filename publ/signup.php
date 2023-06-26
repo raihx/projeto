@@ -104,35 +104,29 @@ if($_SERVER['REQUEST_METHOD'] == "POST") { /**se o servidor receber um dado POST
     <link rel="stylesheet" href="css/signup.css">
 
     <script>
-        function ver_pass(){
-            var x = document.getElementById("passwordid");
-            var y = document.getElementById("hide");
-            var z = document.getElementById("hide1");
+        function togglePassword() {
+            var passwordInput = document.getElementById("passwordInput");
+            var toggleImage = document.getElementById("toggleImage");
 
-            if(x.type === "password"){
-                x.type = "text";
-                y.style.display = "block";
-                z.style.display = "none";
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleImage.src = "../images/icons/hide-icon.png";
             } else {
-                x.type = "password";
-                y.style.display = "none";
-                z.style.display = "block";
+                passwordInput.type = "password";
+                toggleImage.src = "../images/icons/show-icon.png";
             }
         }
-    
-        function ver_conf_pass(){
-            var x = document.getElementById("passwordid1");
-            var y = document.getElementById("hide2");
-            var z = document.getElementById("hide3");
 
-            if(x.type === "password"){
-                x.type = "text";
-                y.style.display = "block";
-                z.style.display = "none";
+        function togglePassword2() {
+            var passwordInput = document.getElementById("passwordInput2");
+            var toggleImage = document.getElementById("toggleImage2");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleImage.src = "../images/icons/hide-icon.png";
             } else {
-            x.type = "password";
-            y.style.display = "none";
-            z.style.display = "block";
+                passwordInput.type = "password";
+                toggleImage.src = "../images/icons/show-icon.png";
             }
         }
     </script>
@@ -140,53 +134,66 @@ if($_SERVER['REQUEST_METHOD'] == "POST") { /**se o servidor receber um dado POST
     <title>Registo</title> 
 </head>
 <body>
+    <div class="body">
+        <div class="blue">
 
-    <div class="formulario">
-    <form action="" method="POST" autocomplete="off">    
-        <h1>Sign Up</h1>
-
-        <div class="input-box">
-            <i class="fa fa-envelope-o"></i>
-            <input type="email" placeholder="Email" name="email" value="<?php echo $reg_email ?>" required>
         </div>
 
-        <div class="input-box">
-            <i class="fa fa-user"></i>
-            <input placeholder="Nome de utilizador" name="username" value="<?php echo $reg_username ?>" required>
+        <div class="formSignup">
+            <h1>Sign Up</h1>
+            <form action="" method="POST">    
+                <fieldset>
+                    <h3>Email</h3>
+                    <br>
+                    <input type="email" name="email" value="<?= $reg_email ?>" required>
+                </fieldset>
+                <fieldset>
+                    <h3>Nome</h3>
+                    <br>
+                    <input type="text" name="username" value="<?= $reg_username ?>" required>
+                </fieldset>
+                <div class="Pass">
+                    <fieldset>
+                        <h3>Password</h3>
+                        <br>
+                        <input type="password" name="password" id="passwordInput" value="<?= $reg_password ?>" required><img src="../images/icons/show-icon.png" width="20" height="20" id="toggleImage" onclick="togglePassword()">
+                    </fieldset>
+                    <fieldset>
+                        <h3>Confirmação de password</h3>
+                        <br>
+                        <input type="password"  name="password_confirm" id="passwordInput2" required><img src="../images/icons/show-icon.png" width="20" height="20" id="toggleImage2" onclick="togglePassword2()">
+                    </fieldset>
+                </div>
+                <fieldset>
+                    <h3>Telemóvel</h3>
+                    <br>
+                    <input type="text" placeholder="Telemóvel" name="telemovel" value="<?= $reg_telemovel ?>" required>
+                </fieldset>
+
+                <div class="erro">
+                    <?php   
+
+                        if(isset($error) && $error != "") { /**verifica se a variável erro está preenchida, se sim emite o erro em questão */
+                            echo $error;
+                        }
+
+                    ?>
+                </div>
+
+                <fieldset class="buttonLogin">
+                    <button type="submit">Sign Up</button>
+                </fieldset>
+
+                <fieldset class="link">
+                    <p>Ir para <a href="login.php">Login</a>.</p>
+                </fieldset>
+            </form>
         </div>
 
-        <div class="input-box">
-            <i class="fa fa-key"></i>
-            <input type="password" placeholder="Password" id="passwordid" name="password" value="<?php echo $reg_password ?>" required>
-            <span class="eye" onclick="ver_pass()"><i id="hide" class="fa fa-eye"></i><i id="hide1" class="fa fa-eye-slash"></i> 
-        </div>
+        <div class="blue">
 
-        <div class="input-box">
-            <i class="fa fa-key"></i>
-            <input type="password" placeholder="Confirmar Password" id="passwordid1" name="password_confirm" required>
-            <span class="eye" onclick="ver_conf_pass()"><i id="hide2" class="fa fa-eye"></i><i id="hide3" class="fa fa-eye-slash"></i>
-        </div>
-            </span>
-
-        <div class="input-box">
-            <i class="fa fa-phone"></i>
-            <input type="text" placeholder="Telemóvel" name="telemovel" value="<?php echo $reg_telemovel ?>" required>
         </div>
         
-        <div>
-            <button type="submit" class="botaologin">Sign Up</button>
-        </div>
-
-        <div class="error">
-            <?php   
-
-                if(isset($error) && $error != "") { /**verifica se a variável erro está preenchida, se sim emite o erro em questão */
-                    echo $error;
-                }
-
-            ?>
-        </div>
-    </form>
     </div>
 </body>
 </html>

@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --lighter-grey: #ececec;
+    --light-grey: #d7d7d7;
+    --dark-grey: #9b9696;
+    --orange: #ee4508;
+    --blue: #0059ff;
+    --red: #fc3030;
+    --green: #2eb82e;
+    --yellow: #FEC20C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.body {
+    min-height: 100vh;
+}
+
+
+/* parte do título */
+.titulo {
+    padding: 25px 50px;
+    text-align: center;
+    width: 100%;
+}
+
+.titulo h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+}
+
+.titulo button {
+    padding: 10px;
+    font-size: large;
+    color: var(--white);
+    background-color: var(--blue);
+    border: 2px solid var(--blue);
+    border-radius: 2px;
+    transition-duration: 0.4s;
+    float: left;
+}
+
+.titulo button:hover {
+    cursor: pointer;
+    transform: scale(1.10);
+}
+
+.titulo img {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+
+/* parte do formulário de checkout e mini carrinho */
+.checkoutForm {
+    display: flex;
+    align-items: start;
+}
+
+
+/* formulário de chechout */
+.left {
+    width: 72%;
+    height: fit-content;
+    padding: 20px 0 100px 0;
+}
+
+.left form {
+    width: 100%;
+    padding: 0 20px;
+}
+
+.left form div {
+    display: flex;
+    justify-content: space-around;
+}
+
+.left form fieldset {
+    padding: 10px;
+    width: 100%;
+    border: none;
+}
+
+.left fieldset label {
+    font-size: 18px;
+}
+
+.left fieldset input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 15px;
+    color: var(--black);
+    border: 1px solid var(--dark-grey);
+    border-radius: 2px;
+}
+
+.left fieldset select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 15px;
+    color: var(--black);
+    border: 1px solid var(--dark-grey);
+    border-radius: 2px;
+}
+
+.left fieldset input[type=radio] {
+    width: auto !important;
+    margin: 30px 8px 50px 25px;
+
+}
+
+.left fieldset img {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.left fieldset a {
+    color: var(--blue);
+}
+
+.left fieldset button {
+    padding: 10px;
+    font-size: large;
+    color: var(--white);
+    background-color: var(--blue);
+    border: 2px solid var(--blue);
+    border-radius: 2px;
+    transition-duration: 0.4s;
+    float: right;
+    width: 40%;
+}
+
+.left button:hover {
+    cursor: pointer;
+    transform: scale(1.10);
+}
+
+
+/* mini carrinho */
+.right {
+    width: 28%;
+    height: fit-content;
+    padding: 30px 20px 20px 20px;
+}
+
+.miniCarrinho {
+   padding: 0;
+   overflow: hidden;
+   border-radius: 2px;
+}
+
+.miniCarrinho table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--orange);
+}
+
+.miniCarrinho table th {
+    padding: 20px;
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+.miniCarrinho table img {
+    vertical-align: middle;
+    margin-right: 15px;
+}
+
+.miniCarrinho table td {
+    padding: 15px;
+}
+
+.quantidade {
+    text-align: center;
+}
+
+.miniCarrinho tr:nth-child(odd) {
+    background-color: var(--light-grey) !important;
+}

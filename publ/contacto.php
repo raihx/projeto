@@ -90,7 +90,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 <br>
                 <label>Escolha o método de resposta:</label>                    
                 <br>
-                <select type="input" name="met_resposta" class="input-area" required>
+                <select name="met_resposta" class="input-area" required>
                     <option disabled selected value value="">...</option>
                     <option>Email</option>
                     <option>Whatsapp</option>

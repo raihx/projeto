@@ -1,0 +1,53 @@
+
+* {
+  box-sizing:border-box;
+}
+
+.slideshow {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 18/9;
+  padding-left: 10px;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.slideshow-track {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: relative;
+  height: 100%;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.mySlides img, video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 8s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}

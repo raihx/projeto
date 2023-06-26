@@ -64,7 +64,9 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                                             <td><?php echo $user['cargo']; ?></td>
                                             <td>
                                                 <?php
+                                                
                                                 if($user['id_utilizador'] != $_SESSION['id']) {
+                                                
                                                 ?>
                                                     
                                                     <a href="user_edit.php?id_utilizador=<?php echo $user['id_utilizador']; ?>" class="btn btn-success btn-sm">Editar</a>

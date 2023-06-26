@@ -194,114 +194,121 @@ if(count($_POST) > 0) {
     </script>
 </head>
 <body>
-    <?php
-        
-    switch($fase) {
-            
-        case "enter_email":
-        
-    ?>
-        <form action="recover_password.php?fase=enter_email" method="POST">
-            <h3>Introduza o email para recuperação da password</h3>
-            <input type="email" name="email" placeholder="Email" required>
-            <p>
-                <?php 
+    <div class="body">
+       <div class="backImg">
+            <img src="../images/000008.jpg" alt="Cozinha" width="100%" height="100%">
+       </div> 
+        <div class="formPassword">
+            <?php
                 
-                    if(isset($error) && $error != NULL) {
-                        echo $error;
-                    }
-                            
-                ?>
-            </p>  
-            <button type="submit">Enviar</button>
-            <p>Regressar ao <a href="login.php">Login</a></p>
-            <p><a href="recover_password.php">Recomeçar formulário</a></p>
-        </form>
-    <?php
-        
-        break;
-        case "submit_code":
-
-            if(isset($_SESSION['recover']['email'])) {    
-    ?>
-        <form action="recover_password.php?fase=submit_code" method="POST">
-            <h4>Um código de confirmação foi enviado para o seu email</h4>
-            <h3>Introduza o código recebido</h3>
-            <input type="text" name="code" placeholder="******" required>
-            <p>
-                <?php 
+            switch($fase) {
+                    
+                case "enter_email":
                 
-                    if(isset($error) && $error != NULL) {
-                        echo $error;
-                    }
-                            
-                ?>
-            </p>  
-            <button type="submit">Submeter</button>
-            <p>Regressar ao <a href="login.php">Login</a></p>
-            <p><a href="recover_password.php">Recomeçar formulário</a></p>
-        </form>
-    <?php
-            } else {
+            ?>
+                <form action="recover_password.php?fase=enter_email" method="POST">
+                    <h1>Introduza o email para recuperação da password</h1>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <p>
+                        <?php 
+                        
+                            if(isset($error) && $error != NULL) {
+                                echo $error;
+                            }
+                                    
+                        ?>
+                    </p>  
+                    <button type="submit">Enviar</button>
+                    <p class="login">Regressar ao <a href="login.php">Login</a></p>
+                    <p><a href="recover_password.php">Recomeçar formulário</a></p>
+                </form>
+            <?php
+                
+                break;
+                case "submit_code":
 
-                unset($_SESSION['recover']);
-                header("Location: recover_password.php");
-                die();
+                    if(isset($_SESSION['recover']['email'])) {    
+            ?>
+                <form action="recover_password.php?fase=submit_code" method="POST">
+                    <h2>Um código de confirmação foi enviado para o seu email</h2>
+                    <h1>Introduza o código recebido</h1>
+                    <input type="text" name="code" placeholder="******" required>
+                    <p>
+                        <?php 
+                        
+                            if(isset($error) && $error != NULL) {
+                                echo $error;
+                            }
+                                    
+                        ?>
+                    </p>  
+                    <button type="submit">Submeter</button>
+                    <p class="login">Regressar ao <a href="login.php">Login</a></p>
+                    <p><a href="recover_password.php">Recomeçar formulário</a></p>
+                </form>
+            <?php
+                    } else {
+
+                        unset($_SESSION['recover']);
+                        header("Location: recover_password.php");
+                        die();
+
+                    }
+
+                break;
+                case "redo_password":
+                    
+                    if(isset($_SESSION['recover']['email']) && isset($_SESSION['recover']['code'])) {
+            ?>
+                <form action="recover_password.php?fase=redo_password" method="POST">
+                    <h1>Introduza a nova password</h1>
+                    <div>
+                        <input class="inputPass" type="password" name="password" placeholder="Password" id="passwordInput" required><img src="../images/icons/show-icon.png" width="20" height="20" id="toggleImage" onclick="togglePassword()">
+                        <br>
+                        <input class="inputPass" type="password" name="password_confirm" placeholder="Confirmar Password" id="passwordInput2" required><img src="../images/icons/show-icon.png" width="20" height="20" id="toggleImage2" onclick="togglePassword2()">
+                    </div>
+                    
+                    <p>
+                        <?php 
+                        
+                            if(isset($error) && $error != NULL) {
+                                echo $error;
+                            }
+                                    
+                        ?>
+                    </p>  
+                    <button type="submit">Submeter</button>
+                    <p class="login">Regressar ao <a href="login.php">Login</a></p>
+                    <p><a href="recover_password.php">Recomeçar formulário</a></p>
+                </form>
+            <?php
+                    } else {
+
+                        unset($_SESSION['recover']);
+                        header("Location: recover_password.php");
+                        die();
+
+                    }
+
+                break;
+                case "concluido":
+            ?>
+
+                <form action="recover_password.php?fase=concluido" method="POST">
+                    <h1>Recuperação da password concluida com susesso!</h1>
+                    <a href="login.php">
+                        <input type="button" name="goToLogin" value="Regressar ao login">
+                    </a>
+                </form>
+
+            <?php
+
+                break;
 
             }
-
-        break;
-        case "redo_password":
-            
-            if(isset($_SESSION['recover']['email']) && isset($_SESSION['recover']['code'])) {
-    ?>
-        <form action="recover_password.php?fase=redo_password" method="POST">
-            <h4>Introduza a nova password</h4>
-            <div>
-                <input type="password" name="password" placeholder="Password" id="passwordInput" required><img src="../images/icons/show-icon.png" width="20" height="20" id="toggleImage" onclick="togglePassword()">
-                <br>
-                <input type="password" name="password_confirm" placeholder="Confirmar Password" id="passwordInput2" required><img src="../images/icons/show-icon.png" width="20" height="20" id="toggleImage2" onclick="togglePassword2()">
-            </div>
-            
-            <p>
-                <?php 
                 
-                    if(isset($error) && $error != NULL) {
-                        echo $error;
-                    }
-                            
-                ?>
-            </p>  
-            <button type="submit">Submeter</button>
-            <p>Regressar ao <a href="login.php">Login</a></p>
-            <p><a href="recover_password.php">Recomeçar formulário</a></p>
-        </form>
-    <?php
-            } else {
-
-                unset($_SESSION['recover']);
-                header("Location: recover_password.php");
-                die();
-
-            }
-
-        break;
-        case "concluido":
-    ?>
-
-        <form action="recover_password.php?fase=concluido" method="POST">
-            <h3>Recuperação da password concluida com susesso!</h3>
-            <a href="login.php">
-                <input type="button" name="goToLogin" value="Regressar ao login">
-            </a>
-        </form>
-
-    <?php
-
-        break;
-
-    }
-        
-    ?>
+            ?>
+        </div>
+    </div>
 </body>
 </html>

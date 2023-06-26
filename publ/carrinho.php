@@ -49,8 +49,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
         <div class="carrinhoList">
             <div class="left">
                 <table>
-                    <th>Imagem</th>
-                    <th>Nome do Produto</th>
+                    <th colspan="2">Produto</th>
                     <th colspan="3">Quantidade</th>
                     <th colspan="2">Preço</th>
                     <?php 
@@ -153,7 +152,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                 ?>
                             <h2 class="precoTotal">0€</h2>
                             <a href="#">
-                                <button class="compraDisabled"><img src="../images/icons/compra-icon.png" width="30" height="30">Finalizar compra</button>
+                                <button class="compraDisabled"><img src="../images/icons/compra-icon.png" width="30" height="30">Checkout</button>
                             </a>
                 <?php
 
@@ -161,8 +160,9 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
 
                 ?>
                         <h2 class="precoTotal"><?= $precoTotal['precoTotal']."€" ?></h2>
-                        <form action="../priv/functions_data.php" method="POST">
-                            <button class="compraBtn" name="checkout" value="<?= $_SESSION['id'] ?>"><img src="../images/icons/compra-icon.png" width="30" height="30">Checkout</button>
+                        <form action="../publ/checkout.php" method="POST">
+                            <input type="hidden" name="id_utilizador" value="<?= $_SESSION['id'] ?>">
+                            <button class="compraBtn" name="checkout"><img src="../images/icons/compra-icon.png" width="30" height="30">Checkout</button>
                         </form>
                 <?php
 

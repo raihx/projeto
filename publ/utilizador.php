@@ -164,7 +164,7 @@ if(isset($_GET['id_utilizador'])) {
                 </div>
         
                 <div class="alterarPass" id="alterarPass">
-                    <h3>Alterar a password:</h3>
+                    <h3>Alterar password:</h3>
                     <form action="../priv/functions_data.php" method="POST">
                         <input type="hidden" name="id_utilizador" value="<?= $detalhesUti['id_utilizador'] ?>">
                         <div>
@@ -175,7 +175,7 @@ if(isset($_GET['id_utilizador'])) {
                 </div>
 
                 <div class="eliminarConta" id="eliminarConta">
-                    <h3>Eliminar a conta:</h3>
+                    <h3>Eliminar conta:</h3>
                     <form action="../priv/functions_data.php" method="POST">
                         <button type="submit" name="eliminar_conta" value="<?= $_SESSION['id'] ?>" onclick="confirmarElimConta(<?= $_SESSION['password'] ?>)"><img src="../images/icons/eliminar-icon.png" width="20" height="20">Eliminar conta</button>
                     </form>
