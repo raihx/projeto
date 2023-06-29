@@ -12,26 +12,36 @@
         <?php
             switch($_SESSION['cargo']) {
 
-                case 'gestor':
+                case 'administrador':
         ?>
-                    <a href="../priv/gestorindex.php" class="logo">Parcesul</a>
+                    <a href="../priv/admindex.php" class="logo">Parcesul</a>
+
+                    <ul class="menu">
+                        <li><a href="../publ/index.php">Visão de Utilizador</a></li>
+                        <li><a href="users_view.php">Utilizadores</a></li>
+                        <li><a href="artigos_view.php">Stock</a></li>
+                    </ul> 
         <?php
                 break;
 
-                case 'administrador':                            
+                case 'gestor':                            
         ?>
-                    <a href="../priv/admindex.php" class="logo">Parcesul</a>
+                    <a href="../priv/gestorindex.php" class="logo">Parcesul</a>
+
+                    <ul class="menu">
+                        <li><a href="../publ/index.php">Visão de Utilizador</a></li>
+                        <li><a href="mensagens_view.php">Mensagens</a></li>
+                    </ul> 
         <?php
                 break;
 
             }
 
         ?>
-        <ul>
-            <li><a href="../publ/index.php">Visão de Utilizador</a></li>
-        </ul>    
 
-        <a href="../priv/logout.php" class="button">Logout</a>
+        <div class="headerRight">
+            <a href="logout.php"><img src="../images/icons/logout-icon.png" width="20" height="20">Logout</a>
+        </div>
     </header>
 </body>
 </html>

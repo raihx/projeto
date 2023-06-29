@@ -167,7 +167,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") { /**se o servidor receber um dado POST
                 <fieldset>
                     <h3>Telemóvel</h3>
                     <br>
-                    <input type="text" placeholder="Telemóvel" name="telemovel" value="<?= $reg_telemovel ?>" required>
+                    <input type="text" name="telemovel" value="<?= $reg_telemovel ?>" required>
                 </fieldset>
 
                 <div class="erro">

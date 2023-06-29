@@ -27,22 +27,150 @@
 /* titulo */ 
 .titulo {
     text-align: center;
+    font-size: 30px;
     color: var(--blue);
+    margin-bottom: 20px;
 }
-  
-/* Cards */
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin: 50px 15px;
-    padding: 0 16px;
-}
-  
-.title {
-    color: var(--dark-grey);
-}
-  
+
 .titulo a{
     text-decoration: none;
     color: var(--orange);
     font-size: 15px;
+}
+  
+/* topo da pagina */
+.topo {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+}
+
+.card {
+    width: 40%;
+    height: 300px;
+    padding: 50px;
+    border: var(--light-grey);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+}
+
+.card .left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.card .left h2 {
+    color: var(--blue);
+}
+
+.card .left a {
+    color: var(--orange);
+}
+
+.card .right {
+    width: 50%;
+}
+
+/* separação ao meio */
+.halfLine {
+    display: flex;
+    align-items: center;
+    margin-top: 60px;
+}
+
+/* parte esquerda do meio */
+.halfLine .left {
+    width: 50%;
+    padding: 70px;
+    text-align: center;
+    height: fit-content;
+}
+
+.halfLine .left h2 {
+    font-size: 30px;
+    margin-bottom: 60px;
+    color: var(--orange);
+}
+
+.halfLine .left h3 {
+    text-align: justify;
+    color: var(--blue);
+}
+
+.halfLine .left p {
+    margin-top: 50px;
+    text-align: justify;
+    color: var(--dark-grey);
+}
+
+/* parte direita do meio */
+.middle .right {
+    width: 50%;
+    padding-right: 20px;
+}
+
+/* separação ao meio 2 */
+.halfLine2 {
+    display: flex;
+    align-items: center;
+}
+
+/* parte esquerda do meio */
+.halfLine2 .left2 {
+    width: 50%;
+    padding-left: 20px;
+}
+
+/* parte direita do meio */
+.halfLine2 .right2 {
+    width: 50%;
+    padding: 70px;
+    text-align: center;
+    height: fit-content;
+}
+
+.halfLine2 .right2 h2 {
+    font-size: 30px;
+    margin-bottom: 60px;
+    color: var(--orange);
+}
+
+.halfLine2 .right2 h3 {
+    text-align: justify;
+    color: var(--blue);
+}
+
+.halfLine2 .right2 p {
+    margin-top: 50px;
+    text-align: justify;
+    color: var(--dark-grey);
+}
+
+/* parte da atividade */
+.line {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.line h2 {
+    font-size: 30px;
+    margin-bottom: 60px;
+    color: var(--orange);
+}
+
+.line h3 {
+    color: var(--blue);
+}
+
+.line p {
+    margin-top: 50px;
+    color: var(--dark-grey);
 }

@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --lighter-grey: #ececec;
+    --light-grey: #d7d7d7;
+    --dark-grey: #9b9696;
+    --orange: #ee4508;
+    --blue: #0059ff;
+    --light-blue: #0099ff;
+    --red: #fc3030;
+    --green: #2eb82e;
+    --yellow: #FEC20C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.body {
+    min-height: 100vh;
+}
+
+/* parte do título */
+.titulo {
+    padding: 50px;
+    text-align: center;
+    width: 100%;
+}
+
+.titulo h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+}
+
+.titulo button {
+    padding: 10px;
+    font-size: large;
+    color: var(--white);
+    background-color: var(--blue);
+    border: 2px solid var(--blue);
+    border-radius: 2px;
+    transition-duration: 0.4s;
+    float: left;
+}
+
+.titulo button:hover {
+    cursor: pointer;
+    transform: scale(1.10);
+}
+
+.titulo img {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* formulario de mensagens respondidas ou não respondidas */
+.msgForm {
+    padding: 0 50px 50px 50px;
+    text-align: right;
+}
+
+.msgForm select {
+    padding: 10px 20px;
+    font-size: 15px;
+    margin-right: 40px;
+}
+
+.msgForm select:hover {
+    cursor: pointer;
+}
+
+.msgForm button {
+    padding: 10px 20px;
+    color: var(--white);
+    background-color: var(--orange);
+    border: 2px solid var(--orange);
+    border-radius: 2px;
+    transition-duration: 0.4s;
+    font-size: 15px;
+}
+
+.msgForm button:hover {
+    transform: scale(1.10);
+    cursor: pointer;
+}
+
+/* template da tabela e a sua posição */
+.bannerTable {
+    width: 100%;
+    padding: 0 50px 50px 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.bannerTable table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* table header */
+.bannerTable th {
+    padding: 20px;
+    background-color: var(--light-grey);
+    color: var(--cla);
+    border-right: 1px solid var(--white);
+}
+
+/* table data */
+.bannerTable td {
+    padding: 20px;
+}
+
+.center {
+    text-align: center;
+}
+
+.bannerTable tr:nth-child(odd) {
+    background-color: var(--lighter-grey);
+}
+
+.ellipsis span{
+    top: 30px;
+    right: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.acoes {
+    display: flex;
+    align-items: center;
+}
+
+/* botoes */
+
+.detalhes, .edit, .delete {
+    text-decoration: none;
+    color: var(--white);
+    transition-duration: 0.3s;
+    padding: 10px;
+    border-radius: 2px;
+    margin-right: 10px;
+}
+
+.detalhes:hover, .edit:hover, .delete:hover {
+    transform: scale(1.10);
+    cursor: pointer;
+} 
+
+.detalhes {
+    background-color: var(--light-blue);
+    border: 1px solid var(--light-blue);
+}
+
+.edit {
+    background-color: var(--green);
+    border: 1px solid var(--green);
+}
+
+.delete {
+    background-color: var(--red);
+    border: 1px solid var(--red);
+}

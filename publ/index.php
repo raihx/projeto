@@ -7,11 +7,12 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
 ?>
 
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
-    <title> Parcesul </title>       
+    
+<title> Parcesul </title>  
+
     <link rel="stylesheet" href="css/index.css">
-    <link rel=”stylesheet” href=”https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css” />
 </head>
 <body>
     <?php
@@ -62,7 +63,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
 
             <div class="halfLine2">
                 <div class="left2">
-                    <img src="../images/000007.jpg" alt="Cozinha" width="100%" height="fit-content">
+                    <img src="../images/000009.jpg" alt="Cozinha" width="100%" height="fit-content">
                 </div>
 
                 <div class="right2">

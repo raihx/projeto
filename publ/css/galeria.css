@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --lighter-grey: #ececec;
+    --light-grey: #d7d7d7;
+    --dark-grey: #9b9696;
+    --orange: #ee4508;
+    --blue: #0059ff;
+    --red: #fc3030;
+    --green: #2eb82e;
+    --yellow: #FEC20C;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.body {
+    padding: 50px 0;
+    min-height: 90vh;
+}
+
+/* banner dos projetos */
+.banner {
+    width: 100%;
+    padding: 0 50px 50px 70px;
+}
+
+.banner h1 {
+    font-size: 50px;
+    color: var(--blue);
+}
+
+.imagens {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    border: 1px solid var(--light-grey);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 30px;
+}
+
+.antes, .durante, .depois {
+    width: 30%;
+    height: fit-content;
+}
+
+.antes h3, .durante h3, .depois h3 {
+    color: var(--dark-grey);
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.depois h3 {
+    color: var(--orange) !important;
+}

@@ -23,82 +23,76 @@ require "../priv/fileload.php";
     <div class="body">
         <div class="topo">
             <div class="titulo">
-                <h1>Equipa</h1>
+                <h1>A nossa equipa</h1>
             </div>
-            <table>
-                <tr>
-                    <td>
-                        <div class="card"> 
-                            <div class="container">
-                                <br><h2>Carlos</h2><br>
-                                <p class="title">Fundador</p><br>
-                                <p>CEO e principal força trabalhadora da Parcesul</p><br>
-                                <p>founder@parcesul.pt</p><br>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="card"> 
-                            <div class="container">
-                                <br><h2>Rafael Rodrigues</h2><br>
-                                <p class="title">Desenvolvedor</p><br>
-                                <p>Desenvolvedor do presente website</p><br>
-                                <p>rafa.rodrigues@parcesul.pt</p><br>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="card"> 
-                            <div class="container">
-                                <br><h2>Luís Valente</h2><br>
-                                <p class="title">Desenvolvedor</p><br>
-                                <p>Desenvolvedor do presente website</p><br>
-                                <p>luis.valente@parcesul.pt</p><br>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+            <div class="row">
+                <div class="card">
+                    <div class="left">
+                        <h2>Carlos</h2>
+                        <h3>Fundador</h3>
+                        <a>carlo.ceo@parcesul.pt</a>
+                    </div>
+                    <div class="right">
+                        <img src="../images/icons/man_1-icon.png" width="100%">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card">
+                    <div class="left">
+                        <h2>Rafael Rodrigues</h2>
+                        <h3>Desenvolvedor e Administrador TI</h3>
+                        <a>rafael.rodrigues@parcesul.pt</a>
+                    </div>
+                    <div class="right">
+                        <img src="../images/icons/man_2-icon.png" width="100%">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="left">
+                        <h2>Luís Valente</h2>
+                        <h3>Desenvolvedor e Administrador TI</h3>
+                        <a>luis.valente@parcesul.pt</a>
+                    </div>
+                    <div class="right">
+                        <img src="../images/icons/man_3-icon.png" width="100%">
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="middle">
             <div class="titulo">
-                <h1>Acerca de</h1>
-                <p><a href="https://www.racius.com/parcesul-unipessoal-lda/" target ="_blank">Clique Aqui !</a></p>
+                <h1>Informações gerais</h1>
             </div>
-            
-            <table>
-                <tr>
-                    <td>
-                        <div class="card"> 
-                            <div class="container">
-                                <h2>Acerca da Empresa</h2>
-                                <p>A empresa Parcesul tem 2 anos, tendo sido constituída em 22/09/2020.</p><br>
-                                <p>A sua sede fica localizada em Palmela.</p><br>
-                                <p>O capital social é de € 250,00.</p><br>
-                                <p>Desenvolve a sua atividade principal no âmbito de Montagem de trabalhos de carpintaria e de caixilharia.</p><br>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="card">
-                            <div class="container">
-                                <h2>Morada</h2>
-                                <p class="title">Palmela, Setúbal</p><br>
-                                <p>Rua do Ginjal , Lote 10, Cabanas 2950-685 Cabanas</p><br>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="card">
-                            <div class="container">
-                                <h2>Atividade</h2>
-                                <p class="title">CAE: 43320</p><br>
-                                <p>Montagem de trabalhos de carpintaria e de caixilharia.</p><br>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+
+            <div class="halfLine">
+                <div class="left">
+                    <h2>Acerca da Empresa</h2>
+                    <h3>A nossa empresa nasceu no dia 22 de setembro de 2020, tendo recentemente atingido os 2 anos e meio de idade</h3>
+                    <p>
+                        Desde o início da nossa atividade que nos especializamos em construção de cozinhas e armários costumizados. 
+                        Em simultânio fornece-mos os nossos serviços à empresa <i>fabri</i> com a qual colabora-mos à aproximadamente 1 ano e meio.
+                    </p>
+                </div>
+                <div class="right">
+                    <img src="../images/logo_big.jpg" alt="Logotipo Parcesul" width="100%">
+                </div>
+            </div>
+            <div class="halfLine2">
+                <div class="left2">
+                    <img src="../images/localizacao.png" alt="Localização" width="100%">
+                </div>
+                <div class="right2">
+                    <h2>Morada</h2>
+                    <h3>Rua do Ginjal , Lote 10, Cabanas 2950-685 Cabanas, Palmela, Setúbal</h3>
+                    <p>A sede da nossa empresa esta localizada em Palmela, Setúbal, tendo-nos mudado recentemente para o novo estabelecimento.</p>
+                </div>
+            </div>
+            <div class="line">
+                <h2>Atividade</h2>
+                <h3>CAE: 43320</3>
+                <p>Montagem de trabalhos de carpintaria e de caixilharia.</p>
+            </div>
         </div>
     </div>
 
