@@ -50,12 +50,23 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                     Voltar
                 </button>
             </a>
-            <h1>Vista de mensagens</h1>
+            <h1>Vista de artigos</h1>
             <?php 
     
-                include('aviso.php');
+                if(isset($_SESSION['alerta'])) {
+
+                    echo $_SESSION['alerta'];
+                    unset($_SESSION['alerta']);
+
+                }
             
             ?>
+        </div>
+
+        <div class="addArtigo">
+            <a href="artigo_add.php">
+                <button>Adicionar</button>
+            </a>
         </div>
     
         <div class="bannerTable">

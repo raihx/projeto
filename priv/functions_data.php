@@ -14,13 +14,13 @@ if(isset($_POST['edit_user_adm'])) {
 
     if($query_run) {
 
-        $_SESSION['aviso'] = "Utilizador atualizado com sucesso";
+        $_SESSION['alerta'] = "Utilizador atualizado com sucesso";
         header("Location: users_view.php");
         exit(0);
 
     } else {
 
-        $_SESSION['aviso'] = "Utilizador não atualizado";
+        $_SESSION['alerta'] = "Utilizador não atualizado";
         header("Location: users_view.php");
         exit(0);
 
@@ -115,7 +115,7 @@ if(isset($_POST['edit_password'])) {
 
             $error = $_SESSION['alerta'] = "A sua password tem de ter entre 6 e 20 caracteres";
 
-        } else { /**aviso do tipo de erro ao introduzir a password */
+        } else { /**alerta do tipo de erro ao introduzir a password */
             
             $error = $_SESSION['alerta'] = "Introduza uma password válida";
             
@@ -156,13 +156,13 @@ if(isset($_POST['delete_user'])) {
 
     if($query_run) {
 
-        $_SESSION['aviso'] = "Utilizador apagado com sucesso";
+        $_SESSION['alerta'] = "Utilizador apagado com sucesso";
         header("Location: users_view.php");
         exit(0);
 
     } else {
 
-        $_SESSION['aviso'] = "Utilizador não apagado";
+        $_SESSION['alerta'] = "Utilizador não apagado";
         header("Location: users_view.php");
         exit(0);
 
@@ -206,13 +206,13 @@ if(isset($_POST['mark_mensagem'])) {
 
     if($query_run) {
 
-        $_SESSION['aviso'] = "Mensagem marcada como respondida";
+        $_SESSION['alerta'] = "Mensagem marcada como respondida";
         header("Location: mensagens_view.php");
         exit(0);
     
     } else {
         
-        $_SESSION['aviso'] = "Ocorreu um erro a marcar mensagem como respondida";
+        $_SESSION['alerta'] = "Ocorreu um erro a marcar mensagem como respondida";
         header("Location: mensagens_view.php");
         exit(0);
     
@@ -230,13 +230,13 @@ if(isset($_POST['delete_mensagem'])) {
 
     if($query_run) {
 
-        $_SESSION['aviso'] = "Mensagem apagada com sucesso";
+        $_SESSION['alerta'] = "Mensagem apagada com sucesso";
         header("Location: mensagens_view.php");
         exit(0);
 
     } else {
 
-        $_SESSION['aviso'] = "Mensagem não apagada";
+        $_SESSION['alerta'] = "Mensagem não apagada";
         header("Location: mensagens_view.php");
         exit(0);
 
@@ -285,13 +285,13 @@ if(isset($_POST['add_artigo']) && isset($_FILES['imagem_artigo'])) {
 
                     if($query_run) {
                     
-                        $_SESSION['aviso'] = "Artigo adicionado com sucesso";
+                        $_SESSION['alerta'] = "Artigo adicionado com sucesso";
                         header("Location: artigos_view.php");
                         exit(0);
                                 
                     } else {
                     
-                        $_SESSION['aviso'] = "Artigo não adicionado";
+                        $_SESSION['alerta'] = "Artigo não adicionado";
                         header("Location: artigo_add.php");
                         exit(0);
                                 
@@ -330,13 +330,13 @@ if(isset($_POST['edit_artigo'])) {
 
     if($query_run) {
 
-        $_SESSION['aviso'] = "Artigo atualizado com sucesso";
+        $_SESSION['alerta'] = "Artigo atualizado com sucesso";
         header("Location: artigos_view.php");
         exit(0);
 
     } else {
 
-        $_SESSION['aviso'] = "Artigo não atualizado";
+        $_SESSION['alerta'] = "Artigo não atualizado";
         header("Location: artigos_view.php");
         exit(0);
 
@@ -355,13 +355,13 @@ if(isset($_POST['delete_artigo'])) {
 
     if($query_run) {
 
-        $_SESSION['aviso'] = "Artigo apagado com sucesso";
+        $_SESSION['alerta'] = "Artigo apagado com sucesso";
         header("Location: artigos_view.php");
         exit(0);
 
     } else {
 
-        $_SESSION['aviso'] = "Artigo não apagado";
+        $_SESSION['alerta'] = "Artigo não apagado";
         header("Location: artigos_view.php");
         exit(0);
 

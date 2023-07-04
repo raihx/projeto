@@ -9,8 +9,11 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-<title> Parcesul </title>  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title> Parcesul </title>  
 
     <link rel="stylesheet" href="css/index.css">
 </head>
@@ -87,7 +90,7 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                 <div class="card">
                     <h1>Conheça-nos</h1>
                     <p>
-                        Venha conhecer os membros da nossa equipa, as especializades e as nossas informações.
+                        Venha conhecer os membros da nossa equipa, as especialidades e as nossas informações.
                     </p>
                     <a href="../publ/sobre_nos.php">
                         <button>Saiba mais <img src="../images/icons/right_arrow-icon.png" width="20px" height="20px"></button>

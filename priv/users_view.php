@@ -34,11 +34,16 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
                     Voltar
                 </button>
             </a>
-            <h1>Vista de mensagens</h1>
+            <h1>Vista de utilizadores</h1>
             <?php 
+    
+                if(isset($_SESSION['alerta'])) {
 
-                include('aviso.php');
+                    echo $_SESSION['alerta'];
+                    unset($_SESSION['alerta']);
 
+                }
+            
             ?>
         </div>
 

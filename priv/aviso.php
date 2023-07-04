@@ -5,7 +5,7 @@
 ?>
 
     <div>
-        <strong>Atenção!!!</strong> <?php echo $_SESSION['aviso']; ?>
+        <strong>Atenção!!!</strong> <?= $_SESSION['aviso']; ?>
     </div>
 
 <?php 

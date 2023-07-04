@@ -59,6 +59,28 @@
     margin-right: 5px;
 }
 
+/* butao de adicionar artigos */
+.addArtigo {
+    width: 100%;
+    text-align: right;
+    padding: 0 50px 50px 0;
+}
+
+.addArtigo button {
+    padding: 10px 20px;
+    color: var(--white);
+    background-color: var(--orange);
+    border: 2px solid var(--orange);
+    border-radius: 2px;
+    transition-duration: 0.4s;
+    font-size: 15px;
+}
+
+.addArtigo button:hover {
+    transform: scale(1.10);
+    cursor: pointer;
+}
+
 /* formulario de mensagens respondidas ou não respondidas */
 .msgForm {
     padding: 0 50px 50px 50px;

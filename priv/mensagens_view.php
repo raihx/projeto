@@ -54,7 +54,12 @@ $login_ver = check_login($connection); /**verificação em todas as páginas que
             <h1>Vista de mensagens</h1>
             <?php 
     
-                include('aviso.php');
+                if(isset($_SESSION['alerta'])) {
+
+                    echo $_SESSION['alerta'];
+                    unset($_SESSION['alerta']);
+
+                }
             
             ?>
         </div>
